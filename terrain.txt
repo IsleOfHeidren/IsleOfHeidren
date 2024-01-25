@@ -10,5 +10,5 @@ Hard Terrains (4 hours)
     -dense jungle
     -dense mountains
 Impossible Terrains 
-    -volcanos
+    -volcanoes
     -open water
