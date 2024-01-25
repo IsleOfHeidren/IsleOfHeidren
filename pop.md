@@ -10,8 +10,11 @@ Team Members:
 * Joseph Claborn
 
 ## Synopsis
-2-5 sentence description of project outcome. Think about "intellectual merit" (why is this cool for learning) and "broader impact" (why is it good if we succeed).
+The project goal is to create a text based game inspired by Dungeons and Dragons, The Isle of Dread, a pre-written campain from the 80's. 
 
 ## Components
-* Component1
+* Main Gui
   * Lead: name1
+
+## GUI Mock
+![image](GUI-template.jpg)
