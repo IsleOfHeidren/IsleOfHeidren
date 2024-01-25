@@ -1,0 +1,14 @@
+Easy Terrains (2 hours to cross)
+    -beach
+    -plains
+Medium Terrains (3 hours to cross)
+    -hills
+    -jungle
+    -swamp
+Hard Terrains (4 hours)
+    -dense swamp
+    -dense jungle
+    -dense mountains
+Impossible Terrains 
+    -volcanos
+    -open water
