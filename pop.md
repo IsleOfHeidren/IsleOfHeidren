@@ -19,6 +19,7 @@ The project goal is to create a text based game loosely inspired by a Dungeons a
   * Panel displaying all characters showing which is selected
 * Simple monster and npc battle "AI"
 * Generalized game framework using JSON objects for each NPC/Monster/Location/Battlemap
+* One main quest with two side quests and events spurred by NPC interaction 
 
 ## GUI Mock
 ![image](GUI-template.jpg)
