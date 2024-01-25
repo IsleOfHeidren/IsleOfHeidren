@@ -10,7 +10,7 @@ Team Members:
 * Joseph Claborn
 
 ## Synopsis
-The project goal is to create a text based game inspired by Dungeons and Dragons, The Isle of Dread, a pre-written campain from the 80's. The player will control a set a charaters through the prebuilt campain. They will be able to fight monsters and interact with NPCs and the world.
+The project goal is to create a text based game loosely inspired by a Dungeons and Dragons campaign from the 80's called The Isle of Dread. The player will control a set a characters through the prebuilt campaign. They will be able to fight monsters and interact with NPCs and the world as they play through the story.
 
 ## Components
 * Main GUI
