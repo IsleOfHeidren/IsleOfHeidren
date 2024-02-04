@@ -1,14 +1,31 @@
 # Software Development Plan
 
 ## Administrivia
-* Meeting cadance: Scheduled twice per week, tuesday and thursday. Max meeting time is one hour if more is needed individuals can have break out meetings as needed cordinated through discord.
+* Meeting cadance: Scheduled twice per week, tuesday and friday. Max meeting time is one hour if more is needed individuals can have break out meetings as needed cordinated through discord.
+
+* Meeting Times: Tuesday (Discord) 4:15 - 5:15, Friday (In Person) 2:30 - 3:30
 
 * Method: In person one day, online another. Follow the structure of the meeting mintues template.
 
-Minutes: Following the template in /meeting-notes/
+* Minutes: Following the template in /meeting-notes/
+
 
 ## Development Methodology
-* Waterfall, Agile, something in between?
+* Agile, with 1 week sprints starting at the first meeting of the week starting the current spring and wrapping up the previous. Second meeting acting as a stand up.
+
+* Each meeting delagate tasks to indviduals 
+
+* Each important code pull request or version should be reviewed by at least one person. Try to do code review during meetings
+
+* Everyone works in their own branch and doesn't directly commit code to main if possible
 
 ## Milestones
-* Important Milestones that some combine the development methodology with constraints you cannot change (e.g., how long the course is).
+Estimates of effort for each milestone after the start of development
+
+* Framework, 2 Weeks
+* GUI including a start game screen, 2 Weeks
+* Character Selection, 1 Weeks
+* Simple Combat, 2 Weeks
+* Game story with ending, 3 Weeks
+
+Wrap up the above milestones by 4/12/2024 for minimum viable product
