@@ -1,11 +1,11 @@
 # Software Development Plan
 
 ## Administrivia
-* Meeting cadence: Scheduled twice per week, tuesday and friday. Max meeting time is one hour if more is needed individuals can have break out meetings as needed cordinated through discord.
+* Meeting cadence: Scheduled twice per week, tuesday and friday. Max meeting time is one hour if more is needed individuals can have break out meetings as needed coordinated through discord.
 
 * Meeting Times: Tuesday (Discord) 4:15 - 5:15, Friday (In Person) 2:30 - 3:30
 
-* Method: In person one day, online another. Follow the structure of the meeting mintues template.
+* Method: In person one day, online another. Follow the structure of the meeting minutes template.
 
 * Minutes: Following the template in /meeting-notes/
 
