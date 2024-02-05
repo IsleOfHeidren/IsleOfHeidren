@@ -1,7 +1,7 @@
 # Software Development Plan
 
 ## Administrivia
-* Meeting cadance: Scheduled twice per week, tuesday and friday. Max meeting time is one hour if more is needed individuals can have break out meetings as needed cordinated through discord.
+* Meeting cadence: Scheduled twice per week, tuesday and friday. Max meeting time is one hour if more is needed individuals can have break out meetings as needed cordinated through discord.
 
 * Meeting Times: Tuesday (Discord) 4:15 - 5:15, Friday (In Person) 2:30 - 3:30
 
@@ -13,7 +13,7 @@
 ## Development Methodology
 * Agile, with 1 week sprints starting at the first meeting of the week starting the current spring and wrapping up the previous. Second meeting acting as a stand up.
 
-* Each meeting delagate tasks to indviduals 
+* Each meeting delegate tasks to individuals 
 
 * Each important code pull request or version should be reviewed by at least one person. Try to do code review during meetings
 
