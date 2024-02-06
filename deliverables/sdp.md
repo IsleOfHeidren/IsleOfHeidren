@@ -3,7 +3,7 @@
 ## Administrivia
 * Meeting cadence: Scheduled twice per week, tuesday and friday. Max meeting time is one hour if more is needed individuals can have break out meetings as needed coordinated through discord.
 
-* Meeting Times: Tuesday (Discord) 4:15 - 5:15, Friday (In Person) 2:30 - 3:30
+* Meeting Times: Tuesday (Discord) 4:15 - 5:15 planning, Friday (In Person) 2:30 - 3:30 check in
 
 * Method: In person one day, online another. Follow the structure of the meeting minutes template.
 
