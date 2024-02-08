@@ -22,10 +22,11 @@
 ## Milestones
 Estimates of effort for each milestone after the start of development
 
-* Framework, 2 Weeks 
-* GUI including a start game screen, 2 Weeks
-* Character Selection, 1 Weeks
-* Simple Combat, 2 Weeks
-* Game story with ending, 3 Weeks
+* Framework, GUI start game screen, 2 Weeks (2/1 - 2/16)
+* Main Game Frame, 2 Weeks (2/16 - 3/1)
+* Map, 1 week (3/1 - 3/8)
+* Story - integrate and implement, 3 weeks (3/8 - 3/29)
+* Simple Combat, 2 Weeks (3/29 - 4/12)
 
+10 weeks total
 Wrap up the above milestones by 4/12/2024 for minimum viable product
