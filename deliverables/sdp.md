@@ -22,7 +22,7 @@
 ## Milestones
 Estimates of effort for each milestone after the start of development
 
-* Framework, 2 Weeks
+* Framework, 2 Weeks 
 * GUI including a start game screen, 2 Weeks
 * Character Selection, 1 Weeks
 * Simple Combat, 2 Weeks

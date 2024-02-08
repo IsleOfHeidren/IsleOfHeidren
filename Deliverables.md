@@ -13,7 +13,7 @@
 5. Inventory(OFF-RAMP)
 6. Story writing (REQUIRED)
     1. write story on paper
-    1. create events (JSon)
+    2. create events (JSon)
 7. Monsters
     1. DB of monster types
     2. random encounters (OFF-RAMP)
