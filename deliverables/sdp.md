@@ -11,7 +11,7 @@
 
 
 ## Development Methodology
-* Agile, with 1 week sprints starting at the first meeting of the week starting the current spring and wrapping up the previous. Second meeting acting as a stand up.
+* Agile, with 1 week sprints starting at the first meeting of the week - starting the current sprint and wrapping up the previous. Second meeting acting as a stand up.
 
 * Each meeting delegate tasks to individuals 
 
