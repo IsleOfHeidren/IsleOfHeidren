@@ -17,3 +17,6 @@
 
 # Ignore Gradle build output directory
 build
+
+# mac stuff
+.DS_Store
