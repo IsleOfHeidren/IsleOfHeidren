@@ -3,9 +3,8 @@
     1. Make it aesthetically pleasing
 3. Map (REQUIRED)
     1. Village (REQUIRED)
-    2. Beach (REQUIRED)
-    3. Cave (REQUIRED)
-    4. OFF-RAMP IS INCLUDED IN TERRAIN.TXT
+    2. Cave (REQUIRED)
+    3. OFF-RAMP IS INCLUDED IN TERRAIN.TXT
 5. Inventory(OFF-RAMP)
 6. Story writing (REQUIRED)
     1. text saying what characters situation is
