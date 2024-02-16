@@ -15,6 +15,7 @@
     62. primary image container showing relevant information to the current point in the story
     63. shall have a console-like output for game text: battle results and story
 70. Shall have a way to retrieve data for stats, characters, monsters, and events 
+75. UI will have a section with all character displayed as sprites
 80. UI will have an indicator which character is active (turn)
 90. Will have map in database that either will be shown by text or GUI component 
     91. Map will consist of each of the following (village, cave)
