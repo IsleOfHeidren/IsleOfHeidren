@@ -31,8 +31,7 @@ GUI
         -static image
         -animated image
     6. Character Turns(REQUIRED)
-        -sprites (OFF-RAMP)
-        -highlighting Text
+        -sprites (REQUIRED)
     7. Action Text (REQUIRED)
     8. action buttons(REQUIRED)
     9. player stats (REQUIRED)
