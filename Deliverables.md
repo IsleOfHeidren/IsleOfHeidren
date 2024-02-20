@@ -26,6 +26,7 @@ GUI
     3. select through players
     4. DB of characters (JSon)
         -4 character bases max
+        -Tiefling Rogue, Barbarian Human, Warlock Elf, Wizard gnome
 4. Main Game Frame (REQUIRED)
     5. Images (OFF-RAMP)
         -static image
