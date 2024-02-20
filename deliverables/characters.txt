@@ -1,0 +1,12 @@
+Character overlook
+    -go up to level 2
+    -proficiency bonus
+    -dice for each feature
+
+Tiefling Rogue
+    -Features
+        1. Sneak Attack
+        2. Thieve's Cant
+        3. Uncanny Dodge
+       -roll 1d6 for each feature
+    -Hit Points: 30
