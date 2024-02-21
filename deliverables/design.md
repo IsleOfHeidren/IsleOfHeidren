@@ -4,6 +4,7 @@ The game will have all of the necessary objects for story, monsters, players, ev
 Event Object Mock: [mock](./mocks/eventobject.json)
 
 Loading data sequence diagram
+
 ![dataseqdia](./images/req-70-sequence.png)
 
 The UI will control the flow to the next data object determined by the possible branches or the statues within the object.
