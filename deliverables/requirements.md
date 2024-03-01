@@ -13,10 +13,11 @@
     * 61\. buttons that click with mouse
     * 62\. primary image container showing relevant information to the current point in the story
     * 63\. shall have a console-like output for game text: battle results and story
+    * 64\. buttons shall be dynamic based on valid story actions, and should include character specfic actions
 * 65\. In combat each player will take turns doing one action which will be defined in the GUI with buttons
 * 70\. Shall have a way to retrieve data for stats, characters, monsters, and events 
 * 75\. UI will have a section with all character displayed as sprites
-* 80\. UI will have an indicator which character is active (turn)
+* 80\. UI will have an indicator which character is active (turn), in combat
 * 90\. Will have map in database that either will be shown by text or GUI component 
     * 91\. Map will consist of each of the following (village, cave)
 * 100\. Will have story from start to finish no matter what combination of pre-defined actions each character takes
