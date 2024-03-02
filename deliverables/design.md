@@ -1,3 +1,14 @@
+###Overview - Requirements: 10, 20
+
+The software will be a game. It will utilize the theming of the _Isle of dread_ campaign.
+https://en.wikipedia.org/wiki/The_Isle_of_Dread
+
+The story will take inspiration from the campaign. 
+The player characters and monsters will be built in the style of dnd preferable from the campaign but if that's not possible then dnd in general will be the inspiration.
+
+The game will be implemented using a game engine. LibGDX is suitable engine for the requirements https://libgdx.com/ and will be used for this project as the team all has familiarity using java.
+
+
 ### Character and Ability Definitions - Requirments: 40, 50, 51, 52, 53, 54
 [characters.md](./characters.md)
 
