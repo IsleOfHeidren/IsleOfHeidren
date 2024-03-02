@@ -1,4 +1,4 @@
-### Character and Ability Definitions - Requirments: 50, 51, 52, 53, 54
+### Character and Ability Definitions - Requirments: 40, 50, 51, 52, 53, 54
 [characters.md](./characters.md)
 
 ### Data loading - Requirments: 70
