@@ -8,6 +8,16 @@ The player characters and monsters will be built in the style of dnd preferable 
 
 The game will be implemented using a game engine. LibGDX is suitable engine for the requirements https://libgdx.com/ and will be used for this project as the team all has familiarity using java.
 
+### Primary Image Display - Requirments: 60, 62
+This component will be a large component near the center and top of the UI. It will display an image relevant to the current story point. 
+The data objects defined in _Data loading - Requirements: 70_ will have a path by which to load the image. Each time the current story context updates this component will pull that path from the object and load the image.
+
+LibGDX defines a simple image class that will be used to display to given image in the component
+https://javadoc.io/doc/com.badlogicgames.gdx/gdx/latest/com/badlogic/gdx/scenes/scene2d/ui/Image.html
+
+All story objects will be built to make sure this component is always displaying an image.
+
+Images will be stored in the assets directory of the final project, meaning the LibGDX engine will be able to find and load them.
 
 ### Character and Ability Definitions - Requirments: 40, 50, 51, 52, 53, 54
 [characters.md](./characters.md)
@@ -26,3 +36,4 @@ Each event object will contain the necessary data to update all the UI conponent
 
 ### 110
 [monsters.md](./monsters.md)
+__
