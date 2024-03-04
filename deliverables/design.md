@@ -12,6 +12,10 @@ The game will be implemented using a game engine. LibGDX is suitable engine for 
 ### Character and Ability Definitions - Requirments: 40, 50, 51, 52, 53, 54
 [characters.md](./characters.md)
 
+### GUI (60 - 65)
+
+### 
+
 ### Data loading - Requirments: 70
 The game will have all of the necessary objects for story, monsters, players, events stored in json objects that are loaded in sequence as needed. Event objects will include references to different possible branches that can be obtained. The UI will load these then go and fetch the next object as needed.
 
