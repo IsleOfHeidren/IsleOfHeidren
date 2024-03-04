@@ -12,14 +12,14 @@ public class game extends ApplicationAdapter {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+		img = new Texture("sprites/barbarian-1.png");
 	}
 
 	@Override
 	public void render () {
-		ScreenUtils.clear(1, 0, 0, 1);
+		ScreenUtils.clear(0,0, 0, 1);
 		batch.begin();
-		batch.draw(img, 0, 0);
+		batch.draw(img, 400, 240);
 		batch.end();
 	}
 	
