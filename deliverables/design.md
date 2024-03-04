@@ -20,8 +20,6 @@ The image button should be used over the standard button in cases where high lev
 
 https://javadoc.io/doc/com.badlogicgames.gdx/gdx/latest/com/badlogic/gdx/scenes/scene2d/ui/Skin.html
 
-
-
 ### Console Component - Requirements: 60, 63
 A console like component will be created. 
 It will be in the style of a game dialog box and allow the user to scroll up or down to view previous and the current text. The scrolling action will respond to mouse click and drag or mouse wheel input. 
@@ -45,6 +43,18 @@ After each update the component would set it scroll positions to the maximum val
 This way by default it stays with the most recent appended text. 
 A text field will be a child within the scroll component which should allow vertical scaling to enable the scrolling https://javadoc.io/doc/com.badlogicgames.gdx/gdx/latest/com/badlogic/gdx/scenes/scene2d/ui/TextArea.html
 
+=======
+### Primary Image Display - Requirments: 60, 62
+This component will be a large component near the center and top of the UI. It will display an image relevant to the current story point. 
+The data objects defined in _Data loading - Requirements: 70_ will have a path by which to load the image. Each time the current story context updates this component will pull that path from the object and load the image.
+
+LibGDX defines a simple image class that will be used to display to given image in the component
+https://javadoc.io/doc/com.badlogicgames.gdx/gdx/latest/com/badlogic/gdx/scenes/scene2d/ui/Image.html
+
+All story objects will be built to make sure this component is always displaying an image.
+
+Images will be stored in the assets directory of the final project, meaning the LibGDX engine will be able to find and load them.
+
 ### Character and Ability Definitions - Requirments: 40, 50, 51, 52, 53, 54
 [characters.md](./characters.md)
 
@@ -62,3 +72,4 @@ Each event object will contain the necessary data to update all the UI conponent
 
 ### 110
 [monsters.md](./monsters.md)
+__
