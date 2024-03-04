@@ -8,6 +8,42 @@ The player characters and monsters will be built in the style of dnd preferable 
 
 The game will be implemented using a game engine. LibGDX is suitable engine for the requirements https://libgdx.com/ and will be used for this project as the team all has familiarity using java.
 
+### Buttons - Requirements: 60, 61
+Buttons will be implemented using three button components defined by LibGDX
+
+https://javadoc.io/doc/com.badlogicgames.gdx/gdx/latest/com/badlogic/gdx/scenes/scene2d/ui/TextButton.html
+https://javadoc.io/doc/com.badlogicgames.gdx/gdx/latest/com/badlogic/gdx/scenes/scene2d/ui/ImageButton.html
+https://javadoc.io/doc/com.badlogicgames.gdx/gdx/latest/com/badlogic/gdx/scenes/scene2d/ui/ImageButton.html
+
+These three components will implement the game control for branching through the story and taking actions in combat. 
+The image button should be used over the standard button in cases where high levels of styling is needed. The skin class can be applied to an image button which lets it act within an image.
+
+https://javadoc.io/doc/com.badlogicgames.gdx/gdx/latest/com/badlogic/gdx/scenes/scene2d/ui/Skin.html
+
+### Console Component - Requirements: 60, 63
+A console like component will be created. 
+It will be in the style of a game dialog box and allow the user to scroll up or down to view previous and the current text. The scrolling action will respond to mouse click and drag or mouse wheel input. 
+
+Each output to the console will be delinted based on what the source of the text was. Types will be defined for each possible source.
+The types of text this box handles are at least as follows:
+* Non-Player Character Dialog
+* Game Events
+* Combat Results (including dice rolls, damage)
+* General Story Text
+* Skill Check Results
+
+This component will be implemented in such a way to allow either a prefix for each message showing the source of the text or color to distinguish between them. For example the prefix would be "Character Name:" for character dialog.
+
+In order to accomplish displaying text from any source this component will have a public method that can be called passing in the string value to append to the console and the type of message being appended. 
+
+The types of messages should be defined  in a separate object as based on the needs of other requirements and designs. The object defining the types of messages will be an enum or something similar, only defining the types of messages that are valid and can be handled. 
+
+LibGDX defines a scroll pane object that would suit the needs of this component https://javadoc.io/doc/com.badlogicgames.gdx/gdx/latest/com/badlogic/gdx/scenes/scene2d/ui/ScrollPane.html
+After each update the component would set it scroll positions to the maximum value.
+This way by default it stays with the most recent appended text. 
+A text field will be a child within the scroll component which should allow vertical scaling to enable the scrolling https://javadoc.io/doc/com.badlogicgames.gdx/gdx/latest/com/badlogic/gdx/scenes/scene2d/ui/TextArea.html
+
+=======
 ### Primary Image Display - Requirments: 60, 62
 This component will be a large component near the center and top of the UI. It will display an image relevant to the current story point. 
 The data objects defined in _Data loading - Requirements: 70_ will have a path by which to load the image. Each time the current story context updates this component will pull that path from the object and load the image.
