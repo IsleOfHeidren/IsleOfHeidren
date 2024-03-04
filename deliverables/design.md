@@ -1,4 +1,4 @@
-###Overview - Requirements: 10, 20
+### Overview - Requirements: 10, 20
 
 The software will be a game. It will utilize the theming of the _Isle of dread_ campaign.
 https://en.wikipedia.org/wiki/The_Isle_of_Dread
@@ -16,7 +16,7 @@ The game will be implemented using a game engine. LibGDX is suitable engine for 
 
 ### 
 
-### Data loading - Requirments: 70
+### Data loading - Requirements: 70
 The game will have all of the necessary objects for story, monsters, players, events stored in json objects that are loaded in sequence as needed. Event objects will include references to different possible branches that can be obtained. The UI will load these then go and fetch the next object as needed.
 
 Event Object Mock: [mock.json](./mocks/eventobject.json)
