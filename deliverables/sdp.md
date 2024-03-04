@@ -22,11 +22,13 @@
 ## Milestones
 Estimates of effort for each milestone after the start of development
 
-* Framework, GUI start game screen, 2 Weeks (2/1 - 2/16)
-* Main Game Frame, 2 Weeks (2/16 - 3/1)
-* Map, 1 week (3/1 - 3/8)
-* Story - integrate and implement, 3 weeks (3/8 - 3/29)
-* Simple Combat, 2 Weeks (3/29 - 4/12)
+* Requirements documentation: 2/20
+* Design documentation: 3/5
+* Framework, GUI start game screen 
+* Main Game Frame
+* Map
+* Story - integrate and implement
+* Simple Combat 
 
 10 weeks total
 

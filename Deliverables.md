@@ -3,9 +3,8 @@
     1. Make it aesthetically pleasing
 3. Map (REQUIRED)
     1. Village (REQUIRED)
-    2. Beach (REQUIRED)
-    3. Cave (REQUIRED)
-    4. OFF-RAMP IS INCLUDED IN TERRAIN.TXT
+    2. Cave (REQUIRED)
+    3. OFF-RAMP IS INCLUDED IN TERRAIN.TXT
 5. Inventory(OFF-RAMP)
 6. Story writing (REQUIRED)
     1. text saying what characters situation is
@@ -27,13 +26,13 @@ GUI
     3. select through players
     4. DB of characters (JSon)
         -4 character bases max
+        -Tiefling Rogue, Barbarian Human, Warlock Elf, Wizard gnome
 4. Main Game Frame (REQUIRED)
     5. Images (OFF-RAMP)
         -static image
         -animated image
     6. Character Turns(REQUIRED)
-        -sprites (OFF-RAMP)
-        -highlighting Text
+        -sprites (REQUIRED)
     7. Action Text (REQUIRED)
     8. action buttons(REQUIRED)
     9. player stats (REQUIRED)

@@ -1,0 +1,15 @@
+{
+    "Name": "Start",
+    "Sequence": 1,
+    "Branches": [
+        2,
+        3,
+        4
+    ],
+    "Branch Text": [
+        "Dive into the water",
+        "Talk to the fisherman",
+        "Look around the outskirts"
+    ],
+    "Battle": false
+}
