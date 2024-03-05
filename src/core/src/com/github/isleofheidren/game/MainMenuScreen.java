@@ -49,7 +49,7 @@ public class MainMenuScreen implements Screen{
         TextureAtlas atlas;
         atlas = new TextureAtlas(Gdx.files.internal("skin/skin.atlas"));
 
-        skin = new Skin(Gdx.files.internal("skin/skin.atlas"));
+        skin = new Skin(Gdx.files.internal("skin/skin.json"));
 
 
         table.setSkin(skin);
