@@ -100,6 +100,11 @@ When attacks are chosen, a dice is rolled to determine the attack power of the a
 If a player is defeated within the combat instance (HP value <= 0), then they will no longer be able to partake in the given combat instance. Once the instance is over, other party members can revive them, giving them a small portion of their max HP value back. If the monster/monster(s) within the combat instance is/are defeated, there will be a pop-up message displaying the current status of the party members, along with the EXP gained accordingly as determined by the type of enemy defeated.
 
 ### 120 - Story Option Prompts
+Based upon a given instance, if a character initiates an action with a sub-event, a dice roll will also be done to determine a given sub-stat (ex. accuracy) of the instance.  
+    - If accuracy occurs, the dice roll will be done on a (1d20) scale, plus any equipment and/or skills that can cause luck to be increased for the dice roll.  
+
+For example, if the Elf character were to have an instance where they had multiple moves in a turn (lets say 3 for this example), then a dice roll would happen in order to determine the accuracy of all 3 of the separate given moves, each with their own accuracy value based on the completed dice roll.
 
 ### 130 - Story Combat Encounter Instances
+Given a certain spot of the game's story, combat encounters will occur based upon the story (i.e. what environment the party is in, how far along the party's quest is, surprise encounters, etc.)
 __
