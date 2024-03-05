@@ -23,7 +23,8 @@
 Estimates of effort for each milestone after the start of development
 
 * Requirements documentation: 2/20
-* Design documentation: 3/5
+* Requirments Evaluation: 4/5
+* Design documentation: 3/19
 * Framework, GUI start game screen 
 * Main Game Frame
 * Map
