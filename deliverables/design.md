@@ -43,7 +43,6 @@ After each update the component would set it scroll positions to the maximum val
 This way by default it stays with the most recent appended text. 
 A text field will be a child within the scroll component which should allow vertical scaling to enable the scrolling https://javadoc.io/doc/com.badlogicgames.gdx/gdx/latest/com/badlogic/gdx/scenes/scene2d/ui/TextArea.html
 
-=======
 ### Primary Image Display - Requirements: 60, 62
 This component will be a large component near the center and top of the UI. It will display an image relevant to the current story point. 
 The data objects defined in _Data loading - Requirements: 70_ will have a path by which to load the image. Each time the current story context updates this component will pull that path from the object and load the image.
@@ -57,6 +56,24 @@ Images will be stored in the assets directory of the final project, meaning the 
 
 ### Character and Ability Definitions - Requirements: 40, 50, 51, 52, 53, 54
 [characters.md](./characters.md)
+
+
+### GUI (60 - 65)
+Widgets displayed using libGDX's table class in a black background with white text and detailing 
+* Window will be 1000 x 600 pixels and will be split into 20 columns x 12 rows 
+* Image container will be 600 x 400 pixels
+* each sprite will be 100 x 100 pixels, side by side to create a 400 x 100 pixel block
+* the terminal display will be 600 x 100 pixels
+* the button panel will be 100 x 200 pixels
+* the player stats panel will be 100 x 100 pixels
+
+UI skin provided by kenney: https://github.com/czyzby/gdx-skins/tree/master/kenney-pixel
+
+### Character Sprites: requirements 75, 80
+* the root table will display the four sprites side by side in 100 x 100 pixel blocks above the terminal and below the image display
+* the active fighter will be denoted by a white highlight that will loop through each character in the proper fighting order
+![barbarian sprite](../src/assets/sprites/barbarian.png)
+![barbarian with highlight](../src/assets/sprites/barbarian-highlight.png)
 
 ### Data loading - Requirements: 70
 The game will have all of the necessary objects for story, monsters, players, events stored in json objects that are loaded in sequence as needed. Event objects will include references to different possible branches that can be obtained. The UI will load these then go and fetch the next object as needed.
@@ -72,6 +89,7 @@ Each event object will contain the necessary data to update all the UI component
 
 ### 110 - Monsters & Monster Attacks
 [monsters.md](./monsters.md)
+
 
 The attacks of the monsters will consist as follows:
 
@@ -107,4 +125,8 @@ For example, if the Elf character were to have an instance where they had multip
 
 ### 130 - Story Combat Encounter Instances
 Given a certain spot of the game's story, combat encounters will occur based upon the story (i.e. what environment the party is in, how far along the party's quest is, surprise encounters, etc.)  
-__
+
+### Monster Sprites: 110
+![alligator](../src/assets/sprites/alligator.png)
+![ape](../src/assets/sprites/ape.png)
+
