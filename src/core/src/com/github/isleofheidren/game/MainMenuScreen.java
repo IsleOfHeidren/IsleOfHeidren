@@ -47,10 +47,9 @@ public class MainMenuScreen implements Screen{
         //bg = new Texture(Gdx.files.internal("sprites/bg.png"));
 
         TextureAtlas atlas;
-        atlas = new TextureAtlas(Gdx.files.internal("sprites/barbarian-1.png"));
+        atlas = new TextureAtlas(Gdx.files.internal("skin/skin.atlas"));
 
-        skin = new Skin();
-        skin.addRegions(atlas);
+        skin = new Skin(Gdx.files.internal("skin/skin.atlas"));
 
 
         table.setSkin(skin);
@@ -61,7 +60,9 @@ public class MainMenuScreen implements Screen{
 
 
 
+        Label title = new Label("Isle of Heidren", skin);
 
+        table.add(title);
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false,1000,600);
