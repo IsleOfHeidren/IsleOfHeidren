@@ -8,6 +8,13 @@ The player characters and monsters will be built in the style of DnD preferable 
 
 The game will be implemented using a game engine. LibGDX is suitable engine for the requirements https://libgdx.com/ and will be used for this project as the team all has familiarity using java.
 
+### Defined Characters - Requirements: 40
+Characters will be defined using JSON objects they will follow the formatting defined in the [characters.md](./characters.md)
+
+The characters file contains a set of "features" which include combat abilities and non-combat abilities that will be included in the actions the player can perform. These actions will be created and implemented based from there original DND counterparts 
+
+All actions the player can take in game will come from the pre-defined characters.
+
 ### Buttons - Requirements: 60, 61
 Buttons will be implemented using three button components defined by LibGDX
 
