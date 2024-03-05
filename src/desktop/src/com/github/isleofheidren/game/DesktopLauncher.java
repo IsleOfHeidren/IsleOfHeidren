@@ -2,7 +2,6 @@ package com.github.isleofheidren.game;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import com.github.isleofheidren.game.game;
 
 // Please note that on macOS your application needs to be started with the -XstartOnFirstThread JVM argument
 public class DesktopLauncher {
@@ -11,6 +10,6 @@ public class DesktopLauncher {
 		config.setForegroundFPS(60);
 		config.setWindowedMode(1000, 600);
 		config.setTitle("IsleOfHeidren");
-		new Lwjgl3Application(new game(), config);
+		new Lwjgl3Application(new Heidren(), config);
 	}
 }
