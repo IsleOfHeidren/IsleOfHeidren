@@ -70,6 +70,28 @@ Loading data sequence diagram
 The UI will control the flow to the next data object determined by the possible branches or the statues within the object.
 Each event object will contain the necessary data to update all the UI conponents.
 
-### 110
+### 110 - Monsters
 [monsters.md](./monsters.md)
+
+The attacks of the monsters will consist as follows:
+
+Hydra:
+    Bite - Melee Weapon Attack (+8 on hit), DMG is equal to (1d10 + 5) piercing.
+    Fire Breath - Ranged Attack (no weapon bonus), DMG is equal to (1d12 + 5).
+    Multi-attack - Attack is done based on how many heads the Hydra has left. DMG is equal to (1d8 + 2), can vary if multiple heads on severed.
+
+Crocodile:
+    Bite - Melee Weapon Attack (+4 on hit), DMG is equal to (1d10 + 2) piercing. Creates grapple effect (player bitten cannot attack until a successful dice roll of 12 or higher is met, releasing them from the jaws.)
+    Tail Whip - Melee Attack, DMG is equal to (1d 8+ 1). Has a 30% chance to leave the player hit stunned for a turn.
+    Stomp - Melee Attack, DMG is equal to (1d6 + 1).
+
+Carnivorous Ape:
+    Fist - Melee Weapon Attack (+5 on hit), DMG is equal to (1d6 + 3) bludgeon.
+    Rock Throw - Ranged Weapon Attack (+5 on hit), DMG is equal to (1d6 + 3) bludgeon.
+    Feral Bite - Melee Weapon Attack (+8 on hit), DMG is equal to (1d10 + 4) piercing. Has a chance to cause a bleeding effect on player bitten, causing a percentage of HP to be lost each turn for 2 turns.
+
+### 115 - Combat System
+[Combat Inspiration](https://www.dndbeyond.com/sources/basic-rules/combat)
+
+Each instance of combat will be a turn-based system. During a player's turn, they will have the option to chose an action of their choice. Once this choice is made, the action chosen will be represented accordingly. Once each player has taken their action accordingly, the monster(s) of which they will be initiated in combat with will also chose it's action based upon the same criteria of the players. Combat continues on in this manner until there is a winner of the instance. When attacks are chosen, a dice is rolled to determine the attack power of the attack, along with if there is a weapon equipped a bonus stat will be applied to the overall attack to further enhance the attack power. Also, damage taken between both characters and monsters when an attack is used will also take into account the 'Armor Class' (AC) of the character(s) and monster(s) being attacked. Further enhancing the overall concept of the amount of damage that is to be taken by both parties during combat. If a player is defeated within the combat instance (HP value <= 0), then they will no longer be able to partake in the given combat instance. Once the instance is over, other party members can revive them, giving them a small portion of their max HP value back. If the monster/monster(s) within the combat instance is/are defeated, there will be a pop-up message displaying the current status of the party members, along with the EXP gained accordingly as determined by the type of enemy defeated.
 __
