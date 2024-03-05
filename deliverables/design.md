@@ -75,20 +75,20 @@ Each event object will contain the necessary data to update all the UI component
 
 The attacks of the monsters will consist as follows:
 
-Hydra:
-    Bite - If a Melee Weapon is equipped, Attack (+8 on hit), DMG is equal to (1d10 + 5) piercing.  
-    Fire Breath - Ranged Attack (no weapon bonus), DMG is equal to (1d12 + 5).  
-    Multi-attack - Attack is done based on how many heads the Hydra has left. DMG is equal to (1d8 + 2), DMG will decrease if one or multiple heads on severed.
+Hydra:  
+    * Bite - If a Melee Weapon is equipped, Attack (+8 on hit), DMG is equal to (1d10 + 5) piercing.  
+    * Fire Breath - Ranged Attack (no weapon bonus), DMG is equal to (1d12 + 5).  
+    * Multi-attack - Attack is done based on how many heads the Hydra has left. DMG is equal to (1d8 + 2), DMG will decrease if one or multiple heads on severed.
 
 Crocodile:  
-    Bite - If a Melee Weapon is equipped, Attack (+4 on hit), DMG is equal to (1d10 + 2) piercing. Creates grapple effect (player bitten cannot attack until a successful dice roll of 12 or higher is met, releasing them from the jaws.)  
-    Tail Whip - Melee Attack, DMG is equal to (1d 8+ 1). Has a 30% chance to leave the player hit stunned for a turn.  
-    Stomp - Melee Attack, DMG is equal to (1d6 + 1).
+    * Bite - If a Melee Weapon is equipped, Attack (+4 on hit), DMG is equal to (1d10 + 2) piercing. Creates grapple effect (player bitten cannot attack until a successful dice roll of 12 or higher is met, releasing them from the jaws.)  
+    * Tail Whip - Melee Attack, DMG is equal to (1d 8+ 1). Has a 30% chance to leave the player hit stunned for a turn.  
+    * Stomp - Melee Attack, DMG is equal to (1d6 + 1).
 
-Carnivorous Ape:
-    Fist - If a Melee Weapon is equipped, Attack (+5 on hit), DMG is equal to (1d6 + 3) bludgeon.  
-    Rock Throw - If a Ranged Weapon is equipped, Attack (+5 on hit), DMG is equal to (1d6 + 3) bludgeon.  
-    Feral Bite - If a Melee Weapon is equipped, Attack (+8 on hit), DMG is equal to (1d10 + 4) piercing. Has a chance to cause a bleeding effect on player bitten, causing a percentage of HP to be lost each turn for 2 turns.
+Carnivorous Ape:  
+    * Fist - If a Melee Weapon is equipped, Attack (+5 on hit), DMG is equal to (1d6 + 3) bludgeon.  
+    * Rock Throw - If a Ranged Weapon is equipped, Attack (+5 on hit), DMG is equal to (1d6 + 3) bludgeon.  
+    * Feral Bite - If a Melee Weapon is equipped, Attack (+8 on hit), DMG is equal to (1d10 + 4) piercing. Has a chance to cause a bleeding effect on player bitten, causing a percentage of HP to be lost each turn for 2 turns.
 
 ### 115 - Combat System
 [Combat Inspiration](https://www.dndbeyond.com/sources/basic-rules/combat)
