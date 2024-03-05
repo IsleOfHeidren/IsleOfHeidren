@@ -33,6 +33,7 @@ public class MainMenuScreen implements Screen{
     public MainMenuScreen(final Heidren game) {
         this.game = game;
 
+
         int help_guide = 10;
         int row_height = Gdx.graphics.getHeight() /10;
 
@@ -46,23 +47,23 @@ public class MainMenuScreen implements Screen{
 
         //bg = new Texture(Gdx.files.internal("sprites/bg.png"));
 
-        TextureAtlas atlas;
-        atlas = new TextureAtlas(Gdx.files.internal("skin/skin.atlas"));
+        /*TextureAtlas atlas;
+        atlas = new TextureAtlas(Gdx.files.internal("skin/skin.atlas"));*/
 
-        skin = new Skin(Gdx.files.internal("skin/skin.json"));
-
-
-        table.setSkin(skin);
-
-        stage.addActor(table);
-
-        table.setDebug(true);
+        //skin = new Skin(Gdx.files.internal("skin/skin.atlas"));
 
 
+        //table.setSkin(skin);
 
-        Label title = new Label("Isle of Heidren", skin);
+        //stage.addActor(table);
 
-        table.add(title);
+        //table.setDebug(true);
+
+
+
+        //Label title = new Label("Isle of Heidren", skin);
+
+        //table.add(title);
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false,1000,600);
