@@ -106,5 +106,5 @@ Based upon a given instance, if a character initiates an action with a sub-event
 For example, if the Elf character were to have an instance where they had multiple moves in a turn (lets say 3 for this example), then a dice roll would happen in order to determine the accuracy of all 3 of the separate given moves, each with their own accuracy value based on the completed dice roll.
 
 ### 130 - Story Combat Encounter Instances
-Given a certain spot of the game's story, combat encounters will occur based upon the story (i.e. what environment the party is in, how far along the party's quest is, surprise encounters, etc.)
+Given a certain spot of the game's story, combat encounters will occur based upon the story (i.e. what environment the party is in, how far along the party's quest is, surprise encounters, etc.)  
 __
