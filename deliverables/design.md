@@ -21,13 +21,15 @@ Widgets displayed using libGDX's table class in a black background with white te
 * the button panel will be 100 x 200 pixels
 * the player stats panel will be 100 x 100 pixels
 
-skins provided by kenney: https://github.com/czyzby/gdx-skins/tree/master/kenney-pixel
+UI skin provided by kenney: https://github.com/czyzby/gdx-skins/tree/master/kenney-pixel
 
 
 
 ### Character Sprites: requirements 75, 80
 * the root table will display the four sprites side by side in 100 x 100 pixel blocks above the terminal and below the image display
 * the active fighter will be denoted by a white highlight that will loop through each character in the proper fighting order
+![barbarian sprite](../src/assets/sprites/barbarian.png)
+![barbarian with highlight](../src/assets/sprites/barbarian-highlight.png)
 
 ### Data loading - Requirements: 70
 The game will have all of the necessary objects for story, monsters, players, events stored in json objects that are loaded in sequence as needed. Event objects will include references to different possible branches that can be obtained. The UI will load these then go and fetch the next object as needed.
@@ -43,3 +45,6 @@ Each event object will contain the necessary data to update all the UI conponent
 
 ### 110
 [monsters.md](./monsters.md)
+
+![alligator](../src/assets/sprites/alligator.png)
+![ape](../src/assets/sprites/ape.png)
