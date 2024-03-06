@@ -79,8 +79,26 @@ UI skin provided by kenney: https://github.com/czyzby/gdx-skins/tree/master/kenn
 ### Character Sprites: requirements 75, 80
 * the root table will display the four sprites side by side in 100 x 100 pixel blocks above the terminal and below the image display
 * the active fighter will be denoted by a white highlight that will loop through each character in the proper fighting order
-![barbarian sprite](../src/assets/sprites/barbarian.png)
-![barbarian with highlight](../src/assets/sprites/barbarian-highlight.png)
+
+#### Barbarian Human
+
+![barbarian gif](../src/assets/sprites/barbarian.gif)
+![barbarian gif with highlight](../src/assets/sprites/barbarian-highlight.gif)
+
+#### Monk Elf
+
+![monk gif](../src/assets/sprites/monk.gif)
+![monk gif with highlight](../src/assets/sprites/monk-highlight.gif)
+
+#### Rogue Tiefling
+
+![tiefling gif](../src/assets/sprites/tiefling.gif)
+![tiefling with highlight](../src/assets/sprites/tiefling-highlight.gif)
+
+#### Wizard Gnome
+
+![gnome gif](../src/assets/sprites/gnome.gif)
+![gnome with highlight](../src/assets/sprites/gnome-highlight.gif)
 
 ### Data loading - Requirements: 70
 The game will have all of the necessary objects for story, monsters, players, events stored in json objects that are loaded in sequence as needed. Event objects will include references to different possible branches that can be obtained. The UI will load these then go and fetch the next object as needed.
@@ -101,14 +119,18 @@ Each event object will contain the necessary data to update all the UI component
 The attacks of the monsters will consist as follows:
 
 Hydra:  
-    - Bite - If a Melee Weapon is equipped, Attack (+8 on hit), DMG is equal to (1d10 + 5) piercing.  
-    - Fire Breath - Ranged Attack (no weapon bonus), DMG is equal to (1d12 + 5).  
-    - Multi-attack - Attack is done based on how many heads the Hydra has left. DMG is equal to (1d8 + 2), DMG will decrease if one or multiple heads on severed.
+- Bite - If a Melee Weapon is equipped, Attack (+8 on hit), DMG is equal to (1d10 + 5) piercing.  
+- Fire Breath - Ranged Attack (no weapon bonus), DMG is equal to (1d12 + 5).  
+- Multi-attack - Attack is done based on how many heads the Hydra has left. DMG is equal to (1d8 + 2), DMG will decrease if one or multiple heads on severed.
+
+![hydra](../src/assets/sprites/hydra.png)
 
 Crocodile:  
     - Bite - If a Melee Weapon is equipped, Attack (+4 on hit), DMG is equal to (1d10 + 2) piercing. Creates grapple effect (player bitten cannot attack until a successful dice roll of 12 or higher is met, releasing them from the jaws.)  
     - Tail Whip - Melee Attack, DMG is equal to (1d 8+ 1). Has a 30% chance to leave the player hit stunned for a turn.  
     - Stomp - Melee Attack, DMG is equal to (1d6 + 1).
+
+![crocodile](../src/assets/sprites/crocodile.gif)
 
 Carnivorous Ape:  
     - Fist - If a Melee Weapon is equipped, Attack (+5 on hit), DMG is equal to (1d6 + 3) bludgeon.  
@@ -134,6 +156,6 @@ For example, if the Elf character were to have an instance where they had multip
 Given a certain spot of the game's story, combat encounters will occur based upon the story (i.e. what environment the party is in, how far along the party's quest is, surprise encounters, etc.)  
 
 ### Monster Sprites: 110
-![alligator](../src/assets/sprites/alligator.png)
+![alligator](../src/assets/sprites/crocodile.png)
 ![ape](../src/assets/sprites/ape.png)
 
