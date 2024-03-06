@@ -14,7 +14,9 @@ Rogue Tiefling
 
 Wizard Gnome
     -Features
-        1. 
+        1. Fire Bolt
+        2. Poison Spray
+        3. Chill Touch
     -Hit Points: 25
     -Armor Class: 14
     -Weapon: staff
