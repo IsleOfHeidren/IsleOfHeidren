@@ -126,9 +126,9 @@ Hydra:
 ![hydra](../src/assets/sprites/hydra.png)
 
 Crocodile:  
-    - Bite - If a Melee Weapon is equipped, Attack (+4 on hit), DMG is equal to (1d10 + 2) piercing. Creates grapple effect (player bitten cannot attack until a successful dice roll of 12 or higher is met, releasing them from the jaws.)  
-    - Tail Whip - Melee Attack, DMG is equal to (1d 8+ 1). Has a 30% chance to leave the player hit stunned for a turn.  
-    - Stomp - Melee Attack, DMG is equal to (1d6 + 1).
+- Bite - If a Melee Weapon is equipped, Attack (+4 on hit), DMG is equal to (1d10 + 2) piercing. Creates grapple effect (player bitten cannot attack until a successful dice roll of 12 or higher is met, releasing them from the jaws.)  
+- Tail Whip - Melee Attack, DMG is equal to (1d 8+ 1). Has a 30% chance to leave the player hit stunned for a turn.  
+- Stomp - Melee Attack, DMG is equal to (1d6 + 1).
 
 ![crocodile](../src/assets/sprites/crocodile.gif)
 
@@ -136,6 +136,8 @@ Carnivorous Ape:
     - Fist - If a Melee Weapon is equipped, Attack (+5 on hit), DMG is equal to (1d6 + 3) bludgeon.  
     - Rock Throw - If a Ranged Weapon is equipped, Attack (+5 on hit), DMG is equal to (1d6 + 3) bludgeon.  
     - Feral Bite - If a Melee Weapon is equipped, Attack (+8 on hit), DMG is equal to (1d10 + 4) piercing. Has a chance to cause a bleeding effect on player bitten, causing a percentage of HP to be lost each turn for 2 turns.
+
+![carniverous ape](../src/assets/sprites/ape.gif)
 
 ### 115 - Combat System
 [Combat Inspiration](https://www.dndbeyond.com/sources/basic-rules/combat)
@@ -155,7 +157,5 @@ For example, if the Elf character were to have an instance where they had multip
 ### 130 - Story Combat Encounter Instances
 Given a certain spot of the game's story, combat encounters will occur based upon the story (i.e. what environment the party is in, how far along the party's quest is, surprise encounters, etc.)  
 
-### Monster Sprites: 110
-![alligator](../src/assets/sprites/crocodile.png)
-![ape](../src/assets/sprites/ape.png)
+
 
