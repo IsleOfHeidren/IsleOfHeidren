@@ -30,6 +30,8 @@ public class MainMenuScreen implements Screen{
 
     Skin skin;
 
+    OutputTerminal outputTerminal; // Added
+
     public MainMenuScreen(final Heidren game) {
         this.game = game;
 
@@ -40,6 +42,8 @@ public class MainMenuScreen implements Screen{
         border = new ShapeRenderer();
 
         stage = new Stage();
+        outputTerminal = new OutputTerminal(); // Instantiate OutputTerminal
+        stage.addActor(outputTerminal.getScrollPane()); // Add ScrollPane to the stage
         Gdx.input.setInputProcessor(stage);
 
         table = new Table();
@@ -94,6 +98,9 @@ public class MainMenuScreen implements Screen{
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){
             dispose();
         }
+
+        outputTerminal.appendMessage("Hello, world!", OutputTerminal.MessageType.GAME_EVENT);
+
     }
 
     @Override
