@@ -8,6 +8,7 @@
 *.war
 *.ear
 hs_err_pid*
+**/desktop/bin
 
 ## Robovm
 /ios/robovm-build/
