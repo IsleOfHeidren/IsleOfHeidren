@@ -48,7 +48,6 @@ public class MainMenuScreen implements Screen {
             dispose();
         }
 
-        // Example usage of appendMessage method
         outputTerminal.appendMessage("Welcome to Isle of Heidren!", OutputTerminal.MessageType.GAME_EVENT);
     }
 
