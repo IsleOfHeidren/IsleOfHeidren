@@ -23,6 +23,7 @@
 
 * 40\. Will play as a pre-defined character
     * 40e:
+    
     | Test #  | Test Content                         |        
     |---------|--------------------------------------|
     | #1      | Run the game and see if first a start screen opens |
@@ -30,6 +31,11 @@
 
 * 50\. Will play with 4 characters
     * 50e:
+
+    | Test #  | Test Content                         |        
+    |---------|--------------------------------------|
+    | #1      | Play the game and look for four seperate player characters |
+    | #2      | Look in the filesystem of the game and see if four player JSON objects are defined |
 
 
 * 51\. Each player will have a set of stats, features/abilities that differ from one another. These stats will be based from DnD
@@ -91,7 +97,7 @@
 * 115\. The combat system with a clear winner and damage taken to each side, the combat will take the format of DND according to https://www.dndbeyond.com/sources/basic-rules/combat
     * 115e:
 
-    
+
 * 120\. The game will prompt the player with story options displayed in the UI utilzing the buttons and image container
     * 120e:
 
