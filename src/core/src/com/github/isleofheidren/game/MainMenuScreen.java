@@ -1,127 +1,72 @@
 package com.github.isleofheidren.game;
 
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-public class MainMenuScreen implements Screen{
+public class MainMenuScreen implements Screen {
 
     final Heidren game;
-
     OrthographicCamera camera;
-    //Texture bg;
-
-    ShapeRenderer border;
-
     Stage stage;
-    Table table;
-
-    Skin skin;
-
-    OutputTerminal outputTerminal; // Added
+    OutputTerminal outputTerminal;
 
     public MainMenuScreen(final Heidren game) {
         this.game = game;
-
-
-        int help_guide = 10;
-        int row_height = Gdx.graphics.getHeight() /10;
-
-        border = new ShapeRenderer();
+        camera = new OrthographicCamera();
+        camera.setToOrtho(false, 1000, 600);
 
         stage = new Stage();
-        outputTerminal = new OutputTerminal(); // Instantiate OutputTerminal
-        stage.addActor(outputTerminal.getScrollPane()); // Add ScrollPane to the stage
+        outputTerminal = new OutputTerminal();
+        stage.addActor(outputTerminal.getScrollPane());
         Gdx.input.setInputProcessor(stage);
-
-        table = new Table();
-        table.setFillParent(true);
-
-        //bg = new Texture(Gdx.files.internal("sprites/bg.png"));
-
-        /*TextureAtlas atlas;
-        atlas = new TextureAtlas(Gdx.files.internal("skin/skin.atlas"));*/
-
-        //skin = new Skin(Gdx.files.internal("skin/skin.atlas"));
-
-
-        //table.setSkin(skin);
-
-        //stage.addActor(table);
-
-        //table.setDebug(true);
-
-
-
-        //Label title = new Label("Isle of Heidren", skin);
-
-        //table.add(title);
-
-        camera = new OrthographicCamera();
-        camera.setToOrtho(false,1000,600);
-
     }
 
     @Override
     public void show() {
-
     }
 
     @Override
-    public void render (float delta){
-
-        ScreenUtils.clear(0,0,0,1);
-
-
+    public void render(float delta) {
+        ScreenUtils.clear(0, 0, 0, 1);
 
         camera.update();
+        game.batch.setProjectionMatrix(camera.combined);
         game.batch.begin();
-
+        // Rendering game content
         game.batch.end();
 
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        stage.act(Gdx.graphics.getDeltaTime());
+        stage.act(delta);
         stage.draw();
 
-        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
             dispose();
         }
 
-        outputTerminal.appendMessage("Hello, world!", OutputTerminal.MessageType.GAME_EVENT);
-
+        // Example usage of appendMessage method
+        outputTerminal.appendMessage("Welcome to Isle of Heidren!", OutputTerminal.MessageType.GAME_EVENT);
     }
 
     @Override
     public void resize(int width, int height) {
-    stage.getViewport().update(width, height, true);
+        stage.getViewport().update(width, height, true);
     }
 
     @Override
     public void pause() {
-
     }
 
     @Override
     public void resume() {
-
     }
 
     @Override
     public void hide() {
-
     }
 
     @Override
