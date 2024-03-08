@@ -112,6 +112,9 @@ Loading data sequence diagram
 The UI will control the flow to the next data object determined by the possible branches or the statues within the object.
 Each event object will contain the necessary data to update all the UI components.
 
+### 100 - Story
+![story](./images/req-100-story.jpg)
+
 ### 110 - Monsters & Monster Attacks
 [monsters.md](./monsters.md)
 
