@@ -150,7 +150,7 @@ Each event object will contain the necessary data to update all the UI component
     * Event 14: "RB was last seen in this village. I heard he found the City of Gods but didn't survive long enough to
       come back and tell the tale. He must've still gotten his notebook out to you guys before he was gone forever."
     * Event 15: "Of course the City of Gods is real! How could you not know?"
-    * Event 16: "The Hydra is the most powerful." you have to use a specific wizard spell for the most success
+    * Event 16: "The Hydra is the most powerful." you have to use a specific wizard spell for the most success                   
 
 ### 110 - Monsters & Monster Attacks
 [monsters.md](./monsters.md)
