@@ -208,5 +208,10 @@ For example, if the Elf character were to have an instance where they had multip
 ### 130 - Story Combat Encounter Instances
 Given a certain spot of the game's story, combat encounters will occur based upon the story (i.e. what environment the party is in, how far along the party's quest is, surprise encounters, etc.)  
 
+### Game Over Screen - Requirements: 140
+The game over screen should have the option between two text being displayed. Either "Adventure Failed" or "Adventure Success" 
 
+The screen also will include a button to that closes the game. 
 
+Mock:
+![gameoverscreen](./images/game_over_screen.png)

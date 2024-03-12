@@ -104,3 +104,6 @@
 
 * 130\. The game will have a combat mode when the story dictates it necessary
     * 130e:
+
+* 140\. Will have an end screen that displays a game over or game won text
+    * 140e:
