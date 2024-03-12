@@ -23,14 +23,14 @@ public class Heidren extends Game {
         stage.addActor(console);
 
         // Example
-        console.appendMessage("Hello, world!", MessageType.GAME_EVENT);
-        console.appendMessage("This is NPC dialog.", MessageType.NPC_DIALOG);
+        console.appendMessage("Hello, world!", MessageType.GAME_EVENT); // Game Event Ex.
+        console.appendMessage("This is NPC dialog.", MessageType.NPC_DIALOG); // NPC Event Ex.
     }
 
     @Override
     public void render() {
         super.render();
-        stage.act(Gdx.graphics.getDeltaTime());
+        stage.act(Gdx.graphics.getDeltaTime()); // returns time passed between last and current frame in seconds
         stage.draw();
     }
 
