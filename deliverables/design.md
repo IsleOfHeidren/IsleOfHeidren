@@ -8,6 +8,17 @@ The player characters and monsters will be built in the style of DnD preferable 
 
 The game will be implemented using a game engine. LibGDX is suitable engine for the requirements https://libgdx.com/ and will be used for this project as the team all has familiarity using java.
 
+### Overall Game Flow - Requirements: 30, 60, 70, 130
+
+This flow diagram shows the connections of the major game component classes and how they tie together to progress through the story and combat.
+
+* Main GUI: Contains buttons and other components that change based on the current game state
+* State Manager: Determines based on the current state if data needs to be loaded and which manager classes is currently sending updates
+* Story Event Manager - Handles the logic and dice rolls needed for non combat events
+* Combat Event Manager - Handles combat damage, rolls, and non-player character control.
+
+![overall-flow-chart](./images/overall-game-flow.png)
+
 ### Defined Characters - Requirements: 40
 Characters will be defined using JSON objects they will follow the formatting defined in the [characters.md](./characters.md)
 
