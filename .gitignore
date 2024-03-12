@@ -8,11 +8,7 @@
 *.war
 *.ear
 hs_err_pid*
-<<<<<<< HEAD
-**/desktop/bin
-=======
 **/desktop/bin/*
->>>>>>> origin/main
 
 ## Robovm
 /ios/robovm-build/
@@ -121,3 +117,6 @@ Thumbs.db
 /ios/xcode/native/
 /ios/IOSLauncher.app
 /ios/IOSLauncher.app.dSYM
+
+*.bin
+*.uniqueId0
