@@ -264,4 +264,5 @@ The game over screen should have the option between two text being displayed. Ei
 The screen also will include a button to that closes the game. 
 
 Mock:
+
 ![gameoverscreen](./images/game_over_screen.png)
