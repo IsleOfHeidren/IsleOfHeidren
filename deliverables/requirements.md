@@ -42,65 +42,77 @@
     * 51e:
 
 
-* 60\. Will have a main GUI with intractable sections
+* 60\. Will have a main GUI with components that change dynamically based on the game state
     * 60e:
 
 
-* \61\. Will have buttons that are mouse clickable to interact with the game
-    * 61e:
-
- 
-* 62\. Will have a primary image container showing PNGs, JPGs, etc that are relevant to the current game state
-    * 62e:
+* 61.0\. Will have buttons that are mouse clickable to interact with the game
+    * 61.0e:
 
 
-* 63\. Will have a console-like output for game text: battle results and story
-    * 63e:
+* 61.1\. buttons shall be dynamic based on valid story actions, and will include character specific actions
+  * 61.1e:
+
+
+* 61.2\. In combat each player will take turns doing one action which will be defined in the button panel
+  * 61.2e:
+
+
   
+* 62.0\. Shall have a primary image container showing environmental PNGs that are relevant to the current game state
+    * 62.0e:
 
-* 64\. buttons shall be dynamic based on valid story actions, and should include character specific actions
-    * 64e:
+
+* 62.1\. During combat or NPC interactions, the image container will display relevant NPCs and monsters
+  * 62.1e:
 
 
-* 65\. In combat each player will take turns doing one action which will be defined in the GUI with buttons
-    * 65e:
+* 63\. Will have a console-like output for game text, battle results, and story
+    * 63e:
+
+
+* 64.0\. Each playable character shall be pictured as sprites in the main window. These sprites may be animated.
+  * 64.0e:
+
+
+* 64.1\. UI will indicate which character is active (turn) in combat by highlighting the character's sprite. This includes monster and NPC sprites
+  * 64.1e:
+
+
+* 65\. In combat, the currently selected character's stats shall be pictured next to the image container. Outside of battle, the panel shall be blank
+  * 65e:
 
 
 * 70\. Shall have a way to retrieve data for stats, characters, monsters, and events
     * 70e:
-  
-  
-* 75\. UI will have a section with all character displayed as sprites
-    * 75e:
 
 
-* 80\. UI will have an indicator which character is active (turn), in combat
+* 80\. Will have map in database that either will be shown by text or GUI component
     * 80e:
 
 
-* 90\. Will have map in database that either will be shown by text or GUI component
+* 81\. Map will have multiple locations
+    * 81e:
+
+
+* 90\. Will have story from start to finish no matter what combination of pre-defined actions each character takes
     * 90e:
-
-
-* 91\. Map will have multiple locations
-    * 91e:
-
-
-* 100\. Will have story from start to finish no matter what combination of pre-defined actions each character takes
-    * 100e:
   
 
-* 110\. Will have at least 3 types of monsters
+* 100\. Shall have at least 3 types of monsters
+    * 100e:
+
+
+* 105\. The combat system with a clear winner and damage taken to each side, the combat will take the format of DND according to https://www.dndbeyond.com/sources/basic-rules/combat
+    * 105e:
+
+
+* 110\. The game will prompt the player with story options displayed in the UI utilizing the buttons, image container, and console
     * 110e:
 
 
-* 115\. The combat system with a clear winner and damage taken to each side, the combat will take the format of DND according to https://www.dndbeyond.com/sources/basic-rules/combat
-    * 115e:
-
-
-* 120\. The game will prompt the player with story options displayed in the UI utilzing the buttons and image container
+* 120\. The game will have a combat mode when the story dictates it necessary
     * 120e:
 
-
-* 130\. The game will have a combat mode when the story dictates it necessary
+* 130\. Will have an end screen that displays a game over or game won text
     * 130e:
