@@ -16,6 +16,7 @@ This flow diagram shows the connections of the major game component classes and 
 * State Manager: Determines based on the current state if data needs to be loaded and which manager classes is currently sending updates
 * Story Event Manager - Handles the logic and dice rolls needed for non combat events
 * Combat Event Manager - Handles combat damage, rolls, and non-player character control.
+* Map Event Manager - Handles moving and updateing the current map position
 
 ![overall-flow-chart](./images/overall-game-flow.png)
 
