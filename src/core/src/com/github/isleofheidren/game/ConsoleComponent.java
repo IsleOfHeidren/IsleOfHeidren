@@ -2,7 +2,7 @@ package com.github.isleofheidren.game;
 
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.TextArea;
-import com.badlogic.gdx.scenes.scene2d.ui.TextAreaStyle;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField.TextFieldStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
 public class ConsoleComponent extends Table {
@@ -10,7 +10,7 @@ public class ConsoleComponent extends Table {
     private TextArea textArea;
 
     public ConsoleComponent() {
-        textArea = new TextArea("", new TextArea.TextAreaStyle());
+        textArea = new TextArea("", new TextArea.TextFieldStyle());
         scrollPane = new ScrollPane(textArea);
 
         add(scrollPane).expand().fill().row();

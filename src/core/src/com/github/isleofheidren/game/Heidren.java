@@ -5,7 +5,6 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.github.isleofheidren.game.MessageType;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Heidren extends Game {
