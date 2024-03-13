@@ -3,6 +3,7 @@ package com.github.isleofheidren.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
@@ -28,8 +29,6 @@ public class MainMenuScreen implements Screen{
     Stage stage;
     Table table;
 
-    Skin skin;
-
     public MainMenuScreen(final Heidren game) {
         this.game = game;
 
@@ -47,23 +46,23 @@ public class MainMenuScreen implements Screen{
 
         //bg = new Texture(Gdx.files.internal("sprites/bg.png"));
 
-        /*TextureAtlas atlas;
-        atlas = new TextureAtlas(Gdx.files.internal("skin/skin.atlas"));*/
-
-        //skin = new Skin(Gdx.files.internal("skin/skin.atlas"));
+//        TextureAtlas atlas;
+//        atlas = new TextureAtlas(Gdx.files.internal("skin/skin.json"));
+//        FileHandle file = Gdx.files.internal("uiskin/uiskin.atlas");
+//        Skin skin = new Skin(file);
 
 
         //table.setSkin(skin);
 
-        //stage.addActor(table);
+        stage.addActor(table);
 
         //table.setDebug(true);
 
 
 
-        //Label title = new Label("Isle of Heidren", skin);
+        Label title = new Label("Isle of Heidren", Heidren.skin.optional("default", Label.LabelStyle.class));
 
-        //table.add(title);
+        table.add(title);
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false,1000,600);

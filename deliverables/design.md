@@ -76,9 +76,10 @@ Images will be stored in the assets directory of the final project, meaning the 
 [characters.md](./characters.md)
 
 
-### GUI (60 - 65)
+### GUI (60 - 65) 
+[GUI-flow](./images/GUI-flow.png)
 Widgets displayed using libGDX's table class in a black background with white text and detailing 
-* Window will be 1000 x 600 pixels and will be split into 20 columns x 12 rows 
+* Window shall be 1000 x 600 pixels *and will be split into 20 columns x 12 rows (subject to change)*
 * Image container will be 600 x 400 pixels
 * each sprite will be 100 x 100 pixels, side by side to create a 400 x 100 pixel block
 * the terminal display will be 600 x 100 pixels
