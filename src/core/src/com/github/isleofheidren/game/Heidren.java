@@ -19,7 +19,7 @@ public class Heidren extends Game {
     @Override
     public void create() {
 		batch = new SpriteBatch();
-        stage = new Stage(new FitViewport(800, 600))
+        stage = new Stage(new FitViewport(800, 600));
         skin = new Skin(Gdx.files.internal("skin/skin.json"));
 
         Gdx.input.setInputProcessor(stage);
