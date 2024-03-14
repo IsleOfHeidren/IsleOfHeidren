@@ -12,24 +12,25 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.ScreenUtils;
-
-import com.github.isleofheidren.game.Button;
 
 public class MainMenuScreen implements Screen{
 
     final Heidren game;
 
     OrthographicCamera camera;
-    //Texture bg;
+    Texture bg;
 
     ShapeRenderer border;
 
     Stage stage;
     Table table;
+    Table table1;
+    Button button;
 
     public MainMenuScreen(final Heidren game) {
         this.game = game;
@@ -41,12 +42,14 @@ public class MainMenuScreen implements Screen{
         border = new ShapeRenderer();
 
         stage = new Stage();
+
         Gdx.input.setInputProcessor(stage);
 
         table = new Table();
+        table1 = new Table();
         table.setFillParent(true);
 
-        //bg = new Texture(Gdx.files.internal("sprites/bg.png"));
+        bg = new Texture(Gdx.files.internal("sprites/bg.png"));
 
 //        TextureAtlas atlas;
 //        atlas = new TextureAtlas(Gdx.files.internal("skin/skin.json"));
@@ -55,16 +58,49 @@ public class MainMenuScreen implements Screen{
 
 
         //table.setSkin(skin);
+        button = new Button(Heidren.skin);
 
         stage.addActor(table);
 
-        //table.setDebug(true);
+        table.setDebug(true);
 
 
-
+        // what i'm trying to do here is block out table spaces
         Label title = new Label("this is the next screen", Heidren.skin.optional("default", Label.LabelStyle.class));
+        Label space = new Label("", Heidren.skin.optional("default", Label.LabelStyle.class));
 
-        table.add(title);
+        table1.add(button);
+
+        table.row().expand(); //r1
+        table.add(title);// r1 c1
+        table.add(button); //r1 c2
+        table.add(space);//r1c3
+
+        table.row().expand();
+        table.add(space);// r2 c1
+        table.add(space); //r2c2
+        table.add(space);//r2c3
+
+        table.row().expand();
+
+        table.row().expand();
+
+        table.row().expand();
+
+        table.row().expand();
+
+        table.row().expand();
+
+        table.row().expand();
+
+        table.row().expand();
+
+        table.row().expand();
+
+        table.row().expand();
+
+
+
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false,1000,600);
@@ -92,9 +128,9 @@ public class MainMenuScreen implements Screen{
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
 
-        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){
+        /*if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){
             dispose();
-        }
+        }*/
     }
 
     @Override
