@@ -19,19 +19,19 @@ import com.badlogic.gdx.utils.ScreenUtils;
 
 import com.github.isleofheidren.game.Button;
 
-public class MainMenuScreen implements Screen{
+public class StartScreen implements Screen{
 
     final Heidren game;
 
     OrthographicCamera camera;
-    //Texture bg;
+    Texture bg;
 
     ShapeRenderer border;
 
     Stage stage;
     Table table;
 
-    public MainMenuScreen(final Heidren game) {
+    public StartScreen(final Heidren game) {
         this.game = game;
 
 
@@ -46,7 +46,7 @@ public class MainMenuScreen implements Screen{
         table = new Table();
         table.setFillParent(true);
 
-        //bg = new Texture(Gdx.files.internal("sprites/bg.png"));
+        bg = new Texture(Gdx.files.internal("sprites/bg.png"));
 
 //        TextureAtlas atlas;
 //        atlas = new TextureAtlas(Gdx.files.internal("skin/skin.json"));
@@ -58,13 +58,16 @@ public class MainMenuScreen implements Screen{
 
         stage.addActor(table);
 
-        //table.setDebug(true);
 
 
 
-        Label title = new Label("this is the next screen", Heidren.skin.optional("default", Label.LabelStyle.class));
+        Label title = new Label("Isle of Heidren", Heidren.skin.optional("default", Label.LabelStyle.class));
+        Label start = new Label("Click anywhere to continue", Heidren.skin.optional("default", Label.LabelStyle.class));
 
         table.add(title);
+        table.row();
+        table.add(start);
+        table.setDebug(true);
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false,1000,600);
@@ -92,14 +95,17 @@ public class MainMenuScreen implements Screen{
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
 
-        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){
+        if (Gdx.input.isTouched()){
+            game.setScreen(new MainMenuScreen((game)));
+            // if screen is clicked then we load the main GUI
+            // and dispose of this screen
             dispose();
         }
     }
 
     @Override
     public void resize(int width, int height) {
-    stage.getViewport().update(width, height, true);
+        stage.getViewport().update(width, height, true);
     }
 
     @Override
