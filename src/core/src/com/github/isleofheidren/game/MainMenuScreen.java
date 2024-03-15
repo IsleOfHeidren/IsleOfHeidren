@@ -8,14 +8,14 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.utils.ScreenUtils;
+
 
 public class MainMenuScreen implements Screen{
 
@@ -41,6 +41,15 @@ public class MainMenuScreen implements Screen{
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
 
+
+        //Heidi's addition
+        BitmapFont font = new BitmapFont();
+        Skin skin = new Skin();
+        TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
+        textButtonStyle.font = font;
+        TextButton button = new TextButton("Button1", textButtonStyle);
+        //Heidi's addition
+
         table = new Table();
         table.setFillParent(true);
 
@@ -53,12 +62,24 @@ public class MainMenuScreen implements Screen{
 
 
         //table.setSkin(skin);
+        //HEIDI'S ADDITION
+        table.add(button);
 
         stage.addActor(table);
 
         //table.setDebug(true);
 
+        //HEIDI'S ADDITION
+        MyInputProcessor inputProcessor = new MyInputProcessor();
+        Gdx.input.setInputProcessor(inputProcessor);
 
+        button.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                ((Game)Gdx.app.getApplicationListener()).setScreen(new
+                        StartGameScreen());
+            }
+        });
 
         Label title = new Label("Isle of Heidren", Heidren.skin.optional("default", Label.LabelStyle.class));
 
