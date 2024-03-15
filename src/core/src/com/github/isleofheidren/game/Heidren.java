@@ -20,7 +20,7 @@ public class Heidren extends Game {
 
 		font = new BitmapFont();
 
-		this.setScreen(new MainMenuScreen(this));
+		this.setScreen(new StartScreen(this));
 	}
 
 	@Override
