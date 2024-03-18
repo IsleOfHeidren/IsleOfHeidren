@@ -16,7 +16,7 @@ public class StoryEventRepo implements JSONRepo<StoryEvent> {
      */
     @Override
     public StoryEvent get(String id) {
-        String filePath = "data/events/" + id;
+        String filePath = "data/events/" + id + ".json";
         FileHandle file = Gdx.files.internal(filePath);
 
         Gson gson = new Gson();

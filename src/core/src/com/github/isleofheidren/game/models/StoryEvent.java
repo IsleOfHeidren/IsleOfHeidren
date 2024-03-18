@@ -1,24 +1,19 @@
 package com.github.isleofheidren.game.models;
 
+/*
+Model for story events, anything that doesn't occur in combat and doesn't refer to the map
+ */
 public class StoryEvent extends Event {
     private int[] branches;
     private String[] branchesText;
-    private String consoleOutputText;
 
-    /**
-     *
-     */
     public StoryEvent() {
+        super();
     }
 
-    public String getConsoleOutputText() {
-        return consoleOutputText;
-    }
-
-    public void setConsoleOutputText(String consoleOutputText) {
-        this.consoleOutputText = consoleOutputText;
-    }
-
+    /*
+    Getters and setters
+     */
     public String[] getBranchesText() {
         return branchesText;
     }
@@ -34,7 +29,4 @@ public class StoryEvent extends Event {
     public void setBranches(int[] branches) {
         this.branches = branches;
     }
-
-
-    //TODO add in a prop for the image URI or the image bits themselves
 }
