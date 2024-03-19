@@ -69,6 +69,11 @@ public class MainMenuScreen implements Screen{
         Label title = new Label("this is the next screen", Heidren.skin.optional("default", Label.LabelStyle.class));
         Label space = new Label("", Heidren.skin.optional("default", Label.LabelStyle.class));
 
+
+        ButtonPanel panel = new ButtonPanel();
+        Table buttonPanel = panel.create("Button1", Heidren.skin, 4);
+        stage.addActor(buttonPanel);
+
         table1.add(button);
 
         table.row().expand(); //r1
