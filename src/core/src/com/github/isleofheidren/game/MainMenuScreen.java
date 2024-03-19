@@ -8,7 +8,9 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -21,6 +23,8 @@ import com.badlogic.gdx.utils.ScreenUtils;
 public class MainMenuScreen implements Screen{
 
     final Heidren game;
+
+    public Animation<TextureRegion> runningAnimation;
 
     OrthographicCamera camera;
     Texture bg;
@@ -64,6 +68,7 @@ public class MainMenuScreen implements Screen{
 
         table.setDebug(true);
 
+        //runningAnimation = new Animation<TextureRegion>(0.125f, atlas.findRegions("monk"), Animation.PlayMode.LOOP);
 
         // what i'm trying to do here is block out table spaces
         Label title = new Label("this is the next screen", Heidren.skin.optional("default", Label.LabelStyle.class));
