@@ -1,4 +1,4 @@
-// package com.github.isleofheidren.game;
+package com.github.isleofheidren.game;
 
 import java.util.Scanner;
 
@@ -20,95 +20,164 @@ public class Combat {
                 (hydra.isAlive() || crocodile.isAlive() || carnivorousApe.isAlive())) {
 
             // Player picks a monster to attack
-            System.out.println("Choose a monster to attack (1: Hydra, 2: Crocodile, 3: Carnivorous Ape): ");
+            System.out.print("Choose a monster to attack (1: Hydra, 2: Crocodile, 3: Carnivorous Ape): ");
             int monsterChoice = scanner.nextInt();
             Monster targetMonster = null;
             switch (monsterChoice) {
                 case 1:
                     targetMonster = hydra;
+                    System.out.println("Hydra Chosen");
                     break;
                 case 2:
                     targetMonster = crocodile;
+                    System.out.println("Crocodile Chosen");
                     break;
                 case 3:
                     targetMonster = carnivorousApe;
+                    System.out.println("Carnivorous Ape Chosen");
                     break;
                 }
 
             // Rogue's turn
             if (rogue.isAlive()) {
-                System.out.println("Rogue's turn. Choose an attack (1: Sneak Attack, 2: Thieve's Cant, 3: Uncanny Dodge): ");
+                System.out.print("Rogue's turn. Choose an attack (1: Sneak Attack, 2: Thieve's Cant, 3: Uncanny Dodge): ");
                 int choice = scanner.nextInt();
                 int damageDealt = 0;
                 switch (choice) {
                     case 1:
                         damageDealt = rogue.attack("Sneak Attack");
+                        System.out.println("Sneak Attack Chosen");
                         break;
                     case 2:
                         damageDealt = rogue.attack("Thieve's Cant");
+                        System.out.println("Thieve's Chosen");
                         break;
                     case 3:
                         damageDealt = rogue.attack("Uncanny Dodge");
+                        System.out.println("Uncanny Dodge Chosen");
                         break;
                 }
                 targetMonster.takeDamage(damageDealt);
                 System.out.println("Rogue hits " + targetMonster.name + " for " + damageDealt + " damage.");
             }
 
+            System.out.print("Choose a monster to attack (1: Hydra, 2: Crocodile, 3: Carnivorous Ape): ");
+            monsterChoice = scanner.nextInt();
+            targetMonster = null;
+            switch (monsterChoice) {
+                case 1:
+                    targetMonster = hydra;
+                    System.out.println("Hydra Chosen");
+                    break;
+                case 2:
+                    targetMonster = crocodile;
+                    System.out.println("Crocodile Chosen");
+                    break;
+                case 3:
+                    targetMonster = carnivorousApe;
+                    System.out.println("Carnivorous Ape Chosen");
+                    break;
+                }
+
             // Wizard's turn
             if (wizard.isAlive()) {
-                System.out.println("Wizard's turn. Choose an attack (1: Fire Bolt, 2: Poison Spray, 3: Chill Touch): ");
+                System.out.print("Wizard's turn. Choose an attack (1: Fire Bolt, 2: Poison Spray, 3: Chill Touch): ");
                 int choice = scanner.nextInt();
                 int damageDealt = 0;
                 switch (choice) {
                     case 1:
                         damageDealt = wizard.attack("Fire Bolt");
+                        System.out.println("Fire Bolt Chosen");
                         break;
                     case 2:
                         damageDealt = wizard.attack("Poison Spray");
+                        System.out.println("Poison Spray Chosen");
                         break;
                     case 3:
                         damageDealt = wizard.attack("Chill Touch");
+                        System.out.println("Chill Touch Chosen");
                         break;
                 }
                 targetMonster.takeDamage(damageDealt);
                 System.out.println("Wizard hits " + targetMonster.name + " for " + damageDealt + " damage.");
             }
 
+            System.out.print("Choose a monster to attack (1: Hydra, 2: Crocodile, 3: Carnivorous Ape): ");
+            monsterChoice = scanner.nextInt();
+            targetMonster = null;
+            switch (monsterChoice) {
+                case 1:
+                    targetMonster = hydra;
+                    System.out.println("Hydra Chosen");
+                    break;
+                case 2:
+                    targetMonster = crocodile;
+                    System.out.println("Crocodile Chosen");
+                    break;
+                case 3:
+                    targetMonster = carnivorousApe;
+                    System.out.println("Carnivorous Ape Chosen");
+                    break;
+                }
+
             // Monk's turn
             if (monk.isAlive()) {
-                System.out.println("Monk's turn. Choose an attack (1: Flurry of Blows, 2: Patient Defense, 3: Step of The Wind): ");
+                System.out.print("Monk's turn. Choose an attack (1: Flurry of Blows, 2: Patient Defense, 3: Step of The Wind): ");
                 int choice = scanner.nextInt();
                 int damageDealt = 0;
                 switch (choice) {
                     case 1:
                         damageDealt = monk.attack("Flurry of Blows");
+                        System.out.println("Flurry of Blows Chosen");
                         break;
                     case 2:
                         damageDealt = monk.attack("Patient Defense");
+                        System.out.println("Patient Defense Chosen");
                         break;
                     case 3:
                         damageDealt = monk.attack("Step of The Wind");
+                        System.out.println("Step of The Wind Chosen");
                         break;
                 }
                 targetMonster.takeDamage(damageDealt);
                 System.out.println("Monk hits " + targetMonster.name + " for " + damageDealt + " damage.");
             }
 
+            System.out.print("Choose a monster to attack (1: Hydra, 2: Crocodile, 3: Carnivorous Ape): ");
+            monsterChoice = scanner.nextInt();
+            targetMonster = null;
+            switch (monsterChoice) {
+                case 1:
+                    targetMonster = hydra;
+                    System.out.println("Hydra Chosen");
+                    break;
+                case 2:
+                    targetMonster = crocodile;
+                    System.out.println("Crocodile Chosen");
+                    break;
+                case 3:
+                    targetMonster = carnivorousApe;
+                    System.out.println("Carnivorous Ape Chosen");
+                    break;
+                }
+
             // Barbarian's turn
             if (barbarian.isAlive()) {
-                System.out.println("Barbarian's turn. Choose an attack (1: Reckless Attack, 2: Danger Sense, 3: Extra Attack): ");
+                System.out.print("Barbarian's turn. Choose an attack (1: Reckless Attack, 2: Danger Sense, 3: Extra Attack): ");
                 int choice = scanner.nextInt();
                 int damageDealt = 0;
                 switch (choice) {
                     case 1:
                         damageDealt = barbarian.attack("Reckless Attack");
+                        System.out.println("Reckless Attack Chosen");
                         break;
                     case 2:
                         damageDealt = barbarian.attack("Danger Sense");
+                        System.out.println("Danger Sense Chosen");
                         break;
                     case 3:
                         damageDealt = barbarian.attack("Extra Attack");
+                        System.out.println("Extra Attack Chosen");
                         break;
                 }
                 targetMonster.takeDamage(damageDealt);
