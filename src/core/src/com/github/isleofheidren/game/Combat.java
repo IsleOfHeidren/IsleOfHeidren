@@ -1,4 +1,4 @@
-package com.github.isleofheidren.game;
+// package com.github.isleofheidren.game;
 
 import java.util.Scanner;
 
@@ -72,7 +72,7 @@ public class Combat {
                         break;
                 }
                 targetMonster.takeDamage(damageDealt);
-                System.out.println("Rogue hits " + targetMonster.name + " for " + damageDealt + " damage.");
+                System.out.println("Wizard hits " + targetMonster.name + " for " + damageDealt + " damage.");
             }
 
             // Monk's turn
@@ -92,7 +92,7 @@ public class Combat {
                         break;
                 }
                 targetMonster.takeDamage(damageDealt);
-                System.out.println("Rogue hits " + targetMonster.name + " for " + damageDealt + " damage.");
+                System.out.println("Monk hits " + targetMonster.name + " for " + damageDealt + " damage.");
             }
 
             // Barbarian's turn
@@ -112,7 +112,7 @@ public class Combat {
                         break;
                 }
                 targetMonster.takeDamage(damageDealt);
-                System.out.println("Rogue hits " + targetMonster.name + " for " + damageDealt + " damage.");
+                System.out.println("Barbarian hits " + targetMonster.name + " for " + damageDealt + " damage.");
             }
 
             // Hydra's turn
@@ -201,13 +201,33 @@ public class Combat {
 
             // Print player and monster status
             System.out.println("Rogue HP: " + rogue.hitPoints);
+            if (rogue.isAlive() == false) {
+                System.out.println("Rogue Defeated");
+            }
             System.out.println("Wizard HP: " + wizard.hitPoints);
+            if (wizard.isAlive() == false) {
+                System.out.println("Wizard Defeated");
+            }
             System.out.println("Monk HP: " + monk.hitPoints);
+            if (monk.isAlive() == false) {
+                System.out.println("Monk Defeated");
+            }
             System.out.println("Barbarian HP: " + barbarian.hitPoints);
+            if (barbarian.isAlive() == false) {
+                System.out.println("Barbarian Defeated");
+            }
             System.out.println("Hydra HP: " + hydra.hitPoints);
-            System.out.println("Hydra HP: " + hydra.hitPoints);
+            if (hydra.isAlive() == false) {
+                System.out.println("Hyrda Defeated");
+            }
             System.out.println("Crocodile HP: " + crocodile.hitPoints);
+            if (crocodile.isAlive() == false) {
+                System.out.println("Crocodile Defeated");
+            }
             System.out.println("Carnivorous Ape HP: " + carnivorousApe.hitPoints);
+            if (carnivorousApe.isAlive() == false) {
+                System.out.println("Carnivorous Ape Defeated");
+            }
         }
 
         if (rogue.isAlive() || wizard.isAlive() || monk.isAlive() || barbarian.isAlive()) {
