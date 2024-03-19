@@ -1,16 +1,33 @@
 // "driver"
 package com.github.isleofheidren.game;
 
+<<<<<<< HEAD
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+=======
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.Game;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+>>>>>>> origin/main
 
 public class Heidren extends Game {
     private Stage stage;
 	public SpriteBatch batch;
+<<<<<<< HEAD
     private ConsoleComponent console;
+=======
+	public BitmapFont font;
+	public static Skin skin;
+
+
+	public void create () {
+		skin = new Skin(Gdx.files.internal("skin/skin.json"));
+>>>>>>> origin/main
 
     @Override
     public void create() {
@@ -21,10 +38,15 @@ public class Heidren extends Game {
         console = new ConsoleComponent();
         stage.addActor(console);
 
+<<<<<<< HEAD
         // Example
         console.appendMessage("Hello, world!", MessageType.GAME_EVENT); // Game Event Ex.
         console.appendMessage("This is NPC dialog.", MessageType.NPC_DIALOG); // NPC Event Ex.
     }
+=======
+		this.setScreen(new StartScreen(this));
+	}
+>>>>>>> origin/main
 
     @Override
     public void render() {
