@@ -22,7 +22,7 @@ public class Combat {
                 (hydra.isAlive() || crocodile.isAlive() || carnivorousApe.isAlive())) {
 
             if (rogue.isAlive() == true) {
-                // Player picks a monster to attack
+                // Rogue picks a monster to attack
                 System.out.print("Choose a monster to attack (1: Hydra, 2: Crocodile, 3: Carnivorous Ape): ");
                 monsterChoice = scanner.nextInt();
                 targetMonster = null;
@@ -66,6 +66,7 @@ public class Combat {
                 }
             }
 
+            // Wizard picks a monster to attack
             if (wizard.isAlive() == true) {
                 System.out.print("Choose a monster to attack (1: Hydra, 2: Crocodile, 3: Carnivorous Ape): ");
                 monsterChoice = scanner.nextInt();
@@ -110,6 +111,7 @@ public class Combat {
                 }
             }
 
+            // Monk picks a monster to attack
             if (monk.isAlive() == true) {
                 System.out.print("Choose a monster to attack (1: Hydra, 2: Crocodile, 3: Carnivorous Ape): ");
                 monsterChoice = scanner.nextInt();
@@ -154,6 +156,7 @@ public class Combat {
                 }
             }
 
+            // Barbarian picks a monster to attack
             if (barbarian.isAlive() == true) {
                 System.out.print("Choose a monster to attack (1: Hydra, 2: Crocodile, 3: Carnivorous Ape): ");
                 monsterChoice = scanner.nextInt();
@@ -316,7 +319,7 @@ public class Combat {
         if (rogue.isAlive() || wizard.isAlive() || monk.isAlive() || barbarian.isAlive()) {
             System.out.println("Players win!");
         } else {
-            System.out.println("Monsters wins!");
+            System.out.println("Monsters win!");
         }
 
         scanner.close();
