@@ -39,7 +39,8 @@ git Character overlook
 Features
 1. Sneak Attack
 2. Thieve's Cant
-3. Uncanny Dodge
+3. Uncanny Dodge: Monster will make a hit, then Rogue can make the choice to dodge on 
+their turn, which will determine whether the hit from the monster hits
     - Hit Points: 30
     - Armor Class: 16
     - Weapon: knives
