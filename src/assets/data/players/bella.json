@@ -1,0 +1,9 @@
+{
+  "name": "Bella",
+  "features": [{
+    "isCombat": true,
+    "damage": 10,
+    "name": "hit"
+  }],
+  "armorClass": 17
+}

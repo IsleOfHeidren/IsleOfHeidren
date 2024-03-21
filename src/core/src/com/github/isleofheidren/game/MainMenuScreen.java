@@ -3,24 +3,20 @@ package com.github.isleofheidren.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-public class MainMenuScreen implements Screen{
+public class MainMenuScreen implements Screen {
 
     final Heidren game;
 
@@ -73,6 +69,11 @@ public class MainMenuScreen implements Screen{
         // what i'm trying to do here is block out table spaces
         Label title = new Label("this is the next screen", Heidren.skin.optional("default", Label.LabelStyle.class));
         Label space = new Label("", Heidren.skin.optional("default", Label.LabelStyle.class));
+
+
+        ButtonPanel panel = new ButtonPanel();
+        Table buttonPanel = panel.create("Button1", Heidren.skin, 4);
+        stage.addActor(buttonPanel);
 
         table1.add(button);
 
