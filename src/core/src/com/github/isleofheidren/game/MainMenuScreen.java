@@ -6,15 +6,16 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.ScreenUtils;
+
+import static com.badlogic.gdx.scenes.scene2d.ui.Table.Debug.table;
 
 public class MainMenuScreen implements Screen {
 
@@ -22,91 +23,84 @@ public class MainMenuScreen implements Screen {
 
     public Animation<TextureRegion> runningAnimation;
 
+    public SpriteBatch batch;
+
     OrthographicCamera camera;
     Texture bg;
 
     ShapeRenderer border;
 
     Stage stage;
-    Table table;
-    Table table1;
-    Button button;
+    Table roottable; // table that holds all the tables
+    Table buttonpanel; // also for testing since we'll be loading thing from another class
+    Button button; // test button
+
+    private ConsoleComponent console;
 
     public MainMenuScreen(final Heidren game) {
+
+        // all the inits
         this.game = game;
-
-
-        int help_guide = 10;
-        int row_height = Gdx.graphics.getHeight() /10;
-
-        border = new ShapeRenderer();
-
         stage = new Stage();
+        roottable = new Table();
+        buttonpanel = new Table();
+        console = new ConsoleComponent();
 
         Gdx.input.setInputProcessor(stage);
 
-        table = new Table();
-        table1 = new Table();
-        table.setFillParent(true);
+        // int help_guide = 10; // might not need these
+        // int row_height = Gdx.graphics.getHeight() /10;
 
-        bg = new Texture(Gdx.files.internal("sprites/bg.png"));
+        //border = new ShapeRenderer(); // add border to main screen, possibly garbage
 
-//        TextureAtlas atlas;
-//        atlas = new TextureAtlas(Gdx.files.internal("skin/skin.json"));
-//        FileHandle file = Gdx.files.internal("uiskin/uiskin.atlas");
-//        Skin skin = new Skin(file);
+        roottable.setFillParent(true); // everything should be added to this table
+        stage.addActor(roottable);
 
+        // bg = new Texture(Gdx.files.internal("sprites/bg.png")); //probably junk
 
-        //table.setSkin(skin);
-        button = new Button(Heidren.skin);
+        // table.setSkin(Heidren.skin); // don't remembre what this is for
 
-        stage.addActor(table);
+        button = new Button(Heidren.skin); // test button
+        button.add("whats poppin");
 
-        table.setDebug(true);
+        roottable.setDebug(true); // shows table parameters
 
+        // playing with simplified animation
         //runningAnimation = new Animation<TextureRegion>(0.125f, atlas.findRegions("monk"), Animation.PlayMode.LOOP);
 
-        // what i'm trying to do here is block out table spaces
+        // test labels for blocking
         Label title = new Label("this is the next screen", Heidren.skin.optional("default", Label.LabelStyle.class));
         Label space = new Label("", Heidren.skin.optional("default", Label.LabelStyle.class));
 
+        console.appendMessage("Hello, world!", MessageType.GAME_EVENT); // Game Event Ex.
+        console.appendMessage("This is NPC dialog.", MessageType.NPC_DIALOG); // NPC Event Ex.
 
-        ButtonPanel panel = new ButtonPanel();
-        Table buttonPanel = panel.create("Button1", Heidren.skin, 4);
-        stage.addActor(buttonPanel);
+        // test panel table
+        buttonpanel.add(button);
+        buttonpanel.row();
+        buttonpanel.add(button);
+        buttonpanel.row();
+        buttonpanel.add(button);
+        buttonpanel.row();
+        buttonpanel.add(button);
 
-        table1.add(button);
+        roottable.row().expand(); //r1
+        roottable.add(title); // r1 c1
 
-        table.row().expand(); //r1
-        table.add(title);// r1 c1
-        table.add(button); //r1 c2
-        table.add(space);//r1c3
+        roottable.row().expand(); //r2
+        roottable.add(space);// r2 c1
+        roottable.add(space); //r2 c2
+        roottable.add(space);//r1c3
 
-        table.row().expand();
-        table.add(space);// r2 c1
-        table.add(space); //r2c2
-        table.add(space);//r2c3
+        roottable.row();
+        roottable.add(space);// r2 c1
+        roottable.add(console).expand(); //r2c2
+        roottable.add(buttonpanel);//r2c3
 
-        table.row().expand();
-
-        table.row().expand();
-
-        table.row().expand();
-
-        table.row().expand();
-
-        table.row().expand();
-
-        table.row().expand();
-
-        table.row().expand();
-
-        table.row().expand();
-
-        table.row().expand();
-
-
-
+        roottable.row().expand();
+        roottable.add(space);// r3 c1
+        roottable.add(space); //r3c2
+        roottable.add(space);//r3c3
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false,1000,600);
@@ -122,13 +116,10 @@ public class MainMenuScreen implements Screen {
     public void render (float delta){
 
         ScreenUtils.clear(0,0,0,1);
-
-
-
         camera.update();
-        game.batch.begin();
 
-        game.batch.end();
+        // game.batch.begin(); // forget what these are for
+        // game.batch.end();
 
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.act(Gdx.graphics.getDeltaTime());
@@ -140,9 +131,7 @@ public class MainMenuScreen implements Screen {
     }
 
     @Override
-    public void resize(int width, int height) {
-    stage.getViewport().update(width, height, true);
-    }
+    public void resize(int width, int height) { stage.getViewport().update(width, height, true);}
 
     @Override
     public void pause() {
@@ -160,7 +149,5 @@ public class MainMenuScreen implements Screen {
     }
 
     @Override
-    public void dispose() {
-        stage.dispose();
-    }
+    public void dispose() { stage.dispose(); }
 }
