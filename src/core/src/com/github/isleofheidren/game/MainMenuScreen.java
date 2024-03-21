@@ -93,19 +93,6 @@ public class MainMenuScreen implements Screen {
 //        Table buttonPanel = panel.create("Button1", Heidren.skin, 4);
 //        stage.addActor(buttonPanel);
 
-        table1.add(button);
-
-        table.row().expand(); //r1
-        table.add(title);// r1 c1
-        table.add(button); //r1 c2
-        table.add(space);//r1c3
-
-        table.row().expand();
-        table.add(space);// r2 c1
-        table.add(space); //r2c2
-        table.add(space);//r2c3
-
-
         buttonpanel.row();
         textbutton = new TextButton("whats poppin", Heidren.skin); // test button 2
         textbutton.setName("button2"); // declare button name to easily change the button text later!!!
