@@ -6,11 +6,11 @@ Model for story events, anything that doesn't occur in combat and doesn't refer 
 public class StoryEvent extends Event {
     private int[] branches;
     private String[] branchesText;
+    private int number;
 
     public StoryEvent() {
         super();
     }
-
     /*
     Getters and setters
      */
@@ -29,4 +29,8 @@ public class StoryEvent extends Event {
     public void setBranches(int[] branches) {
         this.branches = branches;
     }
+
+    public int getNumber() { return number; }
+
+    public void setNumber() { this.number = number; }
 }

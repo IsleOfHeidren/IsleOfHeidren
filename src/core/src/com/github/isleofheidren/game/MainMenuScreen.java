@@ -65,9 +65,56 @@ public class MainMenuScreen implements Screen {
         Label space = new Label("", Heidren.skin.optional("default", Label.LabelStyle.class));
 
 
-        ButtonPanel panel = new ButtonPanel();
-        Table buttonPanel = panel.create("Button1", Heidren.skin, 4);
-        stage.addActor(buttonPanel);
+        /*Heidi's Addition
+        -
+        -
+        -
+        -
+        */
+        Event zero = new StoryEvent();
+        zero.setConsoleOutputText("You are stranded on an island after a shipwreck. You see beach to your left and " +
+                "right and forest behind you.");
+        int[] branchesZero = {1, 2};
+        zero.setBranches(branchesZero);
+        zero.setNumber(0);
+
+        Event one = new StoryEvent();
+        int[] branchesOne = {3};
+        one.setBranches(branchesOne);
+        one.setNumber(1);
+
+        Event two = new StoryEvent();
+        two.setDirections();
+        two.setNumber(2);
+
+        Event three = new StoryEvent();
+        three.setConsoleOutputText("You find RB's notebook. There is a map, compass, and news of a friendly village " +
+                "of Tanaroa with coordinates on the map. It tells of City of Gods with gold, but warns of monsters " +
+                "along the way");
+        int[] branchesThree = {2, 4, 5};
+        three.setbranches(branchesThree);
+        three.setNumber(3);
+
+        Event four = new StoryEvent();
+        int[] branchesFour = {6};
+        four.setBranches(branchesFour);
+        four.setNumber(4);
+
+        Event five = new StoryEvent();
+        five.setConsoleOutputText("Village");
+        int[] branchesFive = {7, 8};
+        five.setbranches(branchesFive);
+        five.setNumber(5);
+
+        
+
+        /*Heidi's Addition
+        -
+        -
+        -
+        -
+        -
+         */
 
         table1.add(button);
 
