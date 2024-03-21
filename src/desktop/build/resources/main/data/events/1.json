@@ -1,0 +1,6 @@
+{
+  "sequence": 1,
+  "branches": [2],
+  "buttonsText": ["branch 2"],
+  "consoleOutputText": "This text came from a json object!"
+}

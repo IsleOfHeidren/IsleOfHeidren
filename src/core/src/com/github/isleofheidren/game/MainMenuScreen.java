@@ -1,8 +1,8 @@
 package com.github.isleofheidren.game;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -11,11 +11,11 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.ScreenUtils;
-
-import static com.badlogic.gdx.scenes.scene2d.ui.Table.Debug.table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.ApplicationAdapter;
 
 public class MainMenuScreen implements Screen {
 
@@ -30,10 +30,11 @@ public class MainMenuScreen implements Screen {
 
     ShapeRenderer border;
 
-    Stage stage;
+    Stage rootstage;
+    Stage buttonStage;
     Table roottable; // table that holds all the tables
     Table buttonpanel; // also for testing since we'll be loading thing from another class
-    Button button; // test button
+    TextButton textbutton; // test button
 
     private ConsoleComponent console;
 
@@ -41,12 +42,16 @@ public class MainMenuScreen implements Screen {
 
         // all the inits
         this.game = game;
-        stage = new Stage();
+        rootstage = new Stage();
+        buttonStage = new Stage();
         roottable = new Table();
         buttonpanel = new Table();
         console = new ConsoleComponent();
 
-        Gdx.input.setInputProcessor(stage);
+        // Heidren.font.getData().setScale(0.5f); // font scale test (broken)
+
+
+        Gdx.input.setInputProcessor(rootstage);
 
         // int help_guide = 10; // might not need these
         // int row_height = Gdx.graphics.getHeight() /10;
@@ -54,14 +59,16 @@ public class MainMenuScreen implements Screen {
         //border = new ShapeRenderer(); // add border to main screen, possibly garbage
 
         roottable.setFillParent(true); // everything should be added to this table
-        stage.addActor(roottable);
+        roottable.pad(10);
+        rootstage.addActor(roottable);
+
+        buttonStage.addActor(buttonpanel); // may make lookup easier later
+
+        buttonpanel.setSize(100,200);
 
         // bg = new Texture(Gdx.files.internal("sprites/bg.png")); //probably junk
 
-        // table.setSkin(Heidren.skin); // don't remembre what this is for
-
-        button = new Button(Heidren.skin); // test button
-        button.add("whats poppin");
+        // table.setSkin(Heidren.skin); // don't remember what this is for
 
         roottable.setDebug(true); // shows table parameters
 
@@ -69,38 +76,54 @@ public class MainMenuScreen implements Screen {
         //runningAnimation = new Animation<TextureRegion>(0.125f, atlas.findRegions("monk"), Animation.PlayMode.LOOP);
 
         // test labels for blocking
-        Label title = new Label("this is the next screen", Heidren.skin.optional("default", Label.LabelStyle.class));
+        Label title = new Label("Isle of Heidren", Heidren.skin.optional("default", Label.LabelStyle.class));
         Label space = new Label("", Heidren.skin.optional("default", Label.LabelStyle.class));
 
         console.appendMessage("Hello, world!", MessageType.GAME_EVENT); // Game Event Ex.
         console.appendMessage("This is NPC dialog.", MessageType.NPC_DIALOG); // NPC Event Ex.
 
         // test panel table
-        buttonpanel.add(button);
-        buttonpanel.row();
-        buttonpanel.add(button);
-        buttonpanel.row();
-        buttonpanel.add(button);
-        buttonpanel.row();
-        buttonpanel.add(button);
+        // cannot reuse buttons, gotta make em fresh
+        textbutton = new TextButton("whats poppin", Heidren.skin); // test button 1
+        textbutton.setName("button1"); // declare button name to easily change the button text later
+        buttonpanel.add(textbutton).width(buttonpanel.getWidth()).fillY().space(5).uniform();
 
-        roottable.row().expand(); //r1
-        roottable.add(title); // r1 c1
+        buttonpanel.row();
+        textbutton = new TextButton("whats poppin", Heidren.skin); // test button 2
+        textbutton.setName("button2"); // declare button name to easily change the button text later!!!
+        textbutton.setColor(Color.WHITE);
+        buttonpanel.add(textbutton).fill().space(5).uniform();
 
-        roottable.row().expand(); //r2
-        roottable.add(space);// r2 c1
-        roottable.add(space); //r2 c2
-        roottable.add(space);//r1c3
+        buttonpanel.row();
+        textbutton = new TextButton("whats poppin", Heidren.skin);
+        textbutton.setName("button3"); // declare button name to easily change the button text later!!!
+        buttonpanel.add(textbutton).fill().space(5).uniform();
+
+        buttonpanel.row();
+        textbutton = new TextButton("whats poppin", Heidren.skin);
+        textbutton.setName("button4"); // declare button name to easily change the button text later!!!
+        textbutton.add(space);
+        buttonpanel.add(textbutton).fill().space(5).uniform(); // test blank button
+
+        textbutton = buttonStage.getRoot().findActor("button1");
+        textbutton.setText("what happens if its rally really long");
+
+
+        roottable.row(); //r1 - title
+        roottable.add(title).expand(); // r2 c1
+
+        roottable.row(); //r2 - image window + stats panel
+        roottable.add(space).grow().space(10);// r2 c1 image
+        roottable.add(space); //r2 c2 stats
+
+        roottable.row(); // r3 - sprites (potentially 4 cols??)
+        roottable.add(space);// r3 c1
+        roottable.add(space); //r3 c2
+        roottable.add(space);//r3 c3
 
         roottable.row();
-        roottable.add(space);// r2 c1
-        roottable.add(console).expand(); //r2c2
-        roottable.add(buttonpanel);//r2c3
-
-        roottable.row().expand();
-        roottable.add(space);// r3 c1
-        roottable.add(space); //r3c2
-        roottable.add(space);//r3c3
+        roottable.add(console).grow().space(10); //r2c2
+        roottable.add(buttonpanel).right().top().space(10);//r2c3
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false,1000,600);
@@ -122,8 +145,8 @@ public class MainMenuScreen implements Screen {
         // game.batch.end();
 
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        stage.act(Gdx.graphics.getDeltaTime());
-        stage.draw();
+        rootstage.act(Gdx.graphics.getDeltaTime());
+        rootstage.draw();
 
         /*if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){
             dispose();
@@ -131,7 +154,7 @@ public class MainMenuScreen implements Screen {
     }
 
     @Override
-    public void resize(int width, int height) { stage.getViewport().update(width, height, true);}
+    public void resize(int width, int height) { rootstage.getViewport().update(width, height, true);}
 
     @Override
     public void pause() {
@@ -149,5 +172,5 @@ public class MainMenuScreen implements Screen {
     }
 
     @Override
-    public void dispose() { stage.dispose(); }
+    public void dispose() { rootstage.dispose(); }
 }
