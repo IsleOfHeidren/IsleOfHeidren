@@ -1,4 +1,4 @@
-package com.github.isleofheidren.game;
+package com.github.isleofheidren.game.models;
 
 import java.util.Random;
 
