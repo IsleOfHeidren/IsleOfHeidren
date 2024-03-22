@@ -1,21 +1,13 @@
 package com.github.isleofheidren.game.models;
 
-public class PlayerCharacter {
-    private String name;
+import java.util.ArrayList;
+import java.util.List;
+
+public class PlayerCharacter extends Character {
     private Feature[] features;
-    private int armorClass;
-    private int health;
 
     public PlayerCharacter() {
-
-    }
-
-    public int getArmorClass() {
-        return armorClass;
-    }
-
-    public void setArmorClass(int armorClass) {
-        this.armorClass = armorClass;
+        super();
     }
 
     public Feature[] getFeatures() {
@@ -26,19 +18,12 @@ public class PlayerCharacter {
         this.features = features;
     }
 
-    public String getName() {
-        return name;
-    }
+    public List<Action> getAllActionsForPlayer() {
+        ArrayList<Action> list = new ArrayList<>();
+        for (int i = 0; i < features.length; i++) {
+            list.add(new Action(this, features[i]));
+        }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getHealth() {
-        return health;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
+        return list;
     }
 }

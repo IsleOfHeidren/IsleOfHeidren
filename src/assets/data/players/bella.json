@@ -5,5 +5,6 @@
     "damage": 10,
     "name": "hit"
   }],
-  "armorClass": 17
+  "armorClass": 17,
+  "hitPoints": 20
 }

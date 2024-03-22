@@ -18,13 +18,8 @@ public class Monster extends Character {
         return attacks[index];
     }
 
-    public int attack() {
-        // Roll a 20-sided dice and add attack bonus
-        return rollDice(20) + attackBonus;
-    }
-
-    public int calculateDamage() {
-        String chosenAttack = getRandomAttack();
+    public int calculateDamage(String attack) {
+        String chosenAttack = attack;
         int damage = 0;
         switch (chosenAttack) {
             case "Bite":
