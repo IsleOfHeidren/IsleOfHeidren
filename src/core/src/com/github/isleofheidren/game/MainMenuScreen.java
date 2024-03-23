@@ -16,6 +16,11 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.ApplicationAdapter;
+import com.github.isleofheidren.game.models.PlayerCharacter;
+import com.github.isleofheidren.game.repos.PlayerCharacterRepo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainMenuScreen implements Screen {
 
@@ -36,6 +41,8 @@ public class MainMenuScreen implements Screen {
     Table buttonpanel; // also for testing since we'll be loading thing from another class
     TextButton textbutton; // test button
 
+    List<PlayerCharacter> players;
+
     private ConsoleComponent console;
 
     public MainMenuScreen(final Heidren game) {
@@ -50,6 +57,7 @@ public class MainMenuScreen implements Screen {
 
         // Heidren.font.getData().setScale(0.5f); // font scale test (broken)
 
+        loadPlayers();
 
         Gdx.input.setInputProcessor(rootstage);
 
@@ -132,7 +140,6 @@ public class MainMenuScreen implements Screen {
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false,1000,600);
-
     }
 
     @Override
@@ -156,6 +163,8 @@ public class MainMenuScreen implements Screen {
         /*if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){
             dispose();
         }*/
+
+        //GAME LOOP GOES HERE
     }
 
     @Override
@@ -178,4 +187,14 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void dispose() { rootstage.dispose(); }
+
+    /*
+    Loads all the characters from the character folder into memory
+     */
+    private void loadPlayers() {
+        PlayerCharacterRepo repo = new PlayerCharacterRepo();
+        players = new ArrayList<PlayerCharacter>();
+
+        players.add(repo.get("bella"));
+    }
 }

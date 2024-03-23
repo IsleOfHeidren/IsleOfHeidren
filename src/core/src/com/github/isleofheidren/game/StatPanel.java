@@ -28,7 +28,7 @@ public class StatPanel extends Table {
 
 
         add(new Label("HP:", Heidren.skin)).left();
-        String hp = Integer.toString(playerCharacter.getHealth());
+        String hp = Integer.toString(playerCharacter.getHitPoints());
         add(new Label(hp, Heidren.skin)).left();
         row();
     }

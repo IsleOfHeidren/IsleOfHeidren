@@ -1,0 +1,8 @@
+{
+  "name": "Hydra",
+  "hitPoints": 50,
+  "armorClass":  15,
+  "attackBonus":  0,
+  "attacks": ["Bite", "Fire Breath", "Multi-attack"],
+  "numHeads": 3
+}
