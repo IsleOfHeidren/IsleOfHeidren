@@ -13,7 +13,7 @@ public class Combat {
         Player monk = new Player("Monk Elf", 40, 17, 0, "Staff");
         Player barbarian = new Player("Barbarian Human", 30, 17, 0, "Two-Sided Axe");
 
-        Monster hydra = new Monster("Hydra", 50, 15, 0, new String[] { "Bite", "Fire Breath", "Multi-attack" }, 3);
+        Monster hydra = new com.github.isleofheidren.game.Monster("Hydra", 50, 15, 0, new String[] { "Bite", "Fire Breath", "Multi-attack" }, 3);
         Monster crocodile = new Monster("Crocodile", 40, 16, 0, new String[] { "Bite", "Tail Whip", "Stomp" }, 1);
         Monster carnivorousApe = new Monster("Carnivorous Ape", 40, 14, 0,
                 new String[] { "Fist", "Rock Throw", "Feral Bite" }, 1);

@@ -4,31 +4,13 @@ package com.github.isleofheidren.game.models;
 Model for combat event, includes all properties necessary for combat to happen
  */
 public class CombatEvent extends Event{
-    private PlayerCharacter currentCharacter;
-    private PlayerCharacter[] otherCharacters;
-    private Monster[] monsters;
+    private String[] monsters;
 
-    public PlayerCharacter getCurrentCharacter() {
-        return currentCharacter;
-    }
-
-    public void setCurrentCharacter(PlayerCharacter currentCharacter) {
-        this.currentCharacter = currentCharacter;
-    }
-
-    public PlayerCharacter[] getOtherCharacters() {
-        return otherCharacters;
-    }
-
-    public void setOtherCharacters(PlayerCharacter[] otherCharacters) {
-        this.otherCharacters = otherCharacters;
-    }
-
-    public Monster[] getMonsters() {
+    public String[] getMonsters() {
         return monsters;
     }
 
-    public void setMonsters(Monster[] monsters) {
+    public void setMonsters(String[] monsters) {
         this.monsters = monsters;
     }
 }
