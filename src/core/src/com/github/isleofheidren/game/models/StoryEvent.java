@@ -1,5 +1,5 @@
 package com.github.isleofheidren.game.models;
-
+// "button handler (4)" determines game state
 /*
 Model for story events, anything that doesn't occur in combat and doesn't refer to the map
  */

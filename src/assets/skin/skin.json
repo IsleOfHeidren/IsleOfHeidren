@@ -23,6 +23,12 @@
       "b": 0,
       "a": 1
     },
+    "dark-gray": {
+      "r": 0.25,
+      "g": 0.25,
+      "b": 0.25,
+      "a": 1
+    },
     "up": {
       "r": 0.6,
       "g": 0.6,
@@ -36,9 +42,9 @@
       "a": 1
     },
     "down": {
-      "r": 0,
-      "g": 0.3,
-      "b": 0.5,
+      "r": 0.15,
+      "g": 0.15,
+      "b": 0.15,
       "a": 1
     },
     "checked": {
@@ -60,9 +66,9 @@
       "a": 1
     },
     "background": {
-      "r": 0.8,
-      "g": 0.8,
-      "b": 0.8,
+      "r": 0.15,
+      "g": 0.15,
+      "b": 0.15,
       "a": 1
     },
     "selection": {
@@ -77,8 +83,8 @@
       "b": 0,
       "a": 0.6
     },
-    "font": "down",
-    "fontOver": "down",
+    "font": "white",
+    "fontOver": "white",
     "fontDown": "gray",
     "fontChecked": "checkedOver",
     "fontCheckedOver": "checked",
@@ -87,7 +93,7 @@
   "com.badlogic.gdx.scenes.scene2d.ui.Skin$TintedDrawable": {
     "buttonUp": {
       "name": "base",
-      "color": "up"
+      "color": "dark-gray"
     },
     "buttonOver": {
       "name": "base",
@@ -283,7 +289,7 @@
     },
     "textField": {
       "name": "field",
-      "color": "up"
+      "color": "background"
     },
     "textFieldDown": {
       "name": "field",

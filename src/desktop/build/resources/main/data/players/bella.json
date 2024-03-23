@@ -1,9 +1,24 @@
 {
   "name": "Bella",
-  "features": [{
+  "features": [
+    {
     "isCombat": true,
-    "damage": 10,
-    "name": "hit"
-  }],
-  "armorClass": 17
+    "damage": 15,
+    "name": "Flurry of Blows"
+    },
+    {
+      "isCombat": false,
+      "damage": 0,
+      "name": "Step of the Wind"
+    },
+    {
+      "isCombat": true,
+      "damage": 0,
+      "name": "Patient Defense"
+    }
+    ],
+  "armorClass": 17,
+  "hitPoints": 40,
+  "attackBonus": 4,
+  "weapon": "Staff"
 }

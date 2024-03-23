@@ -1,157 +1,117 @@
 package com.github.isleofheidren.game;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+
+import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.ApplicationAdapter;
+import com.github.isleofheidren.game.models.PlayerCharacter;
+import com.github.isleofheidren.game.repos.PlayerCharacterRepo;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainMenuScreen implements Screen {
 
     final Heidren game;
 
-    OrthographicCamera camera;
-    Texture bg;
+    public Animation<TextureRegion> runningAnimation;
 
+    public SpriteBatch batch;
+
+    OrthographicCamera camera;
+
+    Texture bg;
     ShapeRenderer border;
 
-    Stage stage;
-    Table table;
-    Table table1;
-    Button button;
+    Stage rootstage;
+    Table roottable; // table that holds all the tables
+    Table buttonPanelTable;
+    TextButton textbutton; // test button
+    ButtonPanel buttonPanelObject;
+
+    List<PlayerCharacter> players;
+
+    private ConsoleComponent console;
 
     public MainMenuScreen(final Heidren game) {
+
+        // all the inits
         this.game = game;
+        rootstage = new Stage();
+        roottable = new Table();
+        buttonPanelTable = new Table();
+        console = new ConsoleComponent();
+        buttonPanelObject = new ButtonPanel();
+
+        // Heidren.font.getData().setScale(0.5f); // font scale test (broken)
+
+        loadPlayers();
+
+        Gdx.input.setInputProcessor(rootstage);
+
+        // int help_guide = 10; // might not need these
+        // int row_height = Gdx.graphics.getHeight() /10;
+
+        //border = new ShapeRenderer(); // add border to main screen, possibly garbage
+
+        roottable.setFillParent(true); // everything should be added to this table
+        roottable.pad(10);
+        rootstage.addActor(roottable);
 
 
-        int help_guide = 10;
-        int row_height = Gdx.graphics.getHeight() /10;
 
-        border = new ShapeRenderer();
+        // bg = new Texture(Gdx.files.internal("sprites/bg.png")); //probably junk
+        // table.setSkin(Heidren.skin); // don't remember what this is for
 
-        stage = new Stage();
+        roottable.setDebug(true); // shows table parameters
 
-        Gdx.input.setInputProcessor(stage);
+        // playing with simplified animation (broken)
+        //runningAnimation = new Animation<TextureRegion>(0.125f, atlas.findRegions("monk"), Animation.PlayMode.LOOP);
 
-        table = new Table();
-        table1 = new Table();
-        table.setFillParent(true);
-
-        bg = new Texture(Gdx.files.internal("sprites/bg.png"));
-
-//        TextureAtlas atlas;
-//        atlas = new TextureAtlas(Gdx.files.internal("skin/skin.json"));
-//        FileHandle file = Gdx.files.internal("uiskin/uiskin.atlas");
-//        Skin skin = new Skin(file);
-
-
-        //table.setSkin(skin);
-        button = new Button(Heidren.skin);
-
-        stage.addActor(table);
-
-        table.setDebug(true);
-
-
-        // what i'm trying to do here is block out table spaces
-        Label title = new Label("this is the next screen", Heidren.skin.optional("default", Label.LabelStyle.class));
+        // test labels for blocking
+        Label title = new Label("Isle of Heidren", Heidren.skin.optional("default", Label.LabelStyle.class));
         Label space = new Label("", Heidren.skin.optional("default", Label.LabelStyle.class));
 
+        // console add text
+        console.appendMessage("Hello, world! what happens if the text goes on for so goddamn long it has to wrap. does it wrap?? what next!!!?!", MessageType.GAME_EVENT); // Game Event Ex.
+        console.appendMessage("This is NPC dialog.", MessageType.NPC_DIALOG); // NPC Event Ex.
 
-        /*Heidi's Addition
-        -
-        -
-        -
-        -
-        */
-        Event zero = new StoryEvent();
-        zero.setConsoleOutputText("You are stranded on an island after a shipwreck. You see beach to your left and " +
-                "right and forest behind you.");
-        int[] branchesZero = {1, 2};
-        zero.setBranches(branchesZero);
-        zero.setNumber(0);
+        // buttonpanel
+        buttonPanelTable = buttonPanelObject.createStoryPanel();
 
-        Event one = new StoryEvent();
-        int[] branchesOne = {3};
-        one.setBranches(branchesOne);
-        one.setNumber(1);
+        // root table construction
+        roottable.row(); //r1 - title
+        roottable.add(title); // r2 c1
 
-        Event two = new StoryEvent();
-        two.setDirections();
-        two.setNumber(2);
+        //TODO: figure out images + add stats panel
+        roottable.row(); //r2 - image window + stats panel
+        roottable.add(space).grow().space(10);// r2 c1 image
+        roottable.add(space); //r2 c2 stats
 
-        Event three = new StoryEvent();
-        three.setConsoleOutputText("You find RB's notebook. There is a map, compass, and news of a friendly village " +
-                "of Tanaroa with coordinates on the map. It tells of City of Gods with gold, but warns of monsters " +
-                "along the way");
-        int[] branchesThree = {2, 4, 5};
-        three.setbranches(branchesThree);
-        three.setNumber(3);
+        // TODO: sprite add + animation
+        roottable.row(); // r3 - sprites (potentially 4 cols??)
+        roottable.add(space);// r3 c1
+        roottable.add(space); //r3 c2
+        roottable.add(space);//r3 c3
 
-        Event four = new StoryEvent();
-        int[] branchesFour = {6};
-        four.setBranches(branchesFour);
-        four.setNumber(4);
-
-        Event five = new StoryEvent();
-        five.setConsoleOutputText("Village");
-        int[] branchesFive = {7, 8};
-        five.setbranches(branchesFive);
-        five.setNumber(5);
-
-        
-
-        /*Heidi's Addition
-        -
-        -
-        -
-        -
-        -
-         */
-
-        table1.add(button);
-
-        table.row().expand(); //r1
-        table.add(title);// r1 c1
-        table.add(button); //r1 c2
-        table.add(space);//r1c3
-
-        table.row().expand();
-        table.add(space);// r2 c1
-        table.add(space); //r2c2
-        table.add(space);//r2c3
-
-        table.row().expand();
-
-        table.row().expand();
-
-        table.row().expand();
-
-        table.row().expand();
-
-        table.row().expand();
-
-        table.row().expand();
-
-        table.row().expand();
-
-        table.row().expand();
-
-        table.row().expand();
-
-
-
+        roottable.row(); // r4 - console + button panel
+        roottable.add(console).grow().space(10); //r2c2
+        roottable.add(buttonPanelTable).right().top().space(10);//r2c3
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false,1000,600);
-
     }
 
     @Override
@@ -163,27 +123,26 @@ public class MainMenuScreen implements Screen {
     public void render (float delta){
 
         ScreenUtils.clear(0,0,0,1);
-
-
-
         camera.update();
-        game.batch.begin();
 
-        game.batch.end();
+        //
+
+        // game.batch.begin(); // forget what these are for
+        // game.batch.end();
 
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        stage.act(Gdx.graphics.getDeltaTime());
-        stage.draw();
+        rootstage.act(Gdx.graphics.getDeltaTime());
+        rootstage.draw();
 
         /*if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){
             dispose();
         }*/
+
+        //GAME LOOP GOES HERE
     }
 
     @Override
-    public void resize(int width, int height) {
-    stage.getViewport().update(width, height, true);
-    }
+    public void resize(int width, int height) { rootstage.getViewport().update(width, height, true);}
 
     @Override
     public void pause() {
@@ -201,7 +160,15 @@ public class MainMenuScreen implements Screen {
     }
 
     @Override
-    public void dispose() {
-        stage.dispose();
+    public void dispose() { rootstage.dispose(); }
+
+    /*
+    Loads all the characters from the character folder into memory
+     */
+    private void loadPlayers() {
+        PlayerCharacterRepo repo = new PlayerCharacterRepo();
+        players = new ArrayList<PlayerCharacter>();
+
+        players.add(repo.get("bella"));
     }
 }
