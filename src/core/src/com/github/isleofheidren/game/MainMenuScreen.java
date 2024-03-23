@@ -2,18 +2,17 @@ package com.github.isleofheidren.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.github.isleofheidren.game.models.PlayerCharacter;
@@ -21,6 +20,7 @@ import com.github.isleofheidren.game.repos.PlayerCharacterRepo;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class MainMenuScreen implements Screen {
 
@@ -31,15 +31,15 @@ public class MainMenuScreen implements Screen {
     public SpriteBatch batch;
 
     OrthographicCamera camera;
-    Texture bg;
 
+    Texture bg;
     ShapeRenderer border;
 
     Stage rootstage;
-    Stage buttonStage;
     Table roottable; // table that holds all the tables
-    Table buttonpanel; // also for testing since we'll be loading thing from another class
+    Table buttonPanelTable;
     TextButton textbutton; // test button
+    ButtonPanel buttonPanelObject;
 
     List<PlayerCharacter> players;
 
@@ -50,10 +50,10 @@ public class MainMenuScreen implements Screen {
         // all the inits
         this.game = game;
         rootstage = new Stage();
-        buttonStage = new Stage();
         roottable = new Table();
-        buttonpanel = new Table();
+        buttonPanelTable = new Table();
         console = new ConsoleComponent();
+        buttonPanelObject = new ButtonPanel();
 
         // Heidren.font.getData().setScale(0.5f); // font scale test (broken)
 
@@ -70,73 +70,45 @@ public class MainMenuScreen implements Screen {
         roottable.pad(10);
         rootstage.addActor(roottable);
 
-        buttonStage.addActor(buttonpanel); // may make lookup easier later
 
-        buttonpanel.setSize(100,200);
 
         // bg = new Texture(Gdx.files.internal("sprites/bg.png")); //probably junk
-
         // table.setSkin(Heidren.skin); // don't remember what this is for
 
         roottable.setDebug(true); // shows table parameters
 
-        // playing with simplified animation
+        // playing with simplified animation (broken)
         //runningAnimation = new Animation<TextureRegion>(0.125f, atlas.findRegions("monk"), Animation.PlayMode.LOOP);
 
         // test labels for blocking
         Label title = new Label("Isle of Heidren", Heidren.skin.optional("default", Label.LabelStyle.class));
         Label space = new Label("", Heidren.skin.optional("default", Label.LabelStyle.class));
 
-        console.appendMessage("Hello, world!", MessageType.GAME_EVENT); // Game Event Ex.
+        // console add text
+        console.appendMessage("Hello, world! what happens if the text goes on for so goddamn long it has to wrap. does it wrap?? what next!!!?!", MessageType.GAME_EVENT); // Game Event Ex.
         console.appendMessage("This is NPC dialog.", MessageType.NPC_DIALOG); // NPC Event Ex.
 
+        // buttonpanel
+        buttonPanelTable = buttonPanelObject.createStoryPanel();
 
-        // test panel table
-        // cannot reuse buttons, gotta make em fresh
-        textbutton = new TextButton("whats poppin", Heidren.skin); // test button 1
-        textbutton.setName("button1"); // declare button name to easily change the button text later
-        buttonpanel.add(textbutton).width(buttonpanel.getWidth()).fillY().space(5).uniform();
-
-//        ButtonPanel panel = new ButtonPanel();
-//        Table buttonPanel = panel.create("Button1", Heidren.skin, 4);
-//        stage.addActor(buttonPanel);
-
-        buttonpanel.row();
-        textbutton = new TextButton("whats poppin", Heidren.skin); // test button 2
-        textbutton.setName("button2"); // declare button name to easily change the button text later!!!
-        textbutton.setColor(Color.WHITE);
-        buttonpanel.add(textbutton).fill().space(5).uniform();
-
-        buttonpanel.row();
-        textbutton = new TextButton("whats poppin", Heidren.skin);
-        textbutton.setName("button3"); // declare button name to easily change the button text later!!!
-        buttonpanel.add(textbutton).fill().space(5).uniform();
-
-        buttonpanel.row();
-        textbutton = new TextButton("whats poppin", Heidren.skin);
-        textbutton.setName("button4"); // declare button name to easily change the button text later!!!
-        textbutton.add(space);
-        buttonpanel.add(textbutton).fill().space(5).uniform(); // test blank button
-
-        textbutton = buttonStage.getRoot().findActor("button1");
-        textbutton.setText("what happens if its rally really long");
-
-
+        // root table construction
         roottable.row(); //r1 - title
-        roottable.add(title).expand(); // r2 c1
+        roottable.add(title); // r2 c1
 
+        //TODO: figure out images + add stats panel
         roottable.row(); //r2 - image window + stats panel
         roottable.add(space).grow().space(10);// r2 c1 image
         roottable.add(space); //r2 c2 stats
 
+        // TODO: sprite add + animation
         roottable.row(); // r3 - sprites (potentially 4 cols??)
         roottable.add(space);// r3 c1
         roottable.add(space); //r3 c2
         roottable.add(space);//r3 c3
 
-        roottable.row();
+        roottable.row(); // r4 - console + button panel
         roottable.add(console).grow().space(10); //r2c2
-        roottable.add(buttonpanel).right().top().space(10);//r2c3
+        roottable.add(buttonPanelTable).right().top().space(10);//r2c3
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false,1000,600);
@@ -152,6 +124,8 @@ public class MainMenuScreen implements Screen {
 
         ScreenUtils.clear(0,0,0,1);
         camera.update();
+
+        //
 
         // game.batch.begin(); // forget what these are for
         // game.batch.end();
