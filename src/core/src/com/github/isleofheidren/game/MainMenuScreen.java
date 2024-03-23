@@ -114,6 +114,8 @@ public class MainMenuScreen implements Screen {
         ScreenUtils.clear(0,0,0,1);
         camera.update();
 
+        //
+
         // game.batch.begin(); // forget what these are for
         // game.batch.end();
 
