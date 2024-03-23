@@ -18,10 +18,21 @@ public class PlayerCharacter extends Character {
         this.features = features;
     }
 
-    public List<Action> getAllActionsForPlayer() {
+    public List<Action> getAllActions() {
         ArrayList<Action> list = new ArrayList<>();
         for (int i = 0; i < features.length; i++) {
             list.add(new Action(this, features[i]));
+        }
+
+        return list;
+    }
+
+    public List<Action> getAllCombatActions() {
+        ArrayList<Action> list = new ArrayList<>();
+        for (int i = 0; i < features.length; i++) {
+            if (features[i].isCombat()) {
+                list.add(new Action(this, features[i]));
+            }
         }
 
         return list;

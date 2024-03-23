@@ -11,6 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class CombatController {
     private final Button[] buttons;
     private final ConsoleComponent console;
+    private final StatPanel panel;
     private int turn = 0;
     private boolean inCombat = false;
     List<Monster> monsters;
@@ -19,10 +20,11 @@ public class CombatController {
     private boolean lastCombatVictory = false;
     private PlayerCharacter currentPlayer;
 
-    CombatController(Button[] buttons, ConsoleComponent console) {
+    CombatController(Button[] buttons, ConsoleComponent console, StatPanel panel) {
 
         this.buttons = buttons;
         this.console = console;
+        this.panel = panel;
     }
 
     public void StartCombat(CombatEvent event, PlayerCharacter[] players) {
@@ -168,6 +170,9 @@ public class CombatController {
 
             incrementTurn();
         }
+
+        //update the stat panel
+        panel.addCharacterToPanel(getCurrentPlayer());
     }
 
     private void incrementTurn() {
