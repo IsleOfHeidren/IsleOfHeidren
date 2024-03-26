@@ -1,7 +1,7 @@
 {
   "sequence": 9,
-  "branches": [12, 13],
-  "buttonsText": ["Help the boy steal the bread?", "Tattle Tale on the boy?"],
+  "branches": [13, 14, 15],
+  "buttonsText": ["Ask about RB?", "Ask about City of Gods?", "Ask about monsters?"],
   "consoleOutputText": " ",
-  "isMapTrue": false
+  "location": [6][9]
 }

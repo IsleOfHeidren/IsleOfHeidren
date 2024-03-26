@@ -1,7 +1,7 @@
 {
-  "sequence": ,
-  "branches": [],
-  "buttonsText": [],
-  "consoleOutputText": ,
-  "isMapTrue":
+  "sequence": 10,
+  "branches": [16, 17],
+  "buttonsText": ["Pick pocket", "Coerce to ally to attack"],
+  "consoleOutputText": " ",
+
 }

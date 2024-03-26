@@ -1,0 +1,7 @@
+{
+  "sequence": 11,
+  "branches": [13, 14, 15],
+  "buttonsText": ["Ask about RB?", "Ask about City of Gods?", "Ask about monsters?"],
+  "consoleOutputText": "Because you helped him steal, he will answer your questions",
+  "location": [6][9]
+}

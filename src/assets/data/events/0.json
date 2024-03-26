@@ -3,5 +3,5 @@
   "branches": [1, 2],
   "buttonsText": ["Forage Island", "Go to forest"],
   "consoleOutputText": "You are stranded on an island after a shipwreck. You see beach to your left and right and forest behind you.",
-  "isMapTrue": true
+  "location": [6][9]
 }

@@ -1,7 +1,7 @@
 {
   "sequence": 6,
-  "branches": [10, 11],
+  "branches": [9, 10],
   "buttonsText": ["Ask villager questions", "Rob villager"],
   "consoleOutputText": " ",
-  "isMapTrue": false
+
 }
