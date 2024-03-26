@@ -1,0 +1,7 @@
+{
+  "sequence": 5,
+  "branches": [6, 7, 8, 9],
+  "buttonsText": ["Talk to Villager 1", "Talk to Villager 2", "Talk to Villager 3", "Talk to Villager 4"],
+  "consoleOutputText": "You enter Tanaroa where villagers are bustling about. You see four villagers in your line of sight. Villager 1: gray hair, eye patch, tall-as big as barbarian-a sneer on his face. Villager 2: Thin woman with a baby, looks to be in her twenties. Brown hair in low bun with strands hanging out. Dirty dress that looked like it once had color. Looks scared. Villager 3: Woman with dark skin and smooth dark hair. Pirate-y garb. Beautiful, buff. Looks to be in charge. Villager 4: Little boy, about 10 years old, dirty clothes, who is trying to get away with stolen bread.",
+  "isMapTrue": false
+}

@@ -1,0 +1,7 @@
+{
+  "sequence": 9,
+  "branches": [12, 13],
+  "buttonsText": ["Help the boy steal the bread?", "Tattle Tale on the boy?"],
+  "consoleOutputText": " ",
+  "isMapTrue": false
+}

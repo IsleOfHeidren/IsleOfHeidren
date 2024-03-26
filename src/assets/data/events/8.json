@@ -1,0 +1,7 @@
+{
+  "sequence": 8,
+  "branches": [10, 11],
+  "buttonsText": ["Ask Villager", "Rob Villager"],
+  "consoleOutputText": " ",
+  "isMapTrue": false
+}

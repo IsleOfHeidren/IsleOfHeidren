@@ -1,0 +1,7 @@
+{
+  "sequence": 3,
+  "branches": [2, 4, 5],
+  "buttonsText": ["Find City of Gods", "Find Village"],
+  "consoleOutputText": " ",
+  "isMapTrue": false
+}

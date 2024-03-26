@@ -1,6 +1,7 @@
 {
   "sequence": 1,
-  "branches": [2],
-  "buttonsText": ["branch 2"],
-  "consoleOutputText": "This text came from a json object!"
+  "branches": [3],
+  "buttonsText": " ",
+  "consoleOutputText": "Find RB's notebook, map, compass, and telling sof the friendly village of Tanaroa. The City of Gods with gold, but warns of monsters",
+  "isMapTrue": false
 }
