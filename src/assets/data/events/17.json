@@ -1,0 +1,8 @@
+{
+  "sequence": 17,
+  "branches": [2, 3],
+  "buttonsText": ["Find city of gods?", "Go into forest?"],
+  "consoleOutputText": " ",
+  "location": [6][9]
+
+}

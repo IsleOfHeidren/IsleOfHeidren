@@ -1,7 +1,7 @@
 {
   "sequence": 11,
-  "branches": [13, 14, 15],
-  "buttonsText": ["Ask about RB?", "Ask about City of Gods?", "Ask about monsters?"],
-  "consoleOutputText": "Because you helped him steal, he will answer your questions",
+  "branches": [16, 17],
+  "buttonsText": ["Ask other villagers?", "Leave"],
+  "consoleOutputText": "*you ask about RB* \n Loralei: No, I'm sorry, I've never heard of him. *you ask about City of Gods* \n Loralei: Everyone's heard of the City of Gods. It's just a myth though. Lord knows we're neither lucky nor strong enough to venture out there even if we tried. \n *you ask about monsters* \n Loralei: Be careful of the monsters out there. Anyone who's ventured further than a few miles outside this village was killed. \n *You can approach another villager but the entire village appears wary and scared of your arrival.*",
   "location": [6][9]
 }
