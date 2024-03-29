@@ -7,16 +7,24 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.scenes.scene2d.EventListener;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.ApplicationAdapter;
+import com.github.isleofheidren.game.models.CombatEvent;
+import com.github.isleofheidren.game.models.Event;
 import com.github.isleofheidren.game.models.PlayerCharacter;
+import com.github.isleofheidren.game.models.StoryEvent;
 import com.github.isleofheidren.game.repos.PlayerCharacterRepo;
+import com.github.isleofheidren.game.repos.StoryEventRepo;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +52,9 @@ public class MainMenuScreen implements Screen {
     List<PlayerCharacter> players;
 
     private ConsoleComponent console;
+    private Map map;
+    private int currentSeq;
+    private Event currentEvent;
 
     public MainMenuScreen(final Heidren game) {
 
@@ -55,9 +66,23 @@ public class MainMenuScreen implements Screen {
         console = new ConsoleComponent();
         buttonPanelObject = new ButtonPanel();
 
+        //Here we are going to do all the necessary setup to start the game
+        StoryEventRepo repo = new StoryEventRepo();
+        currentEvent = repo.get("1");
+
+        buttonPanelTable = buttonPanelObject.createStoryPanel(currentEvent);
+
+        buttonPanelObject.addListeners(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                buttonHandler(event);
+            }
+        });
+
         // Heidren.font.getData().setScale(0.5f); // font scale test (broken)
 
-        loadPlayers();
+
 
         Gdx.input.setInputProcessor(rootstage);
 
@@ -85,19 +110,18 @@ public class MainMenuScreen implements Screen {
         Label space = new Label("", Heidren.skin.optional("default", Label.LabelStyle.class));
 
         // console add text
-        console.appendMessage("Hello, world! what happens if the text goes on for so goddamn long it has to wrap. does it wrap?? what next!!!?!", MessageType.GAME_EVENT); // Game Event Ex.
-        console.appendMessage("This is NPC dialog.", MessageType.NPC_DIALOG); // NPC Event Ex.
-
-        // buttonpanel
-        buttonPanelTable = buttonPanelObject.createStoryPanel();
+//        console.appendMessage("Hello, world! what happens if the text goes on for so goddamn long it has to wrap. does it wrap?? what next!!!?!", MessageType.GAME_EVENT); // Game Event Ex.
+//        console.appendMessage("This is NPC dialog.", MessageType.NPC_DIALOG); // NPC Event Ex.
 
         // root table construction
         roottable.row(); //r1 - title
         roottable.add(title); // r2 c1
 
+        map = new Map();
+
         //TODO: figure out images + add stats panel
         roottable.row(); //r2 - image window + stats panel
-        roottable.add(space).grow().space(10);// r2 c1 image
+        roottable.add(map).grow().space(10);// r2 c1 image
         roottable.add(space); //r2 c2 stats
 
         // TODO: sprite add + animation
@@ -112,6 +136,60 @@ public class MainMenuScreen implements Screen {
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false,1000,600);
+
+
+    }
+
+    private void buttonHandler(com.badlogic.gdx.scenes.scene2d.Event event) {
+        TextButton tb = (TextButton) event.getListenerActor();
+        String[] texts = currentEvent.getButtonsText();
+
+        int index = Integer.parseInt(String.valueOf(tb.getName().toCharArray()[tb.getName().toCharArray().length - 1]));
+
+        if (currentEvent instanceof StoryEvent) {
+            if (((StoryEvent) currentEvent).getBranches().length == 0) {
+                advanceMap(index);
+            }
+            else {
+                advanceStory(index);
+            }
+        } else if (currentEvent instanceof CombatEvent) {
+            advanceCombat();
+        }
+//        for (int i = 0; i < texts.length; i++) {
+//            if (texts[i].equals(tb.getLabel().getText().toString())) {
+        // If object type is story event
+
+
+        // If object type is combat event
+
+        // If object type is map
+
+
+
+//                break;
+//            }
+
+    }
+
+    private void advanceStory(int index) {
+        int branch = ((StoryEvent) currentEvent).getBranches()[index];
+        StoryEventRepo repo = new StoryEventRepo();
+        currentEvent = repo.get(Integer.toString(branch));
+
+        console.appendMessage(currentEvent.getConsoleOutputText(), MessageType.STORY_TEXT);
+        buttonPanelTable.clear();
+        buttonPanelTable.add(buttonPanelObject.createStoryPanel(currentEvent));
+    }
+
+    private void advanceCombat() {
+
+    }
+
+    private void advanceMap() {
+        if (currentEvent.isMapEvent()) {
+
+        }
     }
 
     @Override
@@ -119,6 +197,7 @@ public class MainMenuScreen implements Screen {
 
     }
 
+    private float deltaTotal = 0;
     @Override
     public void render (float delta){
 
@@ -139,6 +218,9 @@ public class MainMenuScreen implements Screen {
         }*/
 
         //GAME LOOP GOES HERE
+
+
+
     }
 
     @Override

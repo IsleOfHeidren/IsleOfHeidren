@@ -4,6 +4,9 @@ public class Event {
     private int sequence;
     private String consoleOutputText;
     private String[] buttonsText;
+    private boolean mapEvent;
+    private String mapPosition;
+
 
     public String[] getButtonsText() {
         return buttonsText;
@@ -27,6 +30,22 @@ public class Event {
 
     public void setSequence(int sequence) {
         this.sequence = sequence;
+    }
+
+    public boolean isMapEvent() {
+        return mapEvent;
+    }
+
+    public void setMapEvent(boolean mapEvent) {
+        this.mapEvent = mapEvent;
+    }
+
+    public String getMapPosition() {
+        return mapPosition;
+    }
+
+    public void setMapPosition(String mapPosition) {
+        this.mapPosition = mapPosition;
     }
 
     //TODO add in a prop for the image URI or the image bits themselves

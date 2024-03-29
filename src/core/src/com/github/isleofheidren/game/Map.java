@@ -3,42 +3,39 @@ package com.github.isleofheidren.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.PixmapIO;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-
-import java.io.File;
 
 public class Map extends Table {
     private short[][] grid;
     private int curCol;
     private int curRow;
-
-    private Pixmap mapImage;
+    private final Pixmap markerPixmap;
     public Map() {
         super();
 
-        FileHandle mapImage = Gdx.files.internal("game_map.png");
-        Pixmap pixmap = new Pixmap(mapImage);
-
-        FileHandle xImage = Gdx.files.internal("current_location_marker.png");
-        Pixmap xMap = new Pixmap(xImage);
-
-        pixmap.drawPixmap(xMap, 252 - (xMap.getWidth() / 2), 189 - (xMap.getHeight() / 2));
-
-        this.add(new Image(new Texture(pixmap)));
+        FileHandle currentLocationFileHandle = Gdx.files.internal("current_location_marker.png");
+        markerPixmap = new Pixmap(currentLocationFileHandle);
 
         initGrid();
+
+        moveMarker();
     }
 
-    private void moveXImage() {
+    private void moveMarker() {
         int xStarting = 252;
         int yStarting = 189;
 
-        int x = xStarting + (167 * curCol);
-        int y = yStarting + (167 * curRow);
+        int x = xStarting + (167 * curCol) - (markerPixmap.getWidth() / 2);
+        int y = yStarting + (125 * curRow) - (markerPixmap.getWidth() / 2);
 
-
+        FileHandle mapFileHandle = Gdx.files.internal("game_map.png");
+        Pixmap displayMap = new Pixmap(mapFileHandle);
+        displayMap.drawPixmap(markerPixmap, x, y);
+        this.clear();
+        this.add(new Image(new Texture(displayMap)));
     }
 
     private void initGrid() {
@@ -64,24 +61,32 @@ public class Map extends Table {
         if (canGoNorth()) {
             curRow--;
         }
+
+        moveMarker();
     }
 
     public void goSouth() {
         if (canGoSouth()) {
             curRow++;
         }
+
+        moveMarker();
     }
 
     public void goEast() {
         if (canGoEast()) {
             curCol++;
         }
+
+        moveMarker();
     }
 
     public void goWest() {
         if (canGoWest()) {
             curCol--;
         }
+
+        moveMarker();
     }
 
     public boolean canGoNorth() {
