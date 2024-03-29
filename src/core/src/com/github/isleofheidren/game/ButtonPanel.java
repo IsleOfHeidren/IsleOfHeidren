@@ -26,7 +26,7 @@ public class ButtonPanel extends Heidren {
         buttonStage.addActor(buttonpanel); // makes button lookup easier later
         textButtonStyle.font = font;
         buttonpanel.setSize(150,200);
-        buttonpanel.setDebug(true);
+        //buttonpanel.setDebug(true);
 
 //        // test label (probably junk)
 //        Label longbuttontext = new Label("this is a really long message, like reeeeally really long.", Heidren.skin.optional("default", Label.LabelStyle.class));
@@ -64,7 +64,7 @@ public class ButtonPanel extends Heidren {
         return buttonpanel;
     }
 
-    public Table createCombatPanel(Player current) {
+    public Table createCombatPanel() { //Player current
         //font = new BitmapFont();
         Table panel = new Table();
         textButtonStyle = new TextButtonStyle();

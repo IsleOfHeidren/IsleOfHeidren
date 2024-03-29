@@ -32,7 +32,6 @@ public class MainMenuScreen implements Screen {
 
     OrthographicCamera camera;
 
-    Texture bg;
     ShapeRenderer border;
 
     Stage rootstage;
@@ -70,10 +69,6 @@ public class MainMenuScreen implements Screen {
         roottable.pad(10);
         rootstage.addActor(roottable);
 
-
-
-        // bg = new Texture(Gdx.files.internal("sprites/bg.png")); //probably junk
-        // table.setSkin(Heidren.skin); // don't remember what this is for
 
         roottable.setDebug(true); // shows table parameters
 
@@ -138,7 +133,7 @@ public class MainMenuScreen implements Screen {
             dispose();
         }*/
 
-        //GAME LOOP GOES HERE
+        //GAME LOOP GOES HERE?
     }
 
     @Override
