@@ -1,7 +1,6 @@
 {
   "sequence": 1,
-  "branches": [3, 4],
-  "buttonsText": ["find City of Gods", "Find village"],
-  "consoleOutputText": "Find RB's notebook, map, compass, and telling sof the friendly village of Tanaroa. The City of Gods with gold, but warns of monsters",
-  "location": [6][9]
+  "branches": [],
+  "buttonsText": ["North", "East", "South", "West"],
+  "consoleOutputText": "Find RB's notebook, map, compass, and telling sof the friendly village of Tanaroa. The City of Gods with gold, but warns of monsters"
 }

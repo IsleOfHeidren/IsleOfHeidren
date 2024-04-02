@@ -1,7 +1,8 @@
 {
-  "sequence": 1,
-  "branches": [],
-  "buttonsText": ["Forage Island", "Go to forest"],
+  "sequence": 0,
+  "branches": [1, 2],
+  "buttonsText": ["Forage Island", "Wander"],
   "consoleOutputText": "You are stranded on an island after a shipwreck. You see beach to your left and right and forest behind you.",
-  "location": [6][9]
+  "locX": 6,
+  "locY": 9
 }

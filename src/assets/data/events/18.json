@@ -1,0 +1,6 @@
+{
+  "sequence": 18,
+  "branches": [13, 14],
+  "buttonsText": ["Ask other villagers?", "Leave?"],
+  "consoleOutputText": "The boy gets captured and taken away. You cannot question him. You can approach another villager but the entire village appears wary and scared of your arrival."
+}

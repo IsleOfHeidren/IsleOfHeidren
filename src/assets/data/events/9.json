@@ -1,7 +1,6 @@
 {
   "sequence": 9,
-  "branches": [16, 17],
+  "branches": [13, 14],
   "buttonsText": ["Ask another villagers?", "Leave"],
-  "consoleOutputText": "*you ask about RB* \n Kronos: Don't know anything about him. No one with that name or notebook has ever come through this time. \n *you ask about City of Gods* \n Kronos: Sounds like children's story if you ask me. You folks best be on your way before you be asking risky questions like that. People 'round here don't take kindly to strangers or their questions. \n *you ask about monsters* \n Kronos: Make sure to dodge a lot. Use your wizard spells. \n *You can approach another villager but the entire village appears wary and scared of your arrival.*",
-  "location": [6][9]
+  "consoleOutputText": "*you ask about RB* \n Kronos: Don't know anything about him. No one with that name or notebook has ever come through this time. \n *you ask about City of Gods* \n Kronos: Sounds like children's story if you ask me. You folks best be on your way before you be asking risky questions like that. People 'round here don't take kindly to strangers or their questions. \n *you ask about monsters* \n Kronos: Make sure to dodge a lot. Use your wizard spells. \n *You can approach another villager but the entire village appears wary and scared of your arrival.*"
 }

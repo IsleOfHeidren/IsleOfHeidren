@@ -1,7 +1,6 @@
 {
   "sequence": 14,
-  "branches": [16, 17],
-  "buttonsText": ["Ask other villagers?", "Leave?"],
-  "consoleOutputText": "Because you helped the boy, he will answer your questions. \n *you ask about RB* \n Mateo: RB was last seen in this village. I heard he found the City of Gods but didn't survive long enough to come back and tell the tale. He must've still gotten his notebook out to you guys before he was gone forever. \n *you ask about City of Gods* \n Mateo: Of course the City of Gods is real! How could you not know? \n *you ask about monsters* \n The Hydra is the most powerful. You have to use wizard spells for the most success. \n *You can approach another villager but the entire village appears wary and scared of your arrival.*",
-  "location": [6][9]
+  "branches": [],
+  "buttonsText": ["North", "East", "South", "West"],
+  "consoleOutputText": " "
 }

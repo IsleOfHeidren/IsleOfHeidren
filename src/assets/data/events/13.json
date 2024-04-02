@@ -1,8 +1,7 @@
 {
   "sequence": 13,
-  "branches": [],
+  "branches": [19, 16],
   "buttonsText": [],
-  "consoleOutputText": " ",
-  "location": [6][9]
+  "consoleOutputText": " "
   //COMBAT EVENT
 }

@@ -1,7 +1,7 @@
 {
   "sequence": 7,
-  "branches": [13, 14],
-  "buttonsText": ["Ask Villager", "Rob Villager"],
-  "consoleOutputText": " ",
-
+  "branches": [15, 16],
+  "buttonsText": [],
+  "consoleOutputText": " "
+  //COMBAT EVENT
 }
