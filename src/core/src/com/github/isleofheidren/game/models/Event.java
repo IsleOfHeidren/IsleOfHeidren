@@ -29,5 +29,10 @@ public class Event {
         this.sequence = sequence;
     }
 
+//    public void setDirections() {
+//        String[] buttonsText = {"East", "North", "West", "South"};
+//        this.buttonsText = buttonsText;
+//    }
+
     //TODO add in a prop for the image URI or the image bits themselves
 }
