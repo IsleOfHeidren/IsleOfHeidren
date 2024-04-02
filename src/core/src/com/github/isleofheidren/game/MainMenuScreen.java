@@ -39,10 +39,11 @@ public class MainMenuScreen implements Screen {
     Table buttonPanelTable;
     TextButton textbutton; // test button
     ButtonPanel buttonPanelObject;
-
     List<PlayerCharacter> players;
+    AnimationController[] playerAnimations;
 
     private ConsoleComponent console;
+    private double totalDelta = 0;
 
     public MainMenuScreen(final Heidren game) {
 
@@ -53,6 +54,7 @@ public class MainMenuScreen implements Screen {
         buttonPanelTable = new Table();
         console = new ConsoleComponent();
         buttonPanelObject = new ButtonPanel();
+        playerAnimations = new AnimationController[4];
 
         // Heidren.font.getData().setScale(0.5f); // font scale test (broken)
 
@@ -96,10 +98,21 @@ public class MainMenuScreen implements Screen {
         roottable.add(space); //r2 c2 stats
 
         // TODO: sprite add + animation
+
+        playerAnimations[0] = new AnimationController("gnome");
+        playerAnimations[1] = new AnimationController("gnome");
+        playerAnimations[2] = new AnimationController("gnome");
+        playerAnimations[3] = new AnimationController("gnome");
+
         roottable.row(); // r3 - sprites (potentially 4 cols??)
-        roottable.add(space);// r3 c1
-        roottable.add(space); //r3 c2
-        roottable.add(space);//r3 c3
+        Table animationTable = new Table();
+
+        animationTable.add(playerAnimations[0]);// r3 c1
+        animationTable.add(playerAnimations[1]); //r3 c2
+        animationTable.add(playerAnimations[2]);//r3 c3
+        animationTable.add(playerAnimations[3]);//r3 c3
+
+        roottable.add(animationTable);
 
         roottable.row(); // r4 - console + button panel
         roottable.add(console).grow().space(10); //r2c2
@@ -107,8 +120,10 @@ public class MainMenuScreen implements Screen {
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false,1000,600);
+
     }
 
+    private int count = 0;
     @Override
     public void show() {
 
@@ -133,7 +148,23 @@ public class MainMenuScreen implements Screen {
             dispose();
         }*/
 
+
+        if (totalDelta > .1625) {
+            totalDelta = 0;
+            count ++;
+
+            for (int i = 0; i < playerAnimations.length; i++) {
+                playerAnimations[i].goToNextKeyFrame();
+            }
+
+        }
+
+
+
+        totalDelta += delta;
+
         //GAME LOOP GOES HERE?
+
     }
 
     @Override
