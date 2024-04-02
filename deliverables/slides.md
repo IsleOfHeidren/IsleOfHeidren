@@ -44,7 +44,10 @@ Hi, our names our Joe Claborn, Bella Brickler, Ren Paxson, and Heidi Raber. Toge
 ### Architecture Slide
 
 ![System Architecture](./images/overall-game-flow.png)
+![GUI-flow](./images/GUI-flow.png)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Requirement Slide(s) Linking To Specific Elements / Implementations
+
+*ask if this pertains to the `design.md` dock or if new slides are needed*
