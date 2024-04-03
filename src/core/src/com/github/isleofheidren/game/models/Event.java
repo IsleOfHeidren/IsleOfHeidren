@@ -47,6 +47,4 @@ public class Event {
     public void setMapPosition(String mapPosition) {
         this.mapPosition = mapPosition;
     }
-
-    //TODO add in a prop for the image URI or the image bits themselves
 }
