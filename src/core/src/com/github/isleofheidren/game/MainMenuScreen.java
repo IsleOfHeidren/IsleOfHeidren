@@ -68,7 +68,7 @@ public class MainMenuScreen implements Screen {
 
         //Here we are going to do all the necessary setup to start the game
         StoryEventRepo repo = new StoryEventRepo();
-        currentEvent = repo.get("1");
+        currentEvent = repo.get("0");
 
         buttonPanelTable = buttonPanelObject.createStoryPanel(currentEvent);
 
@@ -144,10 +144,12 @@ public class MainMenuScreen implements Screen {
         TextButton tb = (TextButton) event.getListenerActor();
         String[] texts = currentEvent.getButtonsText();
 
-        int index = Integer.parseInt(String.valueOf(tb.getName().toCharArray()[tb.getName().toCharArray().length - 1]));
+
+        int index = Integer.parseInt(String.valueOf(tb.getName().toCharArray()[tb.getName().toCharArray().length - 1])) - 1;
 
         if (currentEvent instanceof StoryEvent) {
-            if (((StoryEvent) currentEvent).getBranches().length == 0) {
+            StoryEvent e = (StoryEvent) currentEvent;
+            if (e.getBranches() == null || e.getBranches().length == 0) {
                 advanceMap(index);
             }
             else {
@@ -174,22 +176,68 @@ public class MainMenuScreen implements Screen {
 
     private void advanceStory(int index) {
         int branch = ((StoryEvent) currentEvent).getBranches()[index];
+        doStoryEvent(branch);
+    }
+
+    private void doStoryEvent(int seq) {
         StoryEventRepo repo = new StoryEventRepo();
-        currentEvent = repo.get(Integer.toString(branch));
+        currentEvent = repo.get(Integer.toString(seq));
 
         console.appendMessage(currentEvent.getConsoleOutputText(), MessageType.STORY_TEXT);
+
         buttonPanelTable.clear();
         buttonPanelTable.add(buttonPanelObject.createStoryPanel(currentEvent));
+
+        buttonPanelObject.addListeners(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                buttonHandler(event);
+            }
+        });
     }
 
     private void advanceCombat() {
 
     }
 
-    private void advanceMap() {
+    private void advanceMap(int index) {
         if (currentEvent.isMapEvent()) {
+            int seq = -1;
+            if (index == 0) {
+                seq = map.goNorth();
+            } else if (index == 1) {
+                seq = map.goSouth();
+            } else if (index == 2) {
+                seq = map.goEast();
+            } else {
+                seq = map.goWest();
+            }
 
+            if (seq != -1) {
+                doStoryEvent(seq);
+            }
         }
+        else {
+            Event mapEvent = new StoryEvent();
+            mapEvent.setButtonsText(new String[]{"Go North", "Go South", "Go East", "Go West"});
+            mapEvent.setMapEvent(true);
+
+            currentEvent = mapEvent;
+
+            buttonPanelTable.clear();
+            buttonPanelTable.add(buttonPanelObject.createStoryPanel(mapEvent));
+
+            buttonPanelObject.addListeners(new ClickListener() {
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    super.clicked(event, x, y);
+                    buttonHandler(event);
+                }
+            });
+        }
+
+
     }
 
     @Override

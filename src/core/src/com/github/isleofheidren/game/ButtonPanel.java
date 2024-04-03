@@ -48,7 +48,11 @@ public class ButtonPanel extends Heidren {
 
         for(int i = 0; i < 4; i++) { // i < StoryEvent.branches.getsize or something
             // temp test label
-            Label label = new Label(event.getButtonsText()[i], Heidren.skin.optional("default",Label.LabelStyle.class));
+
+            Label label = new Label("", Heidren.skin.optional("default", Label.LabelStyle.class));
+            if (i < event.getButtonsText().length) {
+                label = new Label(event.getButtonsText()[i], Heidren.skin.optional("default", Label.LabelStyle.class));
+            }
             label.setWrap(true);
             label.setWidth(buttonpanel.getWidth());
 

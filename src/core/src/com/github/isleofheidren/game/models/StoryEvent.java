@@ -6,8 +6,6 @@ Model for story events, anything that doesn't occur in combat and doesn't refer 
 public class StoryEvent extends Event {
     private int[] branches;
     private String[] branchesText;
-    private int locX;
-    private int locY;
 
     public StoryEvent() {
         super();
@@ -29,21 +27,5 @@ public class StoryEvent extends Event {
 
     public void setBranches(int[] branches) {
         this.branches = branches;
-    }
-
-    public int getLocX() {
-        return locX;
-    }
-
-    public void setLocX(int locX) {
-        this.locX = locX;
-    }
-
-    public int getLocY() {
-        return locY;
-    }
-
-    public void setLocY(int locY) {
-        this.locY = locY;
     }
 }

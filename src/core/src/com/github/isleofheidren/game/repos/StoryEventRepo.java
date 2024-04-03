@@ -29,7 +29,7 @@ public class StoryEventRepo implements JSONRepo<StoryEvent> {
     public StoryEvent getByMapPosition(int row, int col) {
         List<StoryEvent> list = getAll();
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getMapPosition().equals(row + "," + col)) {
+            if (list.get(i).getLocX() == col && list.get(i).getLocY() == row) {
                 return  list.get(i);
             }
         }
@@ -37,12 +37,13 @@ public class StoryEventRepo implements JSONRepo<StoryEvent> {
     }
 
     public List<StoryEvent> getAll() {
-        String path = "data/events/1.json";
-        int index = 1;
+        String path = "data/events/0.json";
+        int index = 0;
         ArrayList<StoryEvent> al = new ArrayList<>();
         while (Gdx.files.internal(path).exists()) {
             al.add(get(String.valueOf(index)));
             index++;
+            path = "data/events/" + index + ".json";
         }
 
         return al;
