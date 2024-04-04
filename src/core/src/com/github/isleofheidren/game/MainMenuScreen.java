@@ -55,6 +55,8 @@ public class MainMenuScreen implements Screen {
     private Map map;
     private int currentSeq;
     private Event currentEvent;
+    private CombatController combatController;
+    private StatPanel statPanel;
 
     public MainMenuScreen(final Heidren game) {
 
@@ -122,7 +124,9 @@ public class MainMenuScreen implements Screen {
         //TODO: figure out images + add stats panel
         roottable.row(); //r2 - image window + stats panel
         roottable.add(map).grow().space(10);// r2 c1 image
-        roottable.add(space); //r2 c2 stats
+
+        statPanel = new StatPanel();
+        roottable.add(statPanel); //r2 c2 stats
 
         // TODO: sprite add + animation
         roottable.row(); // r3 - sprites (potentially 4 cols??)
@@ -147,7 +151,10 @@ public class MainMenuScreen implements Screen {
 
         int index = Integer.parseInt(String.valueOf(tb.getName().toCharArray()[tb.getName().toCharArray().length - 1])) - 1;
 
-        if (currentEvent instanceof StoryEvent) {
+        if (currentEvent instanceof  CombatEvent) {
+            advanceCombat();
+        }
+        else if (currentEvent instanceof StoryEvent) {
             StoryEvent e = (StoryEvent) currentEvent;
             if (e.getBranches() == null || e.getBranches().length == 0) {
                 advanceMap(index);
@@ -155,8 +162,6 @@ public class MainMenuScreen implements Screen {
             else {
                 advanceStory(index);
             }
-        } else if (currentEvent instanceof CombatEvent) {
-            advanceCombat();
         }
 //        for (int i = 0; i < texts.length; i++) {
 //            if (texts[i].equals(tb.getLabel().getText().toString())) {
@@ -198,6 +203,15 @@ public class MainMenuScreen implements Screen {
     }
 
     private void advanceCombat() {
+        if (combatController == null) {
+            combatController = new CombatController(buttonPanelObject.getButtons(), console, statPanel);
+            combatController.StartCombat((CombatEvent) currentEvent, players.toArray(new PlayerCharacter[0]));
+
+            combatController.getCurrentPlayer().getAllCombatActions()
+        }
+        else {
+            combatController.doNextTurn();
+        }
 
     }
 
@@ -236,8 +250,6 @@ public class MainMenuScreen implements Screen {
                 }
             });
         }
-
-
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.github.isleofheidren.game.repos;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.github.isleofheidren.game.models.CombatEvent;
 import com.github.isleofheidren.game.models.Event;
 import com.github.isleofheidren.game.models.StoryEvent;
 import com.google.gson.Gson;
@@ -23,7 +24,20 @@ public class StoryEventRepo implements JSONRepo<StoryEvent> {
         FileHandle file = Gdx.files.internal(filePath);
 
         Gson gson = new Gson();
-        return gson.fromJson(file.reader(), StoryEvent.class);
+
+        StoryEvent se = null;
+        try {
+            se = gson.fromJson(file.reader(), CombatEvent.class);
+        } catch (Exception ex)
+        {
+            se = null;
+        }
+
+        if (se == null) {
+            se = gson.fromJson(file.reader(), StoryEvent.class);
+        }
+
+        return se;
     }
 
     public StoryEvent getByMapPosition(int row, int col) {

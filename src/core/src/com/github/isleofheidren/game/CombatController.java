@@ -9,7 +9,6 @@ import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class CombatController {
-    private final Button[] buttons;
     private final ConsoleComponent console;
     private final StatPanel panel;
     private int turn = 0;
@@ -21,8 +20,6 @@ public class CombatController {
     private PlayerCharacter currentPlayer;
 
     CombatController(Button[] buttons, ConsoleComponent console, StatPanel panel) {
-
-        this.buttons = buttons;
         this.console = console;
         this.panel = panel;
     }

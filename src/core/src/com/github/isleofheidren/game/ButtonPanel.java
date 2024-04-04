@@ -2,6 +2,7 @@ package com.github.isleofheidren.game;
 
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -17,6 +18,7 @@ public class ButtonPanel extends Heidren {
     //BitmapFont font;
     Stage buttonStage;
     Table buttonpanel;
+    private Button[] buttons;
 
     //@Override
     public Table createStoryPanel(Event event) { // may pass in Event event
@@ -30,6 +32,8 @@ public class ButtonPanel extends Heidren {
         textButtonStyle.font = font;
         buttonpanel.setSize(150,200);
         buttonpanel.setDebug(true);
+
+        buttons = new Button[4];
 
 //        // test label (probably junk)
 //        Label longbuttontext = new Label("this is a really long message, like reeeeally really long.", Heidren.skin.optional("default", Label.LabelStyle.class));
@@ -63,6 +67,7 @@ public class ButtonPanel extends Heidren {
             textbutton.add(label).width(buttonpanel.getWidth());
             buttonpanel.add(textbutton).fill().space(5);
 
+            buttons[i] = textbutton;
             buttonpanel.row();
 
             // TODO: if event options < 3 add fourth empty uniform button
@@ -90,4 +95,8 @@ public class ButtonPanel extends Heidren {
             tb.addListener(eventListener);
         }
     }
+    
+    public Button[] getButtons() {
+        return buttons;
+    } 
 }
