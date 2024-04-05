@@ -1,7 +1,7 @@
 {
   "sequence": 7,
   "branches": [15, 16],
-  "buttonsText": [],
-  "consoleOutputText": " "
-  //COMBAT EVENT
+  "buttonsText": [""],
+  "consoleOutputText": "You approach the villager and she lurches out to bite you",
+  "monsters": ["hydra"]
 }

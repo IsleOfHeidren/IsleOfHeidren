@@ -3,7 +3,7 @@ package com.github.isleofheidren.game.models;
 /*
 Model for combat event, includes all properties necessary for combat to happen
  */
-public class CombatEvent extends Event{
+public class CombatEvent extends StoryEvent{
     private String[] monsters;
 
     public String[] getMonsters() {
