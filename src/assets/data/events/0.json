@@ -1,0 +1,8 @@
+{
+  "sequence": 0,
+  "branches": [1, 2],
+  "buttonsText": ["Forage Island", "Wander"],
+  "consoleOutputText": "You are stranded on an island after a shipwreck. You see beach to your left and right and forest behind you.",
+  "locX": 6,
+  "locY": 9
+}

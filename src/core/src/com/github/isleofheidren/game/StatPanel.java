@@ -32,4 +32,8 @@ public class StatPanel extends Table {
         add(new Label(hp, Heidren.skin)).left();
         row();
     }
+
+    public void clearPanel() {
+        clear();
+    }
 }

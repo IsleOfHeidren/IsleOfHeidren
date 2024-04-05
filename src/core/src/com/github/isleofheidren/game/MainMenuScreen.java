@@ -7,16 +7,21 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.scenes.scene2d.EventListener;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.ApplicationAdapter;
-import com.github.isleofheidren.game.models.PlayerCharacter;
+import com.github.isleofheidren.game.models.*;
 import com.github.isleofheidren.game.repos.PlayerCharacterRepo;
+import com.github.isleofheidren.game.repos.StoryEventRepo;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +49,11 @@ public class MainMenuScreen implements Screen {
 
     private ConsoleComponent console;
     private double totalDelta = 0;
+    private Map map;
+    private int currentSeq;
+    private Event currentEvent;
+    private CombatController combatController;
+    private StatPanel statPanel;
 
     public MainMenuScreen(final Heidren game) {
 
@@ -56,9 +66,25 @@ public class MainMenuScreen implements Screen {
         buttonPanelObject = new ButtonPanel();
         playerAnimations = new AnimationController[4];
 
+        loadPlayers();
+
+        //Here we are going to do all the necessary setup to start the game
+        StoryEventRepo repo = new StoryEventRepo();
+        currentEvent = repo.get("0");
+
+        buttonPanelTable = buttonPanelObject.createStoryPanel(currentEvent);
+
+        buttonPanelObject.addListeners(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                buttonHandler(event);
+            }
+        });
+
         // Heidren.font.getData().setScale(0.5f); // font scale test (broken)
 
-        loadPlayers();
+
 
         Gdx.input.setInputProcessor(rootstage);
 
@@ -82,20 +108,21 @@ public class MainMenuScreen implements Screen {
         Label space = new Label("", Heidren.skin.optional("default", Label.LabelStyle.class));
 
         // console add text
-        console.appendMessage("Hello, world! what happens if the text goes on for so goddamn long it has to wrap. does it wrap?? what next!!!?!", MessageType.GAME_EVENT); // Game Event Ex.
-        console.appendMessage("This is NPC dialog.", MessageType.NPC_DIALOG); // NPC Event Ex.
-
-        // buttonpanel
-        buttonPanelTable = buttonPanelObject.createStoryPanel();
+//        console.appendMessage("Hello, world! what happens if the text goes on for so goddamn long it has to wrap. does it wrap?? what next!!!?!", MessageType.GAME_EVENT); // Game Event Ex.
+//        console.appendMessage("This is NPC dialog.", MessageType.NPC_DIALOG); // NPC Event Ex.
 
         // root table construction
         roottable.row(); //r1 - title
         roottable.add(title); // r2 c1
 
+        map = new Map();
+
         //TODO: figure out images + add stats panel
         roottable.row(); //r2 - image window + stats panel
-        roottable.add(space).grow().space(10);// r2 c1 image
-        roottable.add(space); //r2 c2 stats
+        roottable.add(map).grow().space(10);// r2 c1 image
+
+        statPanel = new StatPanel();
+        roottable.add(statPanel); //r2 c2 stats
 
         // TODO: sprite add + animation
 
@@ -121,6 +148,149 @@ public class MainMenuScreen implements Screen {
         camera = new OrthographicCamera();
         camera.setToOrtho(false,1000,600);
 
+
+    }
+
+    private void buttonHandler(com.badlogic.gdx.scenes.scene2d.Event event) {
+        TextButton tb = (TextButton) event.getListenerActor();
+        String[] texts = currentEvent.getButtonsText();
+
+        //Get the last character of the button name which is an 1-4 int that is which seq it was
+        int index = Integer.parseInt(String.valueOf(tb.getName().toCharArray()[tb.getName().toCharArray().length - 1])) - 1;
+
+        if (currentEvent instanceof CombatEvent) {
+
+            //If currently in combat advance combat
+            if (combatController.isInCombat()) {
+                advanceCombat(index);
+
+                if (!combatController.isInCombat()) {
+                    //If combat ended then determine if it was a win or loss
+                    if (combatController.isLastCombatVictory()) {
+                        //Goto the right next branch
+                        if (combatController.getVictoryBranch() != -1) {
+                            doStoryEvent(combatController.getVictoryBranch());
+                        }
+                        //Make a dummy event that'll send us into the map after the user clicks next
+                        else {
+                            Event e = new StoryEvent();
+                            e.setButtonsText(new String[] {"Next"});
+                            currentEvent = e;
+                        }
+                    }
+                    //If not a combat victory then goto game over screen
+                    else {
+                        //TODO GAME OVER HERE
+                    }
+
+                }
+            }
+        }
+        else if (currentEvent instanceof StoryEvent) {
+            StoryEvent e = (StoryEvent) currentEvent;
+            if (e.getBranches() == null || e.getBranches().length == 0) {
+                advanceMap(index);
+            }
+            else {
+                advanceStory(index);
+            }
+
+            //Start Combat
+            if (currentEvent instanceof CombatEvent) {
+                advanceCombat(-1);
+            }
+        }
+    }
+
+    private void advanceStory(int index) {
+        int branch = ((StoryEvent) currentEvent).getBranches()[index];
+        doStoryEvent(branch);
+    }
+
+    private void doStoryEvent(int seq) {
+        StoryEventRepo repo = new StoryEventRepo();
+        currentEvent = repo.get(Integer.toString(seq));
+
+        console.appendMessage(currentEvent.getConsoleOutputText(), MessageType.STORY_TEXT);
+
+        buttonPanelTable.clear();
+        buttonPanelTable.add(buttonPanelObject.createStoryPanel(currentEvent));
+
+        buttonPanelObject.addListeners(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                buttonHandler(event);
+            }
+        });
+    }
+
+    private void advanceCombat(int index) {
+        if (combatController == null) {
+            combatController = new CombatController(console, statPanel);
+            combatController.StartCombat((CombatEvent) currentEvent, players.toArray(new PlayerCharacter[0]));
+
+            combatController.getCurrentPlayer().getAllCombatActions();
+            buttonPanelTable.clear();
+            buttonPanelTable.add(buttonPanelObject.createCombatPanel(combatController.getCurrentPlayer()));
+
+            buttonPanelObject.addListeners(new ClickListener() {
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    super.clicked(event, x, y);
+                    buttonHandler(event);
+                }
+            });
+
+            if (((StoryEvent) currentEvent).getBranches() != null && ((StoryEvent) currentEvent).getBranches().length > 0) {
+                combatController.setVictoryBranch(((StoryEvent) currentEvent).getBranches()[0]);
+            }
+
+
+            currentEvent = new CombatEvent();
+        }
+        else {
+            //Do the action the user selected
+            combatController.doNextTurn(combatController.getCurrentPlayer().getAllActions().get(index));
+        }
+
+    }
+
+    private void advanceMap(int index) {
+        if (currentEvent.isMapEvent()) {
+            int seq = -1;
+            if (index == 0) {
+                seq = map.goNorth();
+            } else if (index == 1) {
+                seq = map.goSouth();
+            } else if (index == 2) {
+                seq = map.goEast();
+            } else {
+                seq = map.goWest();
+            }
+
+            if (seq != -1) {
+                doStoryEvent(seq);
+            }
+        }
+        else {
+            Event mapEvent = new StoryEvent();
+            mapEvent.setButtonsText(new String[]{"Go North", "Go South", "Go East", "Go West"});
+            mapEvent.setMapEvent(true);
+
+            currentEvent = mapEvent;
+
+            buttonPanelTable.clear();
+            buttonPanelTable.add(buttonPanelObject.createStoryPanel(mapEvent));
+
+            buttonPanelObject.addListeners(new ClickListener() {
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    super.clicked(event, x, y);
+                    buttonHandler(event);
+                }
+            });
+        }
     }
 
     private int count = 0;
@@ -129,6 +299,7 @@ public class MainMenuScreen implements Screen {
 
     }
 
+    private float deltaTotal = 0;
     @Override
     public void render (float delta){
 
@@ -195,6 +366,9 @@ public class MainMenuScreen implements Screen {
         PlayerCharacterRepo repo = new PlayerCharacterRepo();
         players = new ArrayList<PlayerCharacter>();
 
-        players.add(repo.get("bella"));
+        players.add(repo.get("monk"));
+        players.add(repo.get("wizard"));
+        players.add(repo.get("barbarian"));
+        players.add(repo.get("rouge"));
     }
 }
