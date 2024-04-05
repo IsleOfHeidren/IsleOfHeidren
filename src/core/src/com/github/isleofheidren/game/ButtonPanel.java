@@ -77,16 +77,21 @@ public class ButtonPanel extends Heidren {
     }
 
     public Table createCombatPanel(PlayerCharacter current) {
-        //font = new BitmapFont();
-        Table panel = new Table();
-        textButtonStyle = new TextButtonStyle();
-        textButtonStyle.font = font;
-        for(int i = 0; i < 4; i++) {
-            textbutton = new TextButton("Button", textButtonStyle);
-            panel.add(textbutton);
+        Event e = new Event();
+
+        String[] texts = new String[4];
+        for (int i = 0; i < 4; i++) {
+            if (current.getAllCombatActions().size() > i) {
+                texts[i] = current.getAllCombatActions().get(i).getMove().getName();
+            }
+            else {
+                texts[i] = "";
+            }
         }
 
-        return panel;
+        e.setButtonsText(texts);
+
+        return createStoryPanel(e);
     }
 
     public void addListeners(ClickListener eventListener) {

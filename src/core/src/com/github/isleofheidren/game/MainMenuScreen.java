@@ -18,10 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.ApplicationAdapter;
-import com.github.isleofheidren.game.models.CombatEvent;
-import com.github.isleofheidren.game.models.Event;
-import com.github.isleofheidren.game.models.PlayerCharacter;
-import com.github.isleofheidren.game.models.StoryEvent;
+import com.github.isleofheidren.game.models.*;
 import com.github.isleofheidren.game.repos.PlayerCharacterRepo;
 import com.github.isleofheidren.game.repos.StoryEventRepo;
 import org.w3c.dom.Text;
@@ -67,6 +64,8 @@ public class MainMenuScreen implements Screen {
         buttonPanelTable = new Table();
         console = new ConsoleComponent();
         buttonPanelObject = new ButtonPanel();
+
+        loadPlayers();
 
         //Here we are going to do all the necessary setup to start the game
         StoryEventRepo repo = new StoryEventRepo();
@@ -148,11 +147,36 @@ public class MainMenuScreen implements Screen {
         TextButton tb = (TextButton) event.getListenerActor();
         String[] texts = currentEvent.getButtonsText();
 
-
+        //Get the last character of the button name which is an 1-4 int that is which seq it was
         int index = Integer.parseInt(String.valueOf(tb.getName().toCharArray()[tb.getName().toCharArray().length - 1])) - 1;
 
-        if (currentEvent instanceof  CombatEvent) {
-            advanceCombat();
+        if (currentEvent instanceof CombatEvent) {
+
+            //If currently in combat advance combat
+            if (combatController.isInCombat()) {
+                advanceCombat(index);
+
+                if (!combatController.isInCombat()) {
+                    //If combat ended then determine if it was a win or loss
+                    if (combatController.isLastCombatVictory()) {
+                        //Goto the right next branch
+                        if (combatController.getVictoryBranch() != -1) {
+                            doStoryEvent(combatController.getVictoryBranch());
+                        }
+                        //Make a dummy event that'll send us into the map after the user clicks next
+                        else {
+                            Event e = new StoryEvent();
+                            e.setButtonsText(new String[] {"Next"});
+                            currentEvent = e;
+                        }
+                    }
+                    //If not a combat victory then goto game over screen
+                    else {
+                        //TODO GAME OVER HERE
+                    }
+
+                }
+            }
         }
         else if (currentEvent instanceof StoryEvent) {
             StoryEvent e = (StoryEvent) currentEvent;
@@ -162,21 +186,12 @@ public class MainMenuScreen implements Screen {
             else {
                 advanceStory(index);
             }
+
+            //Start Combat
+            if (currentEvent instanceof CombatEvent) {
+                advanceCombat(-1);
+            }
         }
-//        for (int i = 0; i < texts.length; i++) {
-//            if (texts[i].equals(tb.getLabel().getText().toString())) {
-        // If object type is story event
-
-
-        // If object type is combat event
-
-        // If object type is map
-
-
-
-//                break;
-//            }
-
     }
 
     private void advanceStory(int index) {
@@ -202,15 +217,33 @@ public class MainMenuScreen implements Screen {
         });
     }
 
-    private void advanceCombat() {
+    private void advanceCombat(int index) {
         if (combatController == null) {
-            combatController = new CombatController(buttonPanelObject.getButtons(), console, statPanel);
+            combatController = new CombatController(console, statPanel);
             combatController.StartCombat((CombatEvent) currentEvent, players.toArray(new PlayerCharacter[0]));
 
-            combatController.getCurrentPlayer().getAllCombatActions()
+            combatController.getCurrentPlayer().getAllCombatActions();
+            buttonPanelTable.clear();
+            buttonPanelTable.add(buttonPanelObject.createCombatPanel(combatController.getCurrentPlayer()));
+
+            buttonPanelObject.addListeners(new ClickListener() {
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    super.clicked(event, x, y);
+                    buttonHandler(event);
+                }
+            });
+
+            if (((StoryEvent) currentEvent).getBranches() != null && ((StoryEvent) currentEvent).getBranches().length > 0) {
+                combatController.setVictoryBranch(((StoryEvent) currentEvent).getBranches()[0]);
+            }
+
+
+            currentEvent = new CombatEvent();
         }
         else {
-            combatController.doNextTurn();
+            //Do the action the user selected
+            combatController.doNextTurn(combatController.getCurrentPlayer().getAllActions().get(index));
         }
 
     }
@@ -311,6 +344,9 @@ public class MainMenuScreen implements Screen {
         PlayerCharacterRepo repo = new PlayerCharacterRepo();
         players = new ArrayList<PlayerCharacter>();
 
-        players.add(repo.get("bella"));
+        players.add(repo.get("monk"));
+        players.add(repo.get("wizard"));
+        players.add(repo.get("barbarian"));
+        players.add(repo.get("rouge"));
     }
 }

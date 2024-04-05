@@ -28,6 +28,10 @@ public class StoryEventRepo implements JSONRepo<StoryEvent> {
         StoryEvent se = null;
         try {
             se = gson.fromJson(file.reader(), CombatEvent.class);
+
+            if (((CombatEvent) se).getMonsters() == null){
+                se = null;
+            }
         } catch (Exception ex)
         {
             se = null;
