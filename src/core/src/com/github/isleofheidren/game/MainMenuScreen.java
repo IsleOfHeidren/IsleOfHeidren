@@ -140,12 +140,12 @@ public class MainMenuScreen implements Screen {
         roottable.row(); // r3 - sprites (potentially 4 cols??)
         Table animationTable = new Table();
 
-        animationTable.add(playerAnimations[0]);// r3 c1
+        animationTable.add(playerAnimations[0]);
         animationTable.add(playerAnimations[1]); //r3 c2
         animationTable.add(playerAnimations[2]);//r3 c3
         animationTable.add(playerAnimations[3]);//r3 c3
 
-        roottable.add(animationTable);
+        roottable.add(animationTable).fill();
 
         roottable.row(); // r4 - console + button panel
         roottable.add(console).grow().space(10); //r2c2
