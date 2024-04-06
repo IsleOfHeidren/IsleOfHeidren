@@ -102,7 +102,7 @@ public class MainMenuScreen implements Screen {
 
         // table.setSkin(Heidren.skin); // don't remember what this is for
 
-        roottable.setDebug(true); // shows table parameters
+//        roottable.setDebug(true); // shows table parameters
 
         // playing with simplified animation (broken)
         //runningAnimation = new Animation<TextureRegion>(0.125f, atlas.findRegions("monk"), Animation.PlayMode.LOOP);
@@ -138,12 +138,12 @@ public class MainMenuScreen implements Screen {
         roottable.row(); // r3 - sprites (potentially 4 cols??)
         Table animationTable = new Table();
 
-        animationTable.add(playerAnimations[0]);// r3 c1
+        animationTable.add(playerAnimations[0]);
         animationTable.add(playerAnimations[1]); //r3 c2
         animationTable.add(playerAnimations[2]);//r3 c3
         animationTable.add(playerAnimations[3]);//r3 c3
 
-        roottable.add(animationTable);
+        roottable.add(animationTable).fill();
 
         roottable.row(); // r4 - console + button panel
         roottable.add(console).grow().space(10); //r2c2

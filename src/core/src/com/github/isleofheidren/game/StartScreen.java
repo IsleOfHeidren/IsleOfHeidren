@@ -57,7 +57,7 @@ public class StartScreen implements Screen{
         table.add(title);
         table.row();
         table.add(start);
-        table.setDebug(true);
+//        table.setDebug(true);
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false,1000,600);

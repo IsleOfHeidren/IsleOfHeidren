@@ -25,6 +25,7 @@ public class AnimationController extends Table {
         highlightPixmapList = new ArrayList<>();
         loadFiles();
 
+
         highlight = false;
     }
 
@@ -61,7 +62,10 @@ public class AnimationController extends Table {
             i = new Image(new Texture(pixmapList.get(currentKey)));
         }
 
-        i.setScale(.5f);
+        i.setFillParent(true);
+//        i.setDebug(true);
+
+        i.setScaleX(.60f);
         this.add(i);
 
         if (currentKey >= pixmapList.size() - 1) {
