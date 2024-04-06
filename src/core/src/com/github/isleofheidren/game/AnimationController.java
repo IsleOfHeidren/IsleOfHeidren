@@ -83,4 +83,7 @@ public class AnimationController extends Table {
     public boolean getHighlight() {
         return this.highlight;
     }
+    public String getSpriteName() {
+        return this.spriteName;
+    }
 }

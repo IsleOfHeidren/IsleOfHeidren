@@ -133,9 +133,9 @@ public class MainMenuScreen implements Screen {
         // TODO: sprite add + animation
 
         playerAnimations[0] = new AnimationController("gnome");
-        playerAnimations[1] = new AnimationController("gnome");
-        playerAnimations[2] = new AnimationController("gnome");
-        playerAnimations[3] = new AnimationController("gnome");
+        playerAnimations[1] = new AnimationController("monk");
+        playerAnimations[2] = new AnimationController("barbarian");
+        playerAnimations[3] = new AnimationController("rouge");
 
         roottable.row(); // r3 - sprites (potentially 4 cols??)
         Table animationTable = new Table();
@@ -260,6 +260,19 @@ public class MainMenuScreen implements Screen {
             combatController.doNextTurn(combatController.getCurrentPlayer().getAllActions().get(index));
         }
 
+        String name = "";
+        if (combatController.isInCombat()) {
+            name = combatController.getCurrentPlayer().getName();
+        }
+
+        for (int i = 0; i < playerAnimations.length; i++) {
+            if (name.equalsIgnoreCase(playerAnimations[i].getSpriteName())) {
+                playerAnimations[i].setHighlight(true);
+            }
+            else {
+                playerAnimations[i].setHighlight(false);
+            }
+        }
     }
 
     private void advanceMap(int index) {
