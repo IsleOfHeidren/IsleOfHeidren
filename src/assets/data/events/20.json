@@ -3,7 +3,7 @@
   "branches": [],
   "buttonsText": [],
   "consoleOutputText": "A crocodile!",
-  "locX": 10,
+  "locX": 9,
   "LocY": 2,
   "monsters": ["Crocodile"]
 }
