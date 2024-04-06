@@ -17,7 +17,6 @@ public class StartScreen implements Screen{
     final Heidren game;
 
     OrthographicCamera camera;
-    Texture bg;
 
     ShapeRenderer border;
 
@@ -38,8 +37,6 @@ public class StartScreen implements Screen{
 
         table = new Table();
         table.setFillParent(true);
-
-        bg = new Texture(Gdx.files.internal("sprites/bg.png"));
 
 //        TextureAtlas atlas;
 //        atlas = new TextureAtlas(Gdx.files.internal("skin/skin.json"));
