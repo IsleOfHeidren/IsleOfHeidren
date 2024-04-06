@@ -47,8 +47,10 @@ public class MainMenuScreen implements Screen {
     ButtonPanel buttonPanelObject;
 
     List<PlayerCharacter> players;
+    AnimationController[] playerAnimations;
 
     private ConsoleComponent console;
+    private double totalDelta = 0;
     private Map map;
     private int currentSeq;
     private Event currentEvent;
@@ -64,6 +66,7 @@ public class MainMenuScreen implements Screen {
         buttonPanelTable = new Table();
         console = new ConsoleComponent();
         buttonPanelObject = new ButtonPanel();
+        playerAnimations = new AnimationController[4];
 
         loadPlayers();
 
@@ -83,7 +86,7 @@ public class MainMenuScreen implements Screen {
 
         // Heidren.font.getData().setScale(0.5f); // font scale test (broken)
 
-
+        loadPlayers();
 
         Gdx.input.setInputProcessor(rootstage);
 
@@ -128,10 +131,21 @@ public class MainMenuScreen implements Screen {
         roottable.add(statPanel); //r2 c2 stats
 
         // TODO: sprite add + animation
+
+        playerAnimations[0] = new AnimationController("gnome");
+        playerAnimations[1] = new AnimationController("gnome");
+        playerAnimations[2] = new AnimationController("gnome");
+        playerAnimations[3] = new AnimationController("gnome");
+
         roottable.row(); // r3 - sprites (potentially 4 cols??)
-        roottable.add(space);// r3 c1
-        roottable.add(space); //r3 c2
-        roottable.add(space);//r3 c3
+        Table animationTable = new Table();
+
+        animationTable.add(playerAnimations[0]);// r3 c1
+        animationTable.add(playerAnimations[1]); //r3 c2
+        animationTable.add(playerAnimations[2]);//r3 c3
+        animationTable.add(playerAnimations[3]);//r3 c3
+
+        roottable.add(animationTable);
 
         roottable.row(); // r4 - console + button panel
         roottable.add(console).grow().space(10); //r2c2
@@ -285,6 +299,7 @@ public class MainMenuScreen implements Screen {
         }
     }
 
+    private int count = 0;
     @Override
     public void show() {
 
@@ -310,9 +325,22 @@ public class MainMenuScreen implements Screen {
             dispose();
         }*/
 
-        //GAME LOOP GOES HERE
+
+        if (totalDelta > .1625) {
+            totalDelta = 0;
+            count ++;
+
+            for (int i = 0; i < playerAnimations.length; i++) {
+                playerAnimations[i].goToNextKeyFrame();
+            }
+
+        }
 
 
+
+        totalDelta += delta;
+
+        //GAME LOOP GOES HERE?
 
     }
 
