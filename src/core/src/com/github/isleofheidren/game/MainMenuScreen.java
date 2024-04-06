@@ -104,7 +104,7 @@ public class MainMenuScreen implements Screen {
         // bg = new Texture(Gdx.files.internal("sprites/bg.png")); //probably junk
         // table.setSkin(Heidren.skin); // don't remember what this is for
 
-        roottable.setDebug(true); // shows table parameters
+//        roottable.setDebug(true); // shows table parameters
 
         // playing with simplified animation (broken)
         //runningAnimation = new Animation<TextureRegion>(0.125f, atlas.findRegions("monk"), Animation.PlayMode.LOOP);

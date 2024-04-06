@@ -1,13 +1,11 @@
 package com.github.isleofheidren.game;
 
-import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.github.isleofheidren.game.models.Event;
 import com.github.isleofheidren.game.models.PlayerCharacter;
@@ -31,7 +29,7 @@ public class ButtonPanel extends Heidren {
         buttonStage.addActor(buttonpanel); // makes button lookup easier later
         textButtonStyle.font = font;
         buttonpanel.setSize(150,200);
-        buttonpanel.setDebug(true);
+//        buttonpanel.setDebug(true);
 
         buttons = new Button[4];
 
