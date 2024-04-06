@@ -65,7 +65,7 @@ public class AnimationController extends Table {
         i.setFillParent(true);
 //        i.setDebug(true);
 
-        i.setScaleX(.60f);
+        i.setScaleX(.55f);
         this.add(i);
 
         if (currentKey >= pixmapList.size() - 1) {
