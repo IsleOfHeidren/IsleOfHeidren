@@ -130,10 +130,10 @@ public class MainMenuScreen implements Screen {
 
         // TODO: sprite add + animation
 
-        playerAnimations[0] = new AnimationController("gnome");
+        playerAnimations[0] = new AnimationController("wizard");
         playerAnimations[1] = new AnimationController("monk");
         playerAnimations[2] = new AnimationController("barbarian");
-        playerAnimations[3] = new AnimationController("rouge");
+        playerAnimations[3] = new AnimationController("rogue");
 
         roottable.row(); // r3 - sprites (potentially 4 cols??)
         Table animationTable = new Table();
