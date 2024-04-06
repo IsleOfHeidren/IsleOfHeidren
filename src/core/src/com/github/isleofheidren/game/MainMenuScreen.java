@@ -234,7 +234,6 @@ public class MainMenuScreen implements Screen {
             combatController = new CombatController(console, statPanel);
             combatController.StartCombat((CombatEvent) currentEvent, players.toArray(new PlayerCharacter[0]));
 
-            combatController.getCurrentPlayer().getAllCombatActions();
             buttonPanelTable.clear();
             buttonPanelTable.add(buttonPanelObject.createCombatPanel(combatController.getCurrentPlayer()));
 
@@ -256,6 +255,19 @@ public class MainMenuScreen implements Screen {
         else {
             //Do the action the user selected
             combatController.doNextTurn(combatController.getCurrentPlayer().getAllActions().get(index));
+
+            if (combatController.isInCombat()) {
+                buttonPanelTable.clear();
+                buttonPanelTable.add(buttonPanelObject.createCombatPanel(combatController.getCurrentPlayer()));
+
+                buttonPanelObject.addListeners(new ClickListener() {
+                    @Override
+                    public void clicked(InputEvent event, float x, float y) {
+                        super.clicked(event, x, y);
+                        buttonHandler(event);
+                    }
+                });
+            }
         }
 
         String name = "";
@@ -271,6 +283,8 @@ public class MainMenuScreen implements Screen {
                 playerAnimations[i].setHighlight(false);
             }
         }
+
+
     }
 
     private void advanceMap(int index) {
