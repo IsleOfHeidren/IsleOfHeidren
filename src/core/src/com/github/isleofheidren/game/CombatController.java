@@ -5,11 +5,11 @@ import com.github.isleofheidren.game.models.*;
 import com.github.isleofheidren.game.models.Character;
 import com.github.isleofheidren.game.repos.MonsterRepo;
 
+import javax.swing.event.DocumentEvent;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class CombatController {
-    private final Button[] buttons;
     private final ConsoleComponent console;
     private final StatPanel panel;
     private int turn = 0;
@@ -19,10 +19,9 @@ public class CombatController {
     List<Character> combatOrder;
     private boolean lastCombatVictory = false;
     private PlayerCharacter currentPlayer;
+    private int victoryBranch;
 
-    CombatController(Button[] buttons, ConsoleComponent console, StatPanel panel) {
-
-        this.buttons = buttons;
+    CombatController(ConsoleComponent console, StatPanel panel) {
         this.console = console;
         this.panel = panel;
     }
@@ -56,6 +55,9 @@ public class CombatController {
 
         //Create the order that combat will occur in
         createCombatOrder();
+
+        //update the stat panel
+        panel.addCharacterToPanel(getCurrentPlayer());
     }
 
     /*
@@ -132,6 +134,8 @@ public class CombatController {
             lastCombatVictory = true;
             console.appendMessage("Combat Victory", MessageType.COMBAT_RESULT);
             inCombat = false;
+            victoryBranch = -1;
+            panel.clearPanel();
             return;
         }
 
@@ -165,6 +169,8 @@ public class CombatController {
                 lastCombatVictory = false;
                 console.appendMessage("Combat Lost", MessageType.COMBAT_RESULT);
                 inCombat = false;
+                victoryBranch = -1;
+                panel.clearPanel();
                 return;
             }
 
@@ -238,5 +244,13 @@ public class CombatController {
 
     private int getTurn() {
         return turn;
+    }
+
+    public void setVictoryBranch(int branch) {
+        victoryBranch = branch;
+    }
+
+    public int getVictoryBranch() {
+        return victoryBranch;
     }
 }

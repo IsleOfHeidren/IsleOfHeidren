@@ -10,7 +10,6 @@ public class StoryEvent extends Event {
     public StoryEvent() {
         super();
     }
-
     /*
     Getters and setters
      */
