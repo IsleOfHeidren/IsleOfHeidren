@@ -40,7 +40,7 @@ public class Monster extends Character {
             case "Fist":
                 damage = (rollDice(6) + 3);
                 break;
-            case "Rock Throw":
+            case "Shit Throw":
                 damage = (rollDice(6) + 3);
                 break;
             case "Feral Bite":

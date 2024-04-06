@@ -2,6 +2,6 @@
   "sequence": 10,
   "branches": [15, 16],
   "buttonsText": [],
-  "consoleOutputText": "combat "
-  //Combat Event
+  "consoleOutputText": " ",
+  "monsters": ["Villager"]
 }

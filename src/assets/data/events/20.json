@@ -1,0 +1,9 @@
+{
+  "sequence": 20,
+  "branches": [],
+  "buttonsText": [],
+  "consoleOutputText": "A crocodile!",
+  "locX": 10,
+  "LocY": 2,
+  "monsters": ["Crocodile"]
+}
