@@ -1,0 +1,7 @@
+{
+  "name": "Crocodile",
+  "hitPoints": 30,
+  "armorClass":  7,
+  "attackBonus":  0,
+  "attacks": ["Bite", "Tail Whip", "Stomp"]
+}

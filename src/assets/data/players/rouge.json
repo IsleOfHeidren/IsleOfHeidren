@@ -17,8 +17,8 @@
       "name": "Uncanny Dodge"
     }
   ],
-  "armorClass": 17,
-  "hitPoints": 40,
+  "armorClass": 16,
+  "hitPoints": 30,
   "attackBonus": 4,
-  "weapon": "Staff"
+  "weapon": "Knives"
 }

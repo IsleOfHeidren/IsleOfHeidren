@@ -3,22 +3,22 @@
   "features": [
     {
       "isCombat": true,
-      "damage": 15,
-      "name": "Flurry of Blows"
+      "damage": 17,
+      "name": "Reckless Attack"
     },
     {
       "isCombat": false,
       "damage": 0,
-      "name": "Step of the Wind"
+      "name": "Danger Sense"
     },
     {
       "isCombat": true,
-      "damage": 0,
-      "name": "Patient Defense"
+      "damage": 15,
+      "name": "Extra Attack"
     }
   ],
   "armorClass": 17,
-  "hitPoints": 40,
+  "hitPoints": 30,
   "attackBonus": 4,
-  "weapon": "Staff"
+  "weapon": "two-sided axe"
 }

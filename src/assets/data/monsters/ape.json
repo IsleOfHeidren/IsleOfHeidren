@@ -1,0 +1,7 @@
+{
+  "name": "Ape",
+  "hitPoints": 40,
+  "armorClass":  10,
+  "attackBonus":  0,
+  "attacks": ["Fist", "Shit Throw", "Feral Bite"]
+}

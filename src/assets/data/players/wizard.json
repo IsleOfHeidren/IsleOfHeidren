@@ -4,21 +4,21 @@
     {
       "isCombat": true,
       "damage": 15,
-      "name": "Flurry of Blows"
+      "name": "Fire Bolt"
     },
     {
       "isCombat": false,
       "damage": 0,
-      "name": "Step of the Wind"
+      "name": "Poison Spray"
     },
     {
       "isCombat": true,
-      "damage": 0,
-      "name": "Patient Defense"
+      "damage": 40,
+      "name": "Chill Touch"
     }
   ],
-  "armorClass": 17,
-  "hitPoints": 40,
+  "armorClass": 15,
+  "hitPoints": 25,
   "attackBonus": 4,
-  "weapon": "Staff"
+  "weapon": "staff"
 }
