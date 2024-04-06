@@ -37,7 +37,6 @@ public class MainMenuScreen implements Screen {
 
     OrthographicCamera camera;
 
-    Texture bg;
     ShapeRenderer border;
 
     Stage rootstage;
@@ -101,7 +100,6 @@ public class MainMenuScreen implements Screen {
 
 
 
-        // bg = new Texture(Gdx.files.internal("sprites/bg.png")); //probably junk
         // table.setSkin(Heidren.skin); // don't remember what this is for
 
 //        roottable.setDebug(true); // shows table parameters
