@@ -27,7 +27,7 @@ public class ButtonPanel extends Heidren {
         buttonStage.addActor(buttonpanel); // makes button lookup easier later
         textButtonStyle.font = font;
         buttonpanel.setSize(150,200);
-        //buttonpanel.setDebug(true);
+        buttonpanel.setDebug(true);
 
         buttons = new Button[4];
 
