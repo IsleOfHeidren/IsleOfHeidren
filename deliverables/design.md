@@ -142,18 +142,18 @@ A text field will be a child within the scroll component which should allow vert
 
 ### Monk Elf
 
-![monk gif](../src/assets/sprites/monk.gif)
-![monk gif with highlight](../src/assets/sprites/monk-highlight.gif)
+![monk gif](../src/assets/sprites/gifs/monk.gif)
+![monk gif with highlight](../src/assets/sprites/gifs/monk-highlight.gif)
 
 ### Rogue Tiefling
 
-![tiefling gif](../src/assets/sprites/tiefling.gif)
-![tiefling with highlight](../src/assets/sprites/tiefling-highlight.gif)
+![tiefling gif](../src/assets/sprites/gifs/tiefling.gif)
+![tiefling with highlight](../src/assets/sprites/gifs/tiefling-highlight.gif)
 
 ### Wizard Gnome
 
-![gnome gif](../src/assets/sprites/gnome.gif)
-![gnome with highlight](../src/assets/sprites/gnome-highlight.gif)
+![gnome gif](../src/assets/sprites/gifs/gnome.gif)
+![gnome with highlight](../src/assets/sprites/gifs/gnome-highlight.gif)
 
 ## Character Stats panel - Requirements: 65
 A text panel to the side of the main image display will show the currently selected character's HP during battle. Outside of battle, it will be blank.
