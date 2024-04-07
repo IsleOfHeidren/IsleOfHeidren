@@ -132,19 +132,15 @@
 
 
 * 110\. The game will prompt the player with story options displayed in the UI utilizing the buttons, image container, and console
-    * 110e:
+    * 110e: Evaluation Passed
+    * 110 Implemenation:
     
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Demonstrate button container showing and progressing though the story |
 
 
 * 120\. The game will have a combat mode when the story dictates it necessary
-    * 120e:
-    
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Inspect JSON objects for combat events linked to story events |
+    * 120e: Evaluation Passed
+    * 120 Implemenation: Various events are defined as combat events and those trigger how many monsters and what monsters the player will fight
+    ![event json](./images/mvp/croc_event.png)
 
 * 130\. Will have an end screen that displays a game over or game won text
     * 130e: Evaluation Failed
