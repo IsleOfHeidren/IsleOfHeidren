@@ -133,8 +133,9 @@
 
 * 110\. The game will prompt the player with story options displayed in the UI utilizing the buttons, image container, and console
     * 110e: Evaluation Passed
-    * 110 Implemenation:
+    * 110 Implemenation: The game shows relevant buttons and when clicked progesses to new story elements
     
+
 
 
 * 120\. The game will have a combat mode when the story dictates it necessary
