@@ -38,13 +38,13 @@
 
 * 60\. Will have a main GUI with components that change dynamically based on the game state
     * 60e: Evaluation Passed
-    * 60 Implemenation: The game changes from a map to a animated combat screen with a stats panel
+    * 60 Implementation: The game changes from a map to a animated combat screen with a stats panel
     ![gif of game](./images/mvp/scene_change.gif)
 
 
 * 61.0\. Will have buttons that are mouse clickable to interact with the game
     * 61.0e: Evaluation Passed
-    * 61 Evaluation:
+    * 61 Implementation:
     [gif of mouse iteraction](./images/mvp/game_interaction_with_mouse.mp4)
 
 
