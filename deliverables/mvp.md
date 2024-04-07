@@ -83,45 +83,37 @@
 
 * 64.1\. UI will indicate which character is active (turn) in combat by highlighting the character's sprite. This includes monster and NPC sprites
   * 64.1e: Evaluation Passed
-  
+  * 64.1 Implemenation:
+  ![ape fight gif](./images/mvp/ape_combat_video.gif)
+
 
 * 65\. In combat, the currently selected character's stats shall be pictured next to the image container. Outside of battle, the panel shall be blank
-  * 65e:
-
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Open and play game, get to combat encounter. Inspect if the stat panel exists and has relvant information for the current player |
+  * 65e: Evaluation Passed
+  * 65 Implementation: The stat panel displays when combat is entered
+  ![ape fight gif](./images/mvp/ape_combat_video.gif)
 
 * 70\. Shall have a way to retrieve data for stats, characters, monsters, and events
-    * 70e:
-
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Demonstrate code accessing JSON files|
+    * 70e: Evaluation Passed
+    * 70 Implementation: The game utilizes a repo model to prevent hard coupling of specific game logic 
+    ![croc json](./images/mvp/crocodile_json.png)
 
 
 * 80\. Will have map in database that either will be shown by text or GUI component
-    * 80e:
-
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Open and play game, inspect if a map components exists|
+    * 80e: Evaluation Passed
+    * 80 Implementation
+    ![map image](./images/mvp/main_game_screen_map.png)
 
 
 * 81\. Map will have multiple locations
-    * 81e:
-    
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Inspect map component to see if multiple locations are displayed |
+    * 81e: Evaulation Passed
+    * The map is a 10x10 grid with events defined some of the squares. Events have locations defined within their json
+    ![croc event](./images/mvp/croc_event.png)
 
 
 * 90\. Will have story from start to finish no matter what combination of pre-defined actions each character takes
-    * 90e:
-
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Play through game and demonstrate end screen occuring|
+    * 90e: Evaluation Failed
+    * 90 Implemenation: The game has many story events and a final fight, but does not redirect to a game over or game victory screen when story should be over. We did not have enough time with the combat to link things together properly to acheive that
+    ![hydra fight](./images/mvp/hydra_fight.gif)
   
 
 * 100\. Shall have at least 3 types of monsters
