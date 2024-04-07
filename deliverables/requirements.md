@@ -26,7 +26,7 @@
     
     | Test #  | Test Content                         |        
     |---------|--------------------------------------|
-    | #1      | Run the game and see if first a start screen opens |
+    | #1      | Run the game is see if it has a character defined |
 
 
 * 50\. Will play with 4 characters
