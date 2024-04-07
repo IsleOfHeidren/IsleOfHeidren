@@ -11,11 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AnimationController extends Table {
+    private final boolean addBackground;
     private List<Pixmap> pixmapList;
     private List<Pixmap> highlightPixmapList;
     private String spriteName;
     private int currentKey = 0;
     private boolean highlight;
+    private Pixmap blackScreen;
 
     public AnimationController(String spriteName) {
         super();
@@ -25,13 +27,30 @@ public class AnimationController extends Table {
         highlightPixmapList = new ArrayList<>();
         loadFiles();
 
+        highlight = false;
+        addBackground = false;
+    }
+
+    public AnimationController(String spriteName, boolean addBackground) {
+        super();
+
+        this.spriteName = spriteName;
+        pixmapList = new ArrayList<>();
+        highlightPixmapList = new ArrayList<>();
+        loadFiles();
 
         highlight = false;
+        this.addBackground = addBackground;
     }
 
     private void loadFiles() {
-        int count = 0;
         FileHandle f = Gdx.files.internal("sprites/" + spriteName + "-0.png");
+        if (!f.exists()) {
+            spriteName = "ape";
+        }
+
+        int count = 0;
+        f = Gdx.files.internal("sprites/" + spriteName + "-0.png");
         while (f.exists()) {
             Pixmap p = new Pixmap(f);
             pixmapList.add(p);
@@ -49,24 +68,45 @@ public class AnimationController extends Table {
             count++;
             f = Gdx.files.internal("sprites/" + spriteName + "-highlight-" + count + ".png");
         }
+
+        f = Gdx.files.internal("black_screen.png");
+        Pixmap p = new Pixmap(f);
+        blackScreen = p;
     }
 
     public void goToNextKeyFrame() {
         this.clear();
 
-        Image i;
+        Image image;
+        Pixmap toBeDrawn = null;
         if (highlight) {
-            i = new Image(new Texture(highlightPixmapList.get(currentKey)));
+            toBeDrawn = highlightPixmapList.get(currentKey);
         }
         else {
-            i = new Image(new Texture(pixmapList.get(currentKey)));
+            toBeDrawn = pixmapList.get(currentKey);
         }
 
-        i.setFillParent(true);
-//        i.setDebug(true);
+        if (addBackground) {
+//            for (int i = 0; i < blackScreen.getWidth(); i++) {
+//                for (int j = 0; j < blackScreen.getHeight(); j++) {
+//                    blackScreen.drawPixel(i, j, 858484849);
+//                }
+//            }
 
-        i.setScaleX(.55f);
-        this.add(i);
+//            blackScreen.drawPixmap(toBeDrawn, 0, 0);
+            image = new Image(new Texture(toBeDrawn));
+
+        }
+        else {
+            image = new Image(new Texture(toBeDrawn));
+            image.setScaleX(.55f);
+        }
+
+        image.setFillParent(true);
+
+
+
+        this.add(image).expand();
 
         if (currentKey >= pixmapList.size() - 1) {
             currentKey = 0;

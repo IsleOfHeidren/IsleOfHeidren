@@ -179,6 +179,9 @@ public class CombatController {
 
         //update the stat panel
         panel.addCharacterToPanel(getCurrentPlayer());
+
+        //update attack buttons
+
     }
 
     private void incrementTurn() {

@@ -22,7 +22,9 @@ import com.github.isleofheidren.game.models.*;
 import com.github.isleofheidren.game.repos.PlayerCharacterRepo;
 import com.github.isleofheidren.game.repos.StoryEventRepo;
 import org.w3c.dom.Text;
+import sun.tools.jconsole.Tab;
 
+import javax.lang.model.element.AnnotationMirror;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,6 +57,8 @@ public class MainMenuScreen implements Screen {
     private Event currentEvent;
     private CombatController combatController;
     private StatPanel statPanel;
+    private Table mainImageDisplay;
+    private AnimationController monsterAnimation;
 
     public MainMenuScreen(final Heidren game) {
 
@@ -66,6 +70,7 @@ public class MainMenuScreen implements Screen {
         console = new ConsoleComponent();
         buttonPanelObject = new ButtonPanel();
         playerAnimations = new AnimationController[4];
+        mainImageDisplay = new Table();
 
         loadPlayers();
 
@@ -102,8 +107,6 @@ public class MainMenuScreen implements Screen {
 
         // table.setSkin(Heidren.skin); // don't remember what this is for
 
-//        roottable.setDebug(true); // shows table parameters
-
         // playing with simplified animation (broken)
         //runningAnimation = new Animation<TextureRegion>(0.125f, atlas.findRegions("monk"), Animation.PlayMode.LOOP);
 
@@ -119,11 +122,13 @@ public class MainMenuScreen implements Screen {
         roottable.row(); //r1 - title
         roottable.add(title); // r2 c1
 
-        map = new Map();
 
         //TODO: figure out images + add stats panel
         roottable.row(); //r2 - image window + stats panel
-        roottable.add(map).grow().space(10);// r2 c1 image
+
+        map = new Map();
+        mainImageDisplay.add(map);
+        roottable.add(mainImageDisplay).space(10);// r2 c1 image
 
         statPanel = new StatPanel();
         roottable.add(statPanel); //r2 c2 stats
@@ -199,8 +204,17 @@ public class MainMenuScreen implements Screen {
                 advanceStory(index);
             }
 
+            mainImageDisplay.clear();
+            mainImageDisplay.add(map);
+
             //Start Combat
             if (currentEvent instanceof CombatEvent) {
+                float height = mainImageDisplay.getHeight();
+                mainImageDisplay.clear();
+                monsterAnimation = new AnimationController(((CombatEvent) currentEvent).getMonsters()[0], true);
+
+                mainImageDisplay.add(monsterAnimation).height(height);
+
                 advanceCombat(-1);
             }
         }
@@ -359,6 +373,9 @@ public class MainMenuScreen implements Screen {
                 playerAnimations[i].goToNextKeyFrame();
             }
 
+            if (monsterAnimation != null) {
+                monsterAnimation.goToNextKeyFrame();
+            }
         }
 
 
