@@ -39,72 +39,51 @@
 * 60\. Will have a main GUI with components that change dynamically based on the game state
     * 60e: Evaluation Passed
     * 60 Implemenation: The game changes from a map to a animated combat screen with a stats panel
-    ![gif](./images/mvp/game_interaction_with_mouse.gif)
+    ![gif of game](./images/mvp/scene_change.gif)
+
 
 * 61.0\. Will have buttons that are mouse clickable to interact with the game
-    * 61.0e:
-
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Load the game executable and iteract with the mouse |
+    * 61.0e: Evaluation Passed
+    * 61 Evaluation:
+    [gif of mouse iteraction](./images/mvp/game_interaction_with_mouse.mp4)
 
 
 * 61.1\. buttons shall be dynamic based on valid story actions, and will include character specific actions
-  * 61.1e:
-
-      | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Compare JSON file text to text displayed in buttons |
+  * 61.1e: Evaluation Passed
+  * 61.1 Implementation: buttons change based on if in story or combat or on the map
+  ![gif of game](./images/mvp/scene_change.gif)
 
 
 * 61.2\. In combat each player will take turns doing one action which will be defined in the button panel
-  * 61.2e:
-
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Play through a combat interaction in the game, and see if buttons show action|
-
+  * 61.2e: Evaluation Passed
+  * 61.1 Implementation: The combat mode shows which player is active with highlighting and the relavant attacks are on the buttons
+  ![ape combat](./images/mvp/combat_with_ape.png)
   
 * 62.0\. Shall have a primary image container showing environmental PNGs that are relevant to the current game state
-    * 62.0e:
-
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Load and start the game and inspect if PNG image exists |
-    
-
+    * 62.0e: Evaluation Failed:
+    * 62.0 Implementation: We ending up focusing on the combat and map images and did not have enough time to create images for the various scenes.
 
 * 62.1\. During combat or NPC interactions, the image container will display relevant NPCs and monsters
-  * 62.1e:
-    
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Play a combat instance in the game and inspect if the image container displays a relevant image |
+    * 62.1e: Evaluation Passed
+    * 62.1 Implementation: The game either shows a image of a monster you are fighting or where you are on the map
+    ![game image](./images/mvp/main_game_screen_map.png)
 
 
 * 63\. Will have a console-like output for game text, battle results, and story
-    * 63e:
-
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Open and start game, inspect if a console like component exists|
+    * 63e: Evaluation Passed
+    * 63 Implementation: The game has a console like text output box at the bottom of the screen
+    ![game image](./images/mvp/main_game_screen_map.png)
 
 
 * 64.0\. Each playable character shall be pictured as sprites in the main window. These sprites may be animated.
-  * 64.0e:
-      
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Open and start the game, inspect that |
+  * 64.0e: Evaluation Passed
+  * 64.0 Implementation: Aninmated sprites are on the screen for all the characters
+  ![hydra fight gif](./images/mvp/hydra_fight.gif)
 
 
 * 64.1\. UI will indicate which character is active (turn) in combat by highlighting the character's sprite. This includes monster and NPC sprites
-  * 64.1e:
-
-      | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Open and play game, play though combat scenario. Inspect if sprites have an indicator on them |
-
+  * 64.1e: Evaluation Passed
+  
 
 * 65\. In combat, the currently selected character's stats shall be pictured next to the image container. Outside of battle, the panel shall be blank
   * 65e:
@@ -176,8 +155,5 @@
     | #1      | Inspect JSON objects for combat events linked to story events |
 
 * 130\. Will have an end screen that displays a game over or game won text
-    * 130e:
-
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Demonstrate game over screen occuring|
+    * 130e: Evaluation Failed
+    * 130 Implementation: We ran out of time to implement the game over screen. Early combat components took longer than expected to complete and those were required to link to a screen.
