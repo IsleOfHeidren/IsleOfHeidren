@@ -117,24 +117,25 @@
   
 
 * 100\. Shall have at least 3 types of monsters
-    * 100e:
-    
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Inspect game directory for JSON files for the three monsters |
+    * 100e: Evaluation Passed
+    * 100 Implementation: The game has 4 monster types: ape, villager, hydra, crocodile
+    ![monsters1](./images/mvp/villager_json.png)
+    ![monsters2](./images/mvp/crocodile_json.png)
+    ![monsters3](./images/mvp/hydra_json.png)
+
 
 * 105\. The combat system with a clear winner and damage taken to each side, the combat will take the format of DND according to https://www.dndbeyond.com/sources/basic-rules/combat
-    * 105e:
-    
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Demonstrate that the combat system uses a DND format |
+    * 105e: Evaluation Passed
+    * 105 Implementation: Game outputs a victory message if the combat is a win
+    ![croc combat](./images/mvp/croc_combat.png) 
 
 
 * 110\. The game will prompt the player with story options displayed in the UI utilizing the buttons, image container, and console
     * 110e: Evaluation Passed
-    * 110 Implemenation:
+    * 110 Implementation: The game shows relevant buttons and when clicked processes to new story elements
+    ![main game gif](./images/mvp/scene_change.gif)
     
+
 
 
 * 120\. The game will have a combat mode when the story dictates it necessary
