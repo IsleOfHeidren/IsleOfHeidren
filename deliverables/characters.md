@@ -1,8 +1,3 @@
-git Character overlook
-  - go up to level 2
-  - proficiency bonus
-  - dice for each feature
-
 ### Rogue Tiefling
 Features
   1. Sneak Attack
