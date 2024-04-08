@@ -45,7 +45,7 @@
 * 61.0\. Will have buttons that are mouse clickable to interact with the game
     * 61.0e: Evaluation Passed
     * 61 Implementation:
-    [gif of mouse iteraction](./images/mvp/game_interaction_with_mouse.mp4)
+    ![gif of mouse iteraction](./images/mvp/game_interaction_with_mouse.gif)
 
 
 * 61.1\. buttons shall be dynamic based on valid story actions, and will include character specific actions
@@ -56,17 +56,17 @@
 
 * 61.2\. In combat each player will take turns doing one action which will be defined in the button panel
   * 61.2e: Evaluation Passed
-  * 61.1 Implementation: The combat mode shows which player is active with highlighting and the relavant attacks are on the buttons
+  * 61.1 Implementation: The combat mode shows which player is active with highlighting and the relevant attacks are on the buttons
   ![ape combat](./images/mvp/combat_with_ape.png)
   
 * 62.0\. Shall have a primary image container showing environmental PNGs that are relevant to the current game state
     * 62.0e: Evaluation Failed:
-    * 62.0 Implementation: We ending up focusing on the combat and map images and did not have enough time to create images for the various scenes.
+    * 62.0 Implementation: We ended up focusing on the combat and map images and did not have enough time to create images for the various scenes.
 
 * 62.1\. During combat or NPC interactions, the image container will display relevant NPCs and monsters
     * 62.1e: Evaluation Passed
     * 62.1 Implementation: The game either shows a image of a monster you are fighting or where you are on the map
-    ![game image](./images/mvp/main_game_screen_map.png)
+    ![game image](./images/mvp/scene_change.gif)
 
 
 * 63\. Will have a console-like output for game text, battle results, and story
@@ -77,13 +77,13 @@
 
 * 64.0\. Each playable character shall be pictured as sprites in the main window. These sprites may be animated.
   * 64.0e: Evaluation Passed
-  * 64.0 Implementation: Aninmated sprites are on the screen for all the characters
+  * 64.0 Implementation: Animated sprites are on the screen for all the characters
   ![hydra fight gif](./images/mvp/hydra_fight.gif)
 
 
 * 64.1\. UI will indicate which character is active (turn) in combat by highlighting the character's sprite. This includes monster and NPC sprites
-  * 64.1e: Evaluation Passed
-  * 64.1 Implemenation:
+  * 64.1e: Evaluation Partially Passed
+  * 64.1 Implementation: character sprites are highlighted during their turn in combat, but NPCs and monsters are not
   ![ape fight gif](./images/mvp/ape_combat_video.gif)
 
 
@@ -100,13 +100,13 @@
 
 * 80\. Will have map in database that either will be shown by text or GUI component
     * 80e: Evaluation Passed
-    * 80 Implementation
+    * 80 Implementation: map displayed in image window
     ![map image](./images/mvp/main_game_screen_map.png)
 
 
 * 81\. Map will have multiple locations
-    * 81e: Evaulation Passed
-    * The map is a 10x10 grid with events defined some of the squares. Events have locations defined within their json
+    * 81e: Evaluation Passed
+    * Implementation: The map is a 10x10 grid with events defined some of the squares. Events have locations defined within their json
     ![croc event](./images/mvp/croc_event.png)
 
 

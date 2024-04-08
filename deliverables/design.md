@@ -22,19 +22,12 @@ This flow diagram shows the connections of the major game component classes and 
 ![overall-flow-chart](./images/overall-game-flow.png)
 Game over occurs when every playable character has lost all of their health. If the user wishes to keep playing, they must start from the beginning.
 
-## Defined Characters - Requirements: 40
-Characters will be defined using JSON objects they will follow the formatting defined in the [characters.md](./characters.md)
+## Character and Ability Definitions - Requirements: 40, 50, 51
+Characters will be defined using JSON objects they will follow the formatting defined below.
 
-The characters file contains a set of "features" which include combat abilities and non-combat abilities that will be included in the actions the player can perform. These actions will be created and implemented based from there original DND counterparts 
+The characters file contains a set of "features" which include combat abilities and non-combat abilities that will be included in the actions the player can perform. These actions will be created and implemented based from there original DND counterparts
 
 All actions the player can take in game will come from the pre-defined characters.
-
-## Character and Ability Definitions - Requirements: 40, 50, 51, 52, 53, 54
-git Character overlook
-- go up to level 2
-- proficiency bonus
-- dice for each feature
-
 #### Rogue Tiefling
 Features
 1. Sneak Attack
@@ -95,9 +88,10 @@ https://javadoc.io/doc/com.badlogicgames.gdx/gdx/latest/com/badlogic/gdx/scenes/
 The button panel will be 100 x 200 pixels
 
 ### Primary Image Display - Requirements: 60, 62
-Image container shall be 600 x 400 pixels
+Image container shall be 600 x 400 pixels. 
 This component will be a large component near the center and top of the UI. It will display an image relevant to the current story point.
-The data objects defined in _Data loading - Requirements: 70_ will have a path by which to load the image. Each time the current story context updates this component will pull that path from the object and load the image.
+The data objects defined in _Data loading - Requirements: 70_ will have a path by which to load the image. 
+Each time the current story context updates this component will pull that path from the object and load the image.
 
 LibGDX defines a simple image class that will be used to display to given image in the component
 https://javadoc.io/doc/com.badlogicgames.gdx/gdx/latest/com/badlogic/gdx/scenes/scene2d/ui/Image.html
@@ -137,8 +131,8 @@ A text field will be a child within the scroll component which should allow vert
 
 ### Barbarian Human
 
-![barbarian gif](../src/assets/sprites/barbarian.gif)
-![barbarian gif with highlight](../src/assets/sprites/barbarian-highlight.gif)
+![barbarian gif](../src/assets/sprites/gifs/barbarian.gif)
+![barbarian gif with highlight](../src/assets/sprites/gifs/barbarian-highlight.gif)
 
 ### Monk Elf
 
@@ -215,8 +209,6 @@ Each event object will contain the necessary data to update all the UI component
     * Event 16: "The Hydra is the most powerful." you have to use a specific wizard spell for the most success                   
 
 ## 100 - Monsters & Monster Attacks
-[monsters.md](./monsters.md)
-
 
 The attacks of the monsters will be as follows:
 
@@ -225,21 +217,21 @@ The attacks of the monsters will be as follows:
 - Fire Breath - Ranged Attack (no weapon bonus), DMG is equal to (1d12 + 5).  
 - Multi-attack - Attack is done based on how many heads the Hydra has left. DMG is equal to (1d8 + 2), DMG will decrease if one or multiple heads on severed.
 
-![hydra](../src/assets/sprites/hydra.png)
+![hydra](../src/assets/sprites/gifs/hydra.gif)
 
 ### Crocodile:  
 - Bite - If a Melee Weapon is equipped, Attack (+4 on hit), DMG is equal to (1d10 + 2) piercing. Creates grapple effect (player bitten cannot attack until a successful dice roll of 12 or higher is met, releasing them from the jaws.)  
 - Tail Whip - Melee Attack, DMG is equal to (1d 8+ 1). Has a 30% chance to leave the player hit stunned for a turn.  
 - Stomp - Melee Attack, DMG is equal to (1d6 + 1).
 
-![crocodile](../src/assets/sprites/crocodile.gif)
+![crocodile](../src/assets/sprites/gifs/crocodile.gif)
 
 ### Carnivorous Ape:  
 - Fist - If a Melee Weapon is equipped, Attack (+5 on hit), DMG is equal to (1d6 + 3) bludgeon.  
 - Rock Throw - If a Ranged Weapon is equipped, Attack (+5 on hit), DMG is equal to (1d6 + 3) bludgeon.  
 - Feral Bite - If a Melee Weapon is equipped, Attack (+8 on hit), DMG is equal to (1d10 + 4) piercing. Has a chance to cause a bleeding effect on player bitten, causing a percentage of HP to be lost each turn for 2 turns.
 
-![carniverous ape](../src/assets/sprites/ape.gif)
+![carniverous ape](../src/assets/sprites/gifs/ape.gif)
 
 ## 105 - Combat System
 [Combat Inspiration](https://www.dndbeyond.com/sources/basic-rules/combat)
