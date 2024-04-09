@@ -32,34 +32,34 @@
 * 50\. Will play with 4 characters
     * 50e:
 
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Play the game and look for four seperate player characters |
+    | Test #  | Test Content                                                                       |        
+    |---------|------------------------------------------------------------------------------------|
+    | #1      | Play the game and look for four separate player characters                         |
     | #2      | Look in the filesystem of the game and see if four player JSON objects are defined |
 
 
 * 51\. Each player will have a set of stats, features/abilities that differ from one another. These stats will be based from DnD
     * 51e:
 
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Play the game and compare players |
-    | #2      | Inspect the player json files for differeces |
+    | Test #  | Test Content                                  |        
+    |---------|-----------------------------------------------|
+    | #1      | Play the game and compare players             |
+    | #2      | Inspect the player json files for differences |
 
 
 * 60\. Will have a main GUI with components that change dynamically based on the game state
     * 60e:
 
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Load the game executable and iteract with the mouse |
+    | Test #  | Test Content                                         |        
+    |---------|------------------------------------------------------|
+    | #1      | Load the game executable and interact with the mouse |
 
 * 61.0\. Will have buttons that are mouse clickable to interact with the game
     * 61.0e:
 
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Load the game executable and iteract with the mouse |
+    | Test #  | Test Content                                         |        
+    |---------|------------------------------------------------------|
+    | #1      | Load the game executable and interact with the mouse |
 
 
 * 61.1\. buttons shall be dynamic based on valid story actions, and will include character specific actions
@@ -122,9 +122,9 @@
 * 65\. In combat, the currently selected character's stats shall be pictured next to the image container. Outside of battle, the panel shall be blank
   * 65e:
 
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Open and play game, get to combat encounter. Inspect if the stat panel exists and has relvant information for the current player |
+    | Test #  | Test Content                                                                                                                      |        
+    |---------|-----------------------------------------------------------------------------------------------------------------------------------|
+    | #1      | Open and play game, get to combat encounter. Inspect if the stat panel exists and has relevant information for the current player |
 
 * 70\. Shall have a way to retrieve data for stats, characters, monsters, and events
     * 70e:
@@ -153,9 +153,9 @@
 * 90\. Will have story from start to finish no matter what combination of pre-defined actions each character takes
     * 90e:
 
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Play through game and demonstrate end screen occuring|
+    | Test #  | Test Content                                           |        
+    |---------|--------------------------------------------------------|
+    | #1      | Play through game and demonstrate end screen occurring |
   
 
 * 100\. Shall have at least 3 types of monsters
@@ -191,6 +191,6 @@
 * 130\. Will have an end screen that displays a game over or game won text
     * 130e:
 
-    | Test #  | Test Content                         |        
-    |---------|--------------------------------------|
-    | #1      | Demonstrate game over screen occuring|
+    | Test #  | Test Content                           |        
+    |---------|----------------------------------------|
+    | #1      | Demonstrate game over screen occurring |
