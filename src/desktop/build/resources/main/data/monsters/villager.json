@@ -1,0 +1,7 @@
+{
+  "name": "Villager",
+  "hitPoints": 20,
+  "armorClass":  5,
+  "attackBonus":  0,
+  "attacks": ["Bite", "Fist", "Stomp"]
+}

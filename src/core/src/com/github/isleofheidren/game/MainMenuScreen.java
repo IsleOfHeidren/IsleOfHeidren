@@ -88,42 +88,23 @@ public class MainMenuScreen implements Screen {
             }
         });
 
-        // Heidren.font.getData().setScale(0.5f); // font scale test (broken)
-
         loadPlayers();
 
         Gdx.input.setInputProcessor(rootstage);
-
-        // int help_guide = 10; // might not need these
-        // int row_height = Gdx.graphics.getHeight() /10;
-
-        //border = new ShapeRenderer(); // add border to main screen, possibly garbage
 
         roottable.setFillParent(true); // everything should be added to this table
         roottable.pad(10);
         rootstage.addActor(roottable);
 
-
-
-        // table.setSkin(Heidren.skin); // don't remember what this is for
-
-        // playing with simplified animation (broken)
-        //runningAnimation = new Animation<TextureRegion>(0.125f, atlas.findRegions("monk"), Animation.PlayMode.LOOP);
-
         // test labels for blocking
         Label title = new Label("Isle of Heidren", Heidren.skin.optional("default", Label.LabelStyle.class));
         Label space = new Label("", Heidren.skin.optional("default", Label.LabelStyle.class));
-
-        // console add text
-//        console.appendMessage("Hello, world! what happens if the text goes on for so goddamn long it has to wrap. does it wrap?? what next!!!?!", MessageType.GAME_EVENT); // Game Event Ex.
-//        console.appendMessage("This is NPC dialog.", MessageType.NPC_DIALOG); // NPC Event Ex.
 
         // root table construction
         roottable.row(); //r1 - title
         roottable.add(title); // r2 c1
 
 
-        //TODO: figure out images + add stats panel
         roottable.row(); //r2 - image window + stats panel
 
         map = new Map();
@@ -133,14 +114,13 @@ public class MainMenuScreen implements Screen {
         statPanel = new StatPanel();
         roottable.add(statPanel); //r2 c2 stats
 
-        // TODO: sprite add + animation
 
         playerAnimations[0] = new AnimationController("wizard");
         playerAnimations[1] = new AnimationController("monk");
         playerAnimations[2] = new AnimationController("barbarian");
         playerAnimations[3] = new AnimationController("rogue");
 
-        roottable.row(); // r3 - sprites (potentially 4 cols??)
+        roottable.row(); // r3 - sprites
         Table animationTable = new Table();
 
         animationTable.add(playerAnimations[0]);
@@ -189,7 +169,7 @@ public class MainMenuScreen implements Screen {
                     }
                     //If not a combat victory then goto game over screen
                     else {
-                        //TODO GAME OVER HERE
+
                     }
 
                 }
@@ -351,18 +331,9 @@ public class MainMenuScreen implements Screen {
         ScreenUtils.clear(0,0,0,1);
         camera.update();
 
-        //
-
-        // game.batch.begin(); // forget what these are for
-        // game.batch.end();
-
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         rootstage.act(Gdx.graphics.getDeltaTime());
         rootstage.draw();
-
-        /*if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){
-            dispose();
-        }*/
 
 
         if (totalDelta > .1625) {
@@ -381,8 +352,6 @@ public class MainMenuScreen implements Screen {
 
 
         totalDelta += delta;
-
-        //GAME LOOP GOES HERE?
 
     }
 

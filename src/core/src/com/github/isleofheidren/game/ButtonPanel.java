@@ -11,17 +11,15 @@ import com.github.isleofheidren.game.models.Event;
 import com.github.isleofheidren.game.models.PlayerCharacter;
 
 public class ButtonPanel extends Heidren {
+    //create normal text button implemented by Libgdx
     TextButton textbutton;
     TextButtonStyle textButtonStyle;
-    //BitmapFont font;
     Stage buttonStage;
     Table buttonpanel;
     private Button[] buttons;
 
-    //@Override
+    //Events will dictate what buttons to be displayed in button panel
     public Table createStoryPanel(Event event) { // may pass in Event event
-        // inits
-        //font = new BitmapFont();
         buttonStage = new Stage();
         buttonpanel = new Table();
         textButtonStyle = new TextButtonStyle();
@@ -29,27 +27,11 @@ public class ButtonPanel extends Heidren {
         buttonStage.addActor(buttonpanel); // makes button lookup easier later
         textButtonStyle.font = font;
         buttonpanel.setSize(150,200);
-//        buttonpanel.setDebug(true);
 
         buttons = new Button[4];
 
-//        // test label (probably junk)
-//        Label longbuttontext = new Label("this is a really long message, like reeeeally really long.", Heidren.skin.optional("default", Label.LabelStyle.class));
-//        longbuttontext.setWrap(true);
-//        longbuttontext.setWidth(buttonpanel.getWidth());
-        // TODO: figure out center alignment
-
-
-//        // change button - probably not necessary
-//        textbutton = buttonStage.getRoot().findActor("button1");
-//        textbutton.reset();
-//        textbutton.add("this text was changed and it is also very long").width(buttonpanel.getWidth());
-//        //textbutton.add("lil change").width(buttonpanel.getWidth());
-
-
-
-        for(int i = 0; i < 4; i++) { // i < StoryEvent.branches.getsize or something
-            // temp test label
+        //creates four buttons for each panel
+        for(int i = 0; i < 4; i++) {
 
             Label label = new Label("", Heidren.skin.optional("default", Label.LabelStyle.class));
             if (i < event.getButtonsText().length) {
@@ -67,13 +49,12 @@ public class ButtonPanel extends Heidren {
 
             buttons[i] = textbutton;
             buttonpanel.row();
-
-            // TODO: if event options < 3 add fourth empty uniform button
         }
 
         return buttonpanel;
     }
 
+    //returns Table to be added to the stage
     public Table createCombatPanel(PlayerCharacter current) {
         Event e = new Event();
 

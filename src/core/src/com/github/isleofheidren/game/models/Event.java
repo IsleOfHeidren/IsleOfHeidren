@@ -56,6 +56,4 @@ public class Event {
     public void setLocX(int locX) {
         this.locX = locX;
     }
-
-    //TODO add in a prop for the image URI or the image bits themselves
 }

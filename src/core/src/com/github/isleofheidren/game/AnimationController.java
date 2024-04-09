@@ -87,13 +87,6 @@ public class AnimationController extends Table {
         }
 
         if (addBackground) {
-//            for (int i = 0; i < blackScreen.getWidth(); i++) {
-//                for (int j = 0; j < blackScreen.getHeight(); j++) {
-//                    blackScreen.drawPixel(i, j, 858484849);
-//                }
-//            }
-
-//            blackScreen.drawPixmap(toBeDrawn, 0, 0);
             image = new Image(new Texture(toBeDrawn));
 
         }

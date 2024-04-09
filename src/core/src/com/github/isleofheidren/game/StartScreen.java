@@ -38,14 +38,6 @@ public class StartScreen implements Screen{
         table = new Table();
         table.setFillParent(true);
 
-//        TextureAtlas atlas;
-//        atlas = new TextureAtlas(Gdx.files.internal("skin/skin.json"));
-//        FileHandle file = Gdx.files.internal("uiskin/uiskin.atlas");
-//        Skin skin = new Skin(file);
-
-
-        //table.setSkin(skin);
-
         stage.addActor(table);
 
 
@@ -57,7 +49,6 @@ public class StartScreen implements Screen{
         table.add(title);
         table.row();
         table.add(start);
-//        table.setDebug(true);
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false,1000,600);
