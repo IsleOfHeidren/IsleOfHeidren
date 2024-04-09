@@ -71,7 +71,7 @@
 
 * 63\. Will have a console-like output for game text, battle results, and story
     * 63e: Evaluation Passed
-    * 63 Implementation: The game has a console like text output box at the bottom of the screen
+    * 63 Implementation: The game has a console like text output box at the bottom of the screen. 
     ![game image](./images/mvp/main_game_screen_map.png)
 
 

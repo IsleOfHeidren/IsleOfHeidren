@@ -28,8 +28,8 @@ Characters will be defined using JSON objects they will follow the formatting de
 The characters file contains a set of "features" which include combat abilities and non-combat abilities that will be included in the actions the player can perform. These actions will be created and implemented based from there original DND counterparts
 
 All actions the player can take in game will come from the pre-defined characters.
-#### Rogue Tiefling
-Features
+### Rogue Tiefling
+#### Features
 1. Sneak Attack
 2. Thieve's Cant
 3. Uncanny Dodge: Monster will make a hit, then Rogue can make the choice to dodge on 
@@ -38,8 +38,8 @@ their turn, which will determine whether the hit from the monster hits
     - Armor Class: 16
     - Weapon: knives
 
-#### Wizard Gnome
-Features
+### Wizard Gnome
+#### Features
 1. Fire Bolt
 2. Poison Spray
 3. Chill Touch
@@ -47,8 +47,8 @@ Features
     - Armor Class: 14
     - Weapon: staff
 
-#### Monk Elf
-Features
+### Monk Elf
+#### Features
 1. Martial Arts(Flurry of Blows)
 2. Patient Defence(KI)
 3. Step of the Wind
@@ -56,8 +56,8 @@ Features
     - Armor Class: 17
     - Weapon: staff
 
-#### Barbarian Human
-Features
+### Barbarian Human
+#### Features
 1. Reckless Attack
 2. Danger Sense (Spidey Sense)
 3. Extra Attack
@@ -67,7 +67,7 @@ Features
 
 
 ## GUI (60 - 65)
-GUI components are implemented as widgets using libGDX's table class in a black background with white text and detailing. Main window shall be 1000 x 600 pixels *and will be split into 20 columns x 12 rows (subject to change)*
+GUI components are implemented as widgets using libGDX's table class in a black background with white text and detailing
 ![main game frame](./images/mainGameFrame.jpg)
 
 The GUI flow diagram shows the flow as the user interacts with the GUI. The major elements of this flow are reiterated from the overall flow chart listed above and therefore will not be elaborated on in this section.
@@ -75,16 +75,16 @@ The GUI flow diagram shows the flow as the user interacts with the GUI. The majo
 
 UI skin provided by kenney: https://github.com/czyzby/gdx-skins/tree/master/kenney-pixel
 ### Buttons - Requirements: 60, 61
-Buttons will be implemented using three button components defined by LibGDX
+Buttons will be implemented using two button components defined by LibGDX
 
 https://javadoc.io/doc/com.badlogicgames.gdx/gdx/latest/com/badlogic/gdx/scenes/scene2d/ui/TextButton.html
-https://javadoc.io/doc/com.badlogicgames.gdx/gdx/latest/com/badlogic/gdx/scenes/scene2d/ui/ImageButton.html
 https://javadoc.io/doc/com.badlogicgames.gdx/gdx/latest/com/badlogic/gdx/scenes/scene2d/ui/ImageButton.html
 
 These three components will implement the game control for branching through the story and taking actions in combat. 
 The image button should be used over the standard button in cases where high levels of styling is needed. The skin class can be applied to an image button which lets it act within an image.
 
 https://javadoc.io/doc/com.badlogicgames.gdx/gdx/latest/com/badlogic/gdx/scenes/scene2d/ui/Skin.html
+
 The button panel will be 100 x 200 pixels
 
 ### Primary Image Display - Requirements: 60, 62
@@ -231,22 +231,22 @@ The attacks of the monsters will be as follows:
 - Rock Throw - If a Ranged Weapon is equipped, Attack (+5 on hit), DMG is equal to (1d6 + 3) bludgeon.  
 - Feral Bite - If a Melee Weapon is equipped, Attack (+8 on hit), DMG is equal to (1d10 + 4) piercing. Has a chance to cause a bleeding effect on player bitten, causing a percentage of HP to be lost each turn for 2 turns.
 
-![carniverous ape](../src/assets/sprites/gifs/ape.gif)
+![carnivorous ape](../src/assets/sprites/gifs/ape.gif)
 
 ## 105 - Combat System
 [Combat Inspiration](https://www.dndbeyond.com/sources/basic-rules/combat)
 
-Each instance of combat will be a turn-based system. During a player's turn, they will have the option to chose an action of their choice. Once this choice is made, the action chosen will be represented accordingly. Once each player has taken their action accordingly, the monster(s) of which they will be initiated in combat with will also chose it's action based upon the same criteria of the players. Combat continues on in this manner until there is a winner of the instance. 
+Each instance of combat will be a turn-based system. During a player's turn, they will have the option to choose an action of their choice. Once this choice is made, the action chosen will be represented accordingly. Once each player has taken their action accordingly, the monster(s) of which they will be initiated in combat with will also choose it's action based upon the same criteria of the players. Combat continues on in this manner until there is a winner of the instance. 
 
-When attacks are chosen, a dice is rolled to determine the attack power of the attack, along with if there is a weapon equipped a bonus stat will be applied to the overall attack to further enhance the attack power. Also, damage taken between both characters and monsters when an attack is used will also take into account the 'Armor Class' (AC) of the character(s) and monster(s) being attacked. Further enhancing the overall concept of the amount of damage that is to be taken by both parties during combat. 
+When attacks are chosen, a die is rolled to determine the attack power of the attack, along with if there is a weapon equipped a bonus stat will be applied to the overall attack to further enhance the attack power. Also, damage taken between both characters and monsters when an attack is used will also take into account the 'Armor Class' (AC) of the character(s) and monster(s) being attacked. Further enhancing the overall concept of the amount of damage that is to be taken by both parties during combat. 
 
 If a player is defeated within the combat instance (HP value <= 0), then they will no longer be able to partake in the given combat instance. Once the instance is over, other party members can revive them, giving them a small portion of their max HP value back. If the monster/monster(s) within the combat instance is/are defeated, there will be a pop-up message displaying the current status of the party members, along with the EXP gained accordingly as determined by the type of enemy defeated.
 
 ## 110 - Story Option Prompts
-Based upon a given instance, if a character initiates an action with a sub-event, a dice roll will also be done to determine a given sub-stat (ex. accuracy) of the instance.  
+Based upon a given instance, if a character initiates an action with a sub-event, a die roll will also be done to determine a given sub-stat (ex. accuracy) of the instance.  
     - If accuracy occurs, the dice roll will be done on a (1d20) scale, plus any equipment and/or skills that can cause luck to be increased for the dice roll.  
 
-For example, if the Elf character were to have an instance where they had multiple moves in a turn (lets say 3 for this example), then a dice roll would happen in order to determine the accuracy of all 3 of the separate given moves, each with their own accuracy value based on the completed dice roll.
+For example, if the Elf character were to have an instance where they had multiple moves in a turn (lets say 3 for this example), then a die roll would happen in order to determine the accuracy of all 3 of the separate given moves, each with their own accuracy value based on the completed dice roll.
 
 ## 120 - Story Combat Encounter Instances
 Given a certain spot of the game's story, combat encounters will occur based upon the story (i.e. what environment the party is in, how far along the party's quest is, surprise encounters, etc.)  
