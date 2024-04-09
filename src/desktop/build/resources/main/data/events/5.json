@@ -1,0 +1,6 @@
+{
+  "sequence": 5,
+  "branches": [9, 10],
+  "buttonsText": ["Ask villager questions", "Rob villager"],
+  "consoleOutputText": " "
+}

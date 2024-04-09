@@ -1,0 +1,24 @@
+{
+  "name": "Wizard",
+  "features": [
+    {
+      "isCombat": true,
+      "damage": 15,
+      "name": "Fire Bolt"
+    },
+    {
+      "isCombat": false,
+      "damage": 0,
+      "name": "Poison Spray"
+    },
+    {
+      "isCombat": true,
+      "damage": 40,
+      "name": "Chill Touch"
+    }
+  ],
+  "armorClass": 15,
+  "hitPoints": 25,
+  "attackBonus": 4,
+  "weapon": "staff"
+}

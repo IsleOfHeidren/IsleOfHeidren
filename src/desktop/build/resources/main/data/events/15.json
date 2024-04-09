@@ -1,0 +1,6 @@
+{
+  "sequence": 15,
+  "branches": [13, 14],
+  "buttonsText": ["Ask other villagers?", "Leave?"],
+  "consoleOutputText": "You won against the cannibal"
+}

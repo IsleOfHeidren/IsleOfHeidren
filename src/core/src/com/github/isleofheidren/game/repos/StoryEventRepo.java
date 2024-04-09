@@ -20,6 +20,8 @@ public class StoryEventRepo implements JSONRepo<StoryEvent> {
      */
     @Override
     public StoryEvent get(String id) {
+
+        //Load file from directory
         String filePath = "data/events/" + id + ".json";
         FileHandle file = Gdx.files.internal(filePath);
 
@@ -27,8 +29,11 @@ public class StoryEventRepo implements JSONRepo<StoryEvent> {
 
         StoryEvent se = null;
         try {
+
+            //Parse json data as a combat event first
             se = gson.fromJson(file.reader(), CombatEvent.class);
 
+            //If the monsters are null then its not a combat event
             if (((CombatEvent) se).getMonsters() == null){
                 se = null;
             }
@@ -37,6 +42,7 @@ public class StoryEventRepo implements JSONRepo<StoryEvent> {
             se = null;
         }
 
+        //Parse the json as a story event
         if (se == null) {
             se = gson.fromJson(file.reader(), StoryEvent.class);
         }

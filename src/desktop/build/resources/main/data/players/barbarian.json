@@ -1,0 +1,24 @@
+{
+  "name": "Barbarian",
+  "features": [
+    {
+      "isCombat": true,
+      "damage": 17,
+      "name": "Reckless Attack"
+    },
+    {
+      "isCombat": false,
+      "damage": 0,
+      "name": "Danger Sense"
+    },
+    {
+      "isCombat": true,
+      "damage": 15,
+      "name": "Extra Attack"
+    }
+  ],
+  "armorClass": 17,
+  "hitPoints": 30,
+  "attackBonus": 4,
+  "weapon": "two-sided axe"
+}
