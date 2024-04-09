@@ -1,0 +1,6 @@
+{
+  "sequence": 19,
+  "branches": [],
+  "buttonsText": ["North", "East", "South", "West"],
+  "consoleOutputText": "You won against the mob of villagers"
+}

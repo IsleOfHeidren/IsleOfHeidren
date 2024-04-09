@@ -1,5 +1,4 @@
 // "driver"
-// VERY UNLIKELY that you should add any code here
 package com.github.isleofheidren.game;
 
 import com.badlogic.gdx.Game;

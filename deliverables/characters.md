@@ -28,7 +28,7 @@ Features
 ### Barbarian Human
 Features
 1. Reckless Attack
-2. Danger Sense (Spidey Sense)
+2. Danger Sense
 3. Extra Attack
     - Hit Points: 30
     - Armor Class: 17

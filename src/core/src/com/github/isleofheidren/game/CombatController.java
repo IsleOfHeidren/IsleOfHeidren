@@ -44,15 +44,6 @@ public class CombatController {
             this.monsters.add(monster);
         }
 
-//        for (int i = 0; i < buttons.length; i++) {
-//            buttons[0].addListener(new ClickListener() {
-//                @Override
-//                public void clicked(InputEvent event, float x, float y) {
-//                    handleButtonClick(event);
-//                }
-//            });
-//        }
-
         //Create the order that combat will occur in
         createCombatOrder();
 
@@ -66,10 +57,6 @@ public class CombatController {
     public boolean isInCombat() {
         return inCombat;
     }
-
-//    private void handleButtonClick(InputEvent event)
-//
-//    }
 
     private void createCombatOrder() {
         Random r1 = new Random(System.currentTimeMillis());
@@ -99,15 +86,6 @@ public class CombatController {
     }
 
     public void doNextTurn(Action action) {
-//        if (!anyPlayerAlive()) {
-//            lastCombatVictory = false;
-//            return;
-//        }
-//
-//        if (!anyMonsterAlive()) {
-//            lastCombatVictory = true;
-//            return;
-//        }
 
         //Do combat stuff for this turn
         int damage = action.getCharacter().attack(action.getMove().getName());
@@ -179,9 +157,6 @@ public class CombatController {
 
         //update the stat panel
         panel.addCharacterToPanel(getCurrentPlayer());
-
-        //update attack buttons
-
     }
 
     private void incrementTurn() {

@@ -1,0 +1,24 @@
+{
+  "name": "Rogue",
+  "features": [
+    {
+      "isCombat": true,
+      "damage": 15,
+      "name": "Sneak Attack"
+    },
+    {
+      "isCombat": false,
+      "damage": 0,
+      "name": "Thieve's Cant"
+    },
+    {
+      "isCombat": true,
+      "damage": 0,
+      "name": "Uncanny Dodge"
+    }
+  ],
+  "armorClass": 16,
+  "hitPoints": 30,
+  "attackBonus": 4,
+  "weapon": "Knives"
+}
